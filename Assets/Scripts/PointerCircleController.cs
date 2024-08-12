@@ -6,27 +6,35 @@ using LitMotion.Extensions;
 using R3;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PointerCircleController : MonoBehaviour
 {
+    [SerializeField]
+    private InputAction _clickAction;
+    [SerializeField]
+    private InputAction _moveAction;
+    
     private void Start()
     {
-        
-    }
-
-    private void Update()
-    {
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        
-        transform.position = new Vector3(worldPosition.x, worldPosition.y, 0);
-        
-        if (Input.GetMouseButtonDown(0))
+        _clickAction.performed += ctx =>
         {
-            Debug.Log("Mouse Down");
             OnClick();
-        }
+        };
+        _clickAction.Enable();
+        
+        // マウス位置に移動
+        _moveAction.performed += ctx =>
+        {
+            Vector2 pos = ctx.ReadValue<Vector2>();
+            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(pos.x, pos.y, 0));
+        
+            transform.position = new Vector3(worldPosition.x, worldPosition.y, 0);
+        };
+        _moveAction.Enable();
     }
-
+    
+    // クリック時アニメーション
     private CompositeMotionHandle clickMotion = new CompositeMotionHandle();
     private async void OnClick()
     {
@@ -41,5 +49,11 @@ public class PointerCircleController : MonoBehaviour
     private Vector3 GetOneValueVector3(float value)
     {
         return new Vector3(value, value, value);
+    }
+    
+    private void OnDestroy()
+    {
+        _clickAction.Disable();
+        _moveAction.Disable();
     }
 }
