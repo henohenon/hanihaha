@@ -11,27 +11,27 @@ using UnityEngine.InputSystem;
 public class PointerCircleController : MonoBehaviour
 {
     [SerializeField]
-    private InputAction _clickAction;
+    private InputActionProperty _clickAction;
     [SerializeField]
-    private InputAction _moveAction;
+    private InputActionProperty _moveAction;
     
     private void Start()
     {
-        _clickAction.performed += ctx =>
+        _clickAction.action.performed += ctx =>
         {
             OnClick();
         };
-        _clickAction.Enable();
+        _clickAction.action.Enable();
         
         // マウス位置に移動
-        _moveAction.performed += ctx =>
+        _moveAction.action.performed += ctx =>
         {
             Vector2 pos = ctx.ReadValue<Vector2>();
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(pos.x, pos.y, 0));
         
             transform.position = new Vector3(worldPosition.x, worldPosition.y, 0);
         };
-        _moveAction.Enable();
+        _moveAction.action.Enable();
     }
     
     // クリック時アニメーション
@@ -53,7 +53,7 @@ public class PointerCircleController : MonoBehaviour
     
     private void OnDestroy()
     {
-        _clickAction.Disable();
-        _moveAction.Disable();
+        _clickAction.action.Disable();
+        _moveAction.action.Disable();
     }
 }
