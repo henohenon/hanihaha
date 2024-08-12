@@ -9,7 +9,11 @@ using UnityEngine;
 
 public class PointerCircleController : MonoBehaviour
 {
-   
+    private void Start()
+    {
+        
+    }
+
     private void Update()
     {
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
