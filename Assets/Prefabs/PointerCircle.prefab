@@ -149,7 +149,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: -111623486625478965, guid: b7c400050b3b7664eb84d0a2a99ed984, type: 3}
+    m_Reference: {fileID: -111623486625478965, guid: 3df21c121fd76e642b247a6684025600, type: 3}
   _moveAction:
     m_UseReference: 1
     m_Action:
@@ -161,7 +161,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: -755486731737239449, guid: b7c400050b3b7664eb84d0a2a99ed984, type: 3}
+    m_Reference: {fileID: -755486731737239449, guid: 3df21c121fd76e642b247a6684025600, type: 3}
 --- !u!114 &4237185610367843931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,4 +185,4 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: -111623486625478965, guid: b7c400050b3b7664eb84d0a2a99ed984, type: 3}
+    m_Reference: {fileID: -111623486625478965, guid: 3df21c121fd76e642b247a6684025600, type: 3}
