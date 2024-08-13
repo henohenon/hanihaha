@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ef5fc5811af0e4cbe37ce173beea93, type: 3}
   m_Name: EditData
   m_EditorClassIdentifier: 
-  wardInput: 1
-  prefabInput: {fileID: 0}
+  wardInput: 2
+  prefabInput: {fileID: 8333740734965825724, guid: 2c55d26405d885e4bac03e19cf1f0b35, type: 3}
   wardView: {fileID: 11400000, guid: c07cac1cea1b50a4098f2ef1da5ddd47, type: 2}
   isEdit: 0
   wardData: {fileID: 11400000, guid: 75d1dcd79168df7438fbb9be80a57402, type: 2}

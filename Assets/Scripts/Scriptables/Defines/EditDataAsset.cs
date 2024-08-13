@@ -29,27 +29,11 @@ public partial class EditDataAsset : ScriptableObject
             return;
         }
 
-        //  ワードの位置取得
-        var wardIndex = wardData.wards.IndexOf(wardInput);
-        var wardAdded = false;
-
-        // ワードが存在しない場合、追加
-        if (wardIndex == -1)
-        {
-            wardData.wards.Add(wardInput);
-            wardIndex = wardData.wards.Count - 1;
-            wardAdded = true;
-            Debug.Log("Add wardInput: " + wardInput);
-        }
-
+        //  ワードの追加
+        var wardIndex = wardData.GetOrAdd(wardInput);
+        
         // プレハブの追加
-        var prefabChanged = prefabData.AddEachValue(wardIndex, prefabInput);
-
-        // どちらも追加されていない場合、警告
-        if (!wardAdded && !prefabChanged)
-        {
-            Debug.LogWarning("Already added exists wardInput: " + wardInput + " prefabInput: " + prefabInput);
-        }
+        prefabData.AddEachValue(wardIndex, prefabInput);
     }
 
 
@@ -60,7 +44,7 @@ public partial class EditDataAsset : ScriptableObject
     public void Remove()
     {
         // 存在しないワードならエラー
-        var wardIndex = wardData.wards.IndexOf(wardInput);
+        var wardIndex = wardData.GetOrMinus(wardInput);
         if (wardIndex == -1)
         {
             Debug.LogError("Please set exist ward!");
@@ -70,24 +54,28 @@ public partial class EditDataAsset : ScriptableObject
         // プレファブがなければ
         if (prefabInput == null)
         {
-            // ワード_プレファブペアの削除
+            // プレファブのペアの削除
             prefabData.RemoveWardPairList(wardIndex);
             // ワードの削除
-            wardData.wards.RemoveAt(wardIndex);
-            Debug.Log("Remove ward: " + wardInput);
+            wardData.RemoveWard(wardInput);
             return;
         }
-        else
-        {
-            // プレファブのペアの削除
-            var prefabRemoved = prefabData.RemoveInputPair(wardIndex, prefabInput);
+        // ワード_プレファブペアの削除
+        var prefabRemoved = prefabData.RemoveInputPair(wardIndex, prefabInput);
+        
 
-            // 削除できなかったら警告
-            if (!prefabRemoved)
-            {
-                Debug.LogWarning("Not exists wardInput: " + wardInput + " prefabInput: " + prefabInput);
-            }
+        // 削除できなかったら警告
+        if (!prefabRemoved)
+        {
+            Debug.LogWarning("Not exists wardInput: " + wardInput + " prefabInput: " + prefabInput);
+            return;
         }
+        var isPrefabHasWard = prefabData.HasWard(wardIndex);
+        if (!isPrefabHasWard)
+        {
+            wardData.RemoveWard(wardInput);
+        }
+        
     }
 
 
@@ -116,16 +104,16 @@ public partial class EditDataAsset : ScriptableObject
 
 
 [Serializable]
-public class WardValuePair
+public class WardValueLink
 {
     public int wardId;
     public int valueId;
-    public WardValuePair(int wardId, int valueId)
+    public WardValueLink(int wardId, int valueId)
     {
         this.wardId = wardId;
         this.valueId = valueId;
     }
-    public WardValuePair()
+    public WardValueLink()
     {
         this.wardId = wardId;
         this.valueId = valueId;
