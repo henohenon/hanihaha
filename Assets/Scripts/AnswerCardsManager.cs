@@ -4,12 +4,7 @@ using R3;
 
 public class AnswerCardsManager
 {
-    private List<AnswerCardController> _answerCards;
-
-    public void RecreateCards()
-    {
-        
-    }
+    private List<AnswerCardController> _answerCards = new ();
 
     public void CreateAnswerCard(AnswerCardProp prop, bool isSame)
     {

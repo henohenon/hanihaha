@@ -124,7 +124,7 @@ public partial class EditDataAsset : ScriptableObject
     [BoxGroup("Datas")] [InlineEditor] [EnableIf("dataEdit")] 
     public WardDataAsset wardData;
     [BoxGroup("Datas")] [InlineEditor] [EnableIf("dataEdit")] 
-    public EachDataAsset<AnswerCardController> prefabData;
+    public PrefabDataAsset prefabData;
     
     [BoxGroup("Datas")] 
     [Button]

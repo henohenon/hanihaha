@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Alchemy.Inspector;
 using Alchemy.Serialization;
 using UnityEngine;
@@ -35,6 +36,13 @@ public partial class WardViewAsset : ScriptableObject
         
         var values = _wardViewValues[ward];
         values.wardPrefabs.Remove(prefab);
+    }
+
+    public string GetRandomWord()
+    { 
+        var keys = _wardViewValues.Keys.ToList();
+        int randomIndex = UnityEngine.Random.Range(0, keys.Count);
+        return keys[randomIndex];
     }
 }
 

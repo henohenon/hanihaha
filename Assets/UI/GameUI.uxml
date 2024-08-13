@@ -1,0 +1,15 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement name="Header" style="flex-grow: 1; height: auto; max-height: 10%; flex-direction: row; justify-content: space-between;">
+        <engine:Label text="3" name="Life" style="max-height: 100%; flex-direction: row-reverse; align-self: center; font-size: 50%;" />
+        <engine:Label text="3.00" name="Time" style="max-height: 100%; flex-direction: row-reverse; font-size: 50%; align-self: center;" />
+    </engine:VisualElement>
+    <engine:VisualElement name="Footer" style="flex-grow: 1; height: auto; max-height: 10%; flex-direction: row; justify-content: center; -unity-text-align: upper-left; align-items: stretch; align-self: auto; align-content: flex-start; top: 80%;">
+        <engine:Label text="3" name="Target" style="max-height: 100%; flex-direction: row-reverse; align-self: center; font-size: 50%;" />
+        <engine:Label text="には" name="niha" style="max-height: 100%; flex-direction: row-reverse; font-size: 50%; align-self: center;" />
+        <engine:VisualElement style="flex-grow: 0; flex-shrink: 0; flex-direction: row;">
+            <engine:Label text="3" name="Target" style="max-height: 100%; flex-direction: row-reverse; align-self: center; font-size: 50%;" />
+            <engine:Label text="3" name="Target" style="max-height: 100%; flex-direction: row-reverse; align-self: center; font-size: 50%;" />
+        </engine:VisualElement>
+        <engine:Label text="を！" name="wo" style="max-height: 100%; flex-direction: row-reverse; font-size: 50%; align-self: center;" />
+    </engine:VisualElement>
+</engine:UXML>

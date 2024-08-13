@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 142737529}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -194,7 +194,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 10, y: 1}
+  m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &330585543
 GameObject:
@@ -635,7 +635,7 @@ Transform:
   m_GameObject: {fileID: 1528391038}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -685,7 +685,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 10}
+  m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
 --- !u!4 &1763969184 stripped
 Transform:
@@ -718,7 +718,7 @@ Transform:
   m_GameObject: {fileID: 1774011451}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -5, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -768,7 +768,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 10, y: 1}
+  m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
 --- !u!1001 &1800572803
 PrefabInstance:
@@ -844,6 +844,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1843496931}
+  - component: {fileID: 1843496932}
   m_Layer: 0
   m_Name: ObjectContainer
   m_TagString: Untagged
@@ -870,6 +871,19 @@ Transform:
   - {fileID: 404797059}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1843496932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843496930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62eb47138c67b3418f32d10f7e6c93f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wardViewAsset: {fileID: 11400000, guid: c07cac1cea1b50a4098f2ef1da5ddd47, type: 2}
 --- !u!1 &1878183636
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,7 +910,7 @@ Transform:
   m_GameObject: {fileID: 1878183636}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -946,7 +960,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 10}
+  m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
 --- !u!1 &1899052322
 GameObject:
@@ -958,8 +972,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1899052324}
   - component: {fileID: 1899052323}
-  - component: {fileID: 1899052326}
-  - component: {fileID: 1899052325}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -979,9 +991,9 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: 0ff582d3d43c1d147b4445cab8559ab1, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: 940449ecd86813949b19e83230da2dda, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 331e520394b0fd54ab640d7e1b2adff3, type: 3}
+  sourceAsset: {fileID: 9197481963319205126, guid: c84636698f9836f4193f0d812d32562d, type: 3}
   m_SortingOrder: 0
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
@@ -1001,49 +1013,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1899052325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1899052322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7208f24519cd64e2fa78ac34da26131f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  __alchemySerializationData_Alchemy_Samples_ShowAlchemySerializationDataSample:
-    dictionary:
-      isCreated: 1
-      data: "{\n    \"1\": null\n}"
-    unityObjectReferences: []
---- !u!114 &1899052326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1899052322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee51fc8a922cb46e2a041e04f6697484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  __alchemySerializationData_Alchemy_Samples_AlchemySerializationSample:
-    hashset:
-      isCreated: 1
-      data: '[]'
-    dictionary:
-      isCreated: 1
-      data: "{\n    \"1\": null\n}"
-    tuple:
-      isCreated: 1
-      data: "{\n    \"Item1\": 0,\n    \"Item2\": 0\n}"
-    nullable:
-      isCreated: 1
-      data: 
-    unityObjectReferences: []
 --- !u!1001 &2127627785
 PrefabInstance:
   m_ObjectHideFlags: 0
