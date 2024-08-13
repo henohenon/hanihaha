@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class ImageCardController : MonoBehaviour, ISelectable
+public class AnswerCardController : MonoBehaviour, ISelectable
 {
     private SpriteRenderer _spriteRenderer;
     
@@ -24,4 +24,11 @@ public class ImageCardController : MonoBehaviour, ISelectable
     {
         _spriteRenderer.color = Color.white;
     }
+}
+
+public interface ISelectable
+{
+    void OnHover();
+    void OnUnhover();
+    void OnSelect();
 }

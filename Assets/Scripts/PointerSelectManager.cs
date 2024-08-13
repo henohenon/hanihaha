@@ -54,10 +54,3 @@ public class PointerSelectManager : MonoBehaviour
         _inputActionMap.action.Disable();
     }
 }
-
-public interface ISelectable
-{
-    void OnHover();
-    void OnUnhover();
-    void OnSelect();
-}
