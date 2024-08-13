@@ -79,9 +79,14 @@ public partial class EditDataAsset : ScriptableObject
     }
 
 
-    [BoxGroup("Views")] 
+    [BoxGroup("Views")]
+    public bool viewEdit = false;
+    [BoxGroup("Views")] [EnableIf("viewEdit")] 
     [InlineEditor] public WardViewAsset wardView;
     
+    [BoxGroup("Views")] [EnableIf("viewEdit")] 
+    [InlineEditor] public PrefabViewAsset prefabView;
+
     [BoxGroup("Views")] 
     [Button]
     private void GenerateFromData()
@@ -92,14 +97,22 @@ public partial class EditDataAsset : ScriptableObject
             if(link.wardId < 0 || link.wardId >= wardData.wards.Count || link.valueId < 0 || link.valueId >= prefabData.list.Count ) continue;
             wardView.AddWardPrefab(wardData.wards[link.wardId], prefabData.list[link.valueId]);
         }
+        
+        prefabView.Clear();
+        foreach (var link in prefabData.ward_link)
+        {
+            if(link.wardId < 0 || link.wardId >= wardData.wards.Count || link.valueId < 0 || link.valueId >= prefabData.list.Count ) continue;
+            prefabView.AddEachWard(prefabData.list[link.valueId], wardData.wards[link.wardId]);
+        }
+
     }
 
     [BoxGroup("Datas")]
-    public bool isEdit = false;
+    public bool dataEdit = false;
 
-    [BoxGroup("Datas")] [InlineEditor] [EnableIf("isEdit")] 
+    [BoxGroup("Datas")] [InlineEditor] [EnableIf("dataEdit")] 
     public WardDataAsset wardData;
-    [BoxGroup("Datas")] [InlineEditor] [EnableIf("isEdit")] 
+    [BoxGroup("Datas")] [InlineEditor] [EnableIf("dataEdit")] 
     public EachDataAsset<AnswerCardController> prefabData;
 }
 

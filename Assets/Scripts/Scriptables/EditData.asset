@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: EditData
   m_EditorClassIdentifier: 
   wardInput: "\u3072\u3075"
-  prefabInput: {fileID: 0}
+  prefabInput: {fileID: 8333740734965825724, guid: 2c55d26405d885e4bac03e19cf1f0b35, type: 3}
+  viewEdit: 0
   wardView: {fileID: 11400000, guid: c07cac1cea1b50a4098f2ef1da5ddd47, type: 2}
-  isEdit: 0
+  prefabView: {fileID: 11400000, guid: 8a125a8abad2b3e438098fd01d5b43a6, type: 2}
+  dataEdit: 0
   wardData: {fileID: 11400000, guid: 75d1dcd79168df7438fbb9be80a57402, type: 2}
   prefabData: {fileID: 11400000, guid: 7540466d35952aa4ea8ac94823eba631, type: 2}
   __alchemySerializationData_EditDataAsset:
