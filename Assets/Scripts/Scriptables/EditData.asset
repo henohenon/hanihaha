@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wardInput: 1
   prefabInput: {fileID: 8333740734965825724, guid: 3c443e30baa4c4f42880fe44bd573667, type: 3}
-  wardView: {fileID: 0}
-  answerData: {fileID: 11400000, guid: 75d1dcd79168df7438fbb9be80a57402, type: 2}
+  wardView: {fileID: 11400000, guid: c07cac1cea1b50a4098f2ef1da5ddd47, type: 2}
+  wardData: {fileID: 11400000, guid: 75d1dcd79168df7438fbb9be80a57402, type: 2}
+  prefabData: {fileID: 11400000, guid: 7540466d35952aa4ea8ac94823eba631, type: 2}
   __alchemySerializationData_EditDataAsset:
     unityObjectReferences: []

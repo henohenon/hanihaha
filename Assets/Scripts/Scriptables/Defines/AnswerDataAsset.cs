@@ -5,23 +5,23 @@ using Alchemy.Serialization;
 using UnityEngine;
 
 [AlchemySerialize]
-[CreateAssetMenu(fileName = "AnswerData", menuName = "Scriptable/AnswerData")]
-public partial class AnswerDataAsset : ScriptableObject
+[CreateAssetMenu(fileName = "AnswerData", menuName = "Scriptable/Data/WardData")]
+public partial class WardDataAsset : ScriptableObject
 {
     [ReadOnly]
     public List<string> wards = new ();
+}
+
+[CreateAssetMenu(fileName = "PrefabData", menuName = "Scriptable/Data/Each/PrefabData")]
+public class PrefabDataAsset: EachDataAsset<AnswerCardController> { }
+
+[AlchemySerialize]
+public partial class EachDataAsset<T> : ScriptableObject
+{
     [ReadOnly]
-    public List<AnswerCardController> prefabs = new ();
+    public List<T> list = new ();
     
     [AlchemySerializeField, NonSerialized]
     [ReadOnly]
-    public List<WardValuePair> ward_prefabs = new ();
-
-    [Button]
-    public void Clear()
-    {
-        wards.Clear();
-        prefabs.Clear();
-        ward_prefabs.Clear();
-    }
+    public List<WardValuePair> ward_link = new ();
 }
