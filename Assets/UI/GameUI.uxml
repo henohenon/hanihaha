@@ -1,15 +1,26 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:VisualElement name="Header" style="flex-grow: 1; height: auto; max-height: 10%; flex-direction: row; justify-content: space-between;">
-        <engine:Label text="3" name="Life" style="max-height: 100%; flex-direction: row-reverse; align-self: center; font-size: 50%;" />
-        <engine:Label text="3.00" name="Time" style="max-height: 100%; flex-direction: row-reverse; font-size: 50%; align-self: center;" />
-    </engine:VisualElement>
-    <engine:VisualElement name="Footer" style="flex-grow: 1; height: auto; max-height: 10%; flex-direction: row; justify-content: center; -unity-text-align: upper-left; align-items: stretch; align-self: auto; align-content: flex-start; top: 80%;">
-        <engine:Label text="3" name="Target" style="max-height: 100%; flex-direction: row-reverse; align-self: center; font-size: 50%;" />
-        <engine:Label text="には" name="niha" style="max-height: 100%; flex-direction: row-reverse; font-size: 50%; align-self: center;" />
-        <engine:VisualElement style="flex-grow: 0; flex-shrink: 0; flex-direction: row;">
-            <engine:Label text="3" name="Target" style="max-height: 100%; flex-direction: row-reverse; align-self: center; font-size: 50%;" />
-            <engine:Label text="3" name="Target" style="max-height: 100%; flex-direction: row-reverse; align-self: center; font-size: 50%;" />
+    <engine:Template name="AnswerCard" src="project://database/Assets/UI/AnswerCard.uxml?fileID=9197481963319205126&amp;guid=10eaa5da8a16faf498f5a8536f5a2256&amp;type=3#AnswerCard" />
+    <Style src="project://database/Assets/UI/GameUI.uss?fileID=7433441132597879392&amp;guid=79ff29fd15631f743956d4ad5a9aebfb&amp;type=3#GameUI" />
+    <engine:VisualElement name="Body" style="flex-grow: 1;">
+        <engine:VisualElement name="Header" style="flex-grow: 1; height: auto; max-height: 10%; flex-direction: row; justify-content: space-between;">
+            <engine:Label text="3" name="Life" style="max-height: 100%; flex-direction: row-reverse; align-self: center; font-size: 50%; -unity-text-align: middle-left;" />
+            <engine:Label text="3.00" name="Time" style="max-height: 100%; flex-direction: row-reverse; font-size: 50%; align-self: center; -unity-text-align: middle-left;" />
         </engine:VisualElement>
-        <engine:Label text="を！" name="wo" style="max-height: 100%; flex-direction: row-reverse; font-size: 50%; align-self: center;" />
+        <engine:VisualElement name="Spacer" style="flex-grow: 1;" />
+        <engine:VisualElement name="Footer" style="flex-grow: 1; height: auto; max-height: 15%; flex-direction: row; justify-content: center; -unity-text-align: upper-left; align-items: stretch; align-self: auto; align-content: flex-start; top: auto; flex-shrink: 1;">
+            <engine:Instance template="AnswerCard" name="Target" style="max-width: none;" />
+            <engine:Label text="には" name="Niha" style="max-height: 100%; flex-direction: row; font-size: 50%; align-self: center; justify-content: flex-start; align-items: stretch; -unity-text-align: middle-left;" />
+            <engine:VisualElement name="Answers" style="flex-grow: 0; flex-shrink: 0; flex-direction: row; width: auto; align-content: center; justify-content: flex-start; flex-wrap: nowrap; -unity-text-align: middle-center; white-space: normal;">
+                <engine:VisualElement name="AnswerCards" style="flex-grow: 0; flex-shrink: 0; flex-direction: row; width: auto; align-content: center; justify-content: flex-start; flex-wrap: nowrap; -unity-text-align: middle-center; white-space: normal;">
+                    <engine:Instance template="AnswerCard" style="flex-grow: 0; width: auto;" />
+                </engine:VisualElement>
+                <engine:Label text="を！" name="Wo" style="max-height: 100%; flex-direction: row; font-size: 50%; align-self: center; -unity-text-align: middle-left; white-space: nowrap; text-overflow: clip; align-content: flex-start; align-items: stretch; justify-content: flex-start; flex-grow: 0; flex-wrap: nowrap; -unity-font-style: normal;" />
+            </engine:VisualElement>
+        </engine:VisualElement>
     </engine:VisualElement>
+    <engine:VisualElement name="Next" style="flex-grow: 1; position: absolute; height: 100%; width: 100%; align-items: center; justify-content: center; align-self: center; align-content: center; flex-direction: row;">
+        <engine:Instance template="AnswerCard" name="Target" style="max-width: none; height: 40%; width: 40%;" />
+        <engine:Label text="には?" name="Niha" style="max-height: 100%; flex-direction: row; font-size: 100%; align-self: center; justify-content: flex-start; align-items: stretch; -unity-text-align: middle-left;" />
+    </engine:VisualElement>
+    <engine:VisualElement name="End" style="flex-grow: 1; position: absolute; height: 100%; width: 100%;" />
 </engine:UXML>
