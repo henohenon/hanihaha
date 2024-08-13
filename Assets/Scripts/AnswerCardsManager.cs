@@ -11,9 +11,9 @@ public class AnswerCardsManager
         
     }
 
-    public void CreateAnswerCard(AnswerCardController prefab, bool isSame)
+    public void CreateAnswerCard(AnswerCardProp prop, bool isSame)
     {
-        AnswerCardController card = Object.Instantiate(prefab);
+        var card = Object.Instantiate(prop.prefab);
         _answerCards.Add(card);
         
         card.onClick.Subscribe(_ =>

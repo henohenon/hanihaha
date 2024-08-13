@@ -70,3 +70,22 @@ VContainerくん、解雇。
 うっひょ～
 
 戻ってきた～～～～やるやんけ鷲。
+
+a----serializationが見つからない人生だった...
+
+unity.com.serializationで検索してたら
+https://docs.unity3d.com/Packages/com.unity.serialization@3.1/manual/index.html
+こんなとこが引っかかり。
+
+manifest.jsonに
+    "com.unity.serialization": "3.1.1",
+を追加して使えるようになった。
+
+alchemy研究隊であります。DBが使いたいです。
+
+EditorWindow拡張でjson書いた方が早いのでは？と若干思うが今回はscriptableでゴリ押して行こうと思う。
+
+パワー系scriptable
+
+えでぃたぁのぶんかつがしたいです。
+なりませんよ、そもそもscriptableobjectでやるもんじゃない説があるので。やってられませんわ。
