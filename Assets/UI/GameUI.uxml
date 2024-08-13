@@ -17,10 +17,16 @@
                 <engine:Label text="を！" name="Wo" style="max-height: 100%; flex-direction: row; font-size: 50%; align-self: center; -unity-text-align: middle-left; white-space: nowrap; text-overflow: clip; align-content: flex-start; align-items: stretch; justify-content: flex-start; flex-grow: 0; flex-wrap: nowrap; -unity-font-style: normal;" />
             </engine:VisualElement>
         </engine:VisualElement>
+        <engine:VisualElement name="Next" style="flex-grow: 1; position: absolute; height: 100%; width: 100%; align-items: center; justify-content: center; align-self: center; align-content: center; flex-direction: row; display: none;">
+            <engine:Instance template="AnswerCard" name="Target" style="max-width: none; height: 40%; width: 40%;" />
+            <engine:Label text="には?" name="Niha" style="max-height: 100%; flex-direction: row; font-size: 100%; align-self: center; justify-content: flex-start; align-items: stretch; -unity-text-align: middle-left; max-width: none; text-overflow: clip; white-space: nowrap;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="End" style="flex-grow: 1; position: absolute; height: 100%; width: 100%;">
+            <engine:Label text="Game Over" style="-unity-text-align: lower-center; font-size: 150px; justify-content: flex-start; height: 50%;" />
+            <engine:VisualElement name="ButtonList" style="flex-grow: 0; flex-shrink: 1; width: 50%; max-width: 50%; margin-top: auto; margin-right: auto; margin-bottom: auto; margin-left: auto;">
+                <engine:Button text="Restart" name="Restart" style="bottom: 30px;" />
+                <engine:Button text="Menue&#10;" name="Menue" />
+            </engine:VisualElement>
+        </engine:VisualElement>
     </engine:VisualElement>
-    <engine:VisualElement name="Next" style="flex-grow: 1; position: absolute; height: 100%; width: 100%; align-items: center; justify-content: center; align-self: center; align-content: center; flex-direction: row;">
-        <engine:Instance template="AnswerCard" name="Target" style="max-width: none; height: 40%; width: 40%;" />
-        <engine:Label text="には?" name="Niha" style="max-height: 100%; flex-direction: row; font-size: 100%; align-self: center; justify-content: flex-start; align-items: stretch; -unity-text-align: middle-left;" />
-    </engine:VisualElement>
-    <engine:VisualElement name="End" style="flex-grow: 1; position: absolute; height: 100%; width: 100%;" />
 </engine:UXML>
