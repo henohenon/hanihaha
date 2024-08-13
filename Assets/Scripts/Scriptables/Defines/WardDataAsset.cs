@@ -12,7 +12,7 @@ public partial class WardDataAsset : ScriptableObject
     public List<string> wards = new ();
 
     [Button]
-    private void Clear()
+    public void Clear()
     {
         wards.Clear();
     }
@@ -60,7 +60,7 @@ public partial class EachDataAsset<T> : ScriptableObject
     public List<WardValueLink> ward_link = new ();
     
     [Button]
-    private void Clear()
+    public void Clear()
     {
         list.Clear();
         ward_link.Clear();
@@ -90,7 +90,7 @@ public partial class EachDataAsset<T> : ScriptableObject
     }
     
     // ペアの追加
-    public bool AddEachValue(int wardIndex, T eachInput)
+    public bool AddInputPair(int wardIndex, T eachInput)
     {
         // 入力がnullの場合、false
         if (eachInput == null) return false;

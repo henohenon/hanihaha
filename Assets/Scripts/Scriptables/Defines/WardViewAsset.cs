@@ -9,7 +9,7 @@ using UnityEngine;
 public partial class WardViewAsset : ScriptableObject
 {
     [AlchemySerializeField, NonSerialized]
-    Dictionary<string, WardViewValues> _wardViewValues = new ();
+    public Dictionary<string, WardViewValues> _wardViewValues = new ();
     
     [Button]
     public void Clear()

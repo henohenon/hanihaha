@@ -13,7 +13,7 @@ public class PrefabViewAsset : EachViewAsset<AnswerCardController>
 public partial class EachViewAsset<T> : ScriptableObject
 {
     [AlchemySerializeField, NonSerialized]
-    Dictionary<T, List<string>> _wardViewValues = new ();
+    public Dictionary<T, List<string>> _wardViewValues = new ();
     
     [Button]
     public void Clear()

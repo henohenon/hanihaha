@@ -7,6 +7,8 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEngine.UIElements;
+using Object = System.Object;
 
 
 [AlchemySerialize]
@@ -32,8 +34,13 @@ public partial class EditDataAsset : ScriptableObject
         //  ワードの追加
         var wardIndex = wardData.GetOrAdd(wardInput);
         
-        // プレハブの追加
-        prefabData.AddEachValue(wardIndex, prefabInput);
+        // ペアの追加
+        if (prefabData.AddInputPair(wardIndex, prefabInput))
+        {
+            // ビューに反映
+            wardView.AddWardPrefab(wardInput, prefabInput);
+            prefabView.AddEachWard(prefabInput, wardInput);
+        }
     }
 
 
@@ -62,7 +69,12 @@ public partial class EditDataAsset : ScriptableObject
         }
         // ワード_プレファブペアの削除
         var prefabRemoved = prefabData.RemoveInputPair(wardIndex, prefabInput);
-        
+
+        if (prefabRemoved)
+        {
+            wardView.RemoveWardPrefab(wardInput, prefabInput);
+            prefabView.RemoveEachWard(prefabInput, wardInput);
+        }
 
         // 削除できなかったら警告
         if (!prefabRemoved)
@@ -77,7 +89,6 @@ public partial class EditDataAsset : ScriptableObject
         }
         
     }
-
 
     [BoxGroup("Views")]
     public bool viewEdit = false;
@@ -114,6 +125,31 @@ public partial class EditDataAsset : ScriptableObject
     public WardDataAsset wardData;
     [BoxGroup("Datas")] [InlineEditor] [EnableIf("dataEdit")] 
     public EachDataAsset<AnswerCardController> prefabData;
+    
+    [BoxGroup("Datas")] 
+    [Button]
+    private void GenerateFromView()
+    {
+        wardData.Clear();
+        foreach (var ward in wardView._wardViewValues.Keys)
+        {
+            wardData.GetOrAdd(ward);
+        }
+        
+        prefabData.Clear();
+        foreach (var pair in prefabView._wardViewValues)
+        {
+            prefabData.AddListItem(pair.Key);
+            
+            foreach (var ward in pair.Value)
+            {
+                var wardIndex = wardData.GetOrMinus(ward);
+                if (wardIndex == -1) continue;
+                prefabData.AddInputPair(wardIndex, pair.Key);
+            }
+        }
+
+    }
 }
 
 
