@@ -22,7 +22,7 @@ public class PointerSelectManager : MonoBehaviour
             {
                 foreach (var selectable in _currentSelectable)
                 {
-                    selectable.OnSelect();
+                    //selectable.OnSelect();
                 }                
             }
         };
@@ -35,7 +35,7 @@ public class PointerSelectManager : MonoBehaviour
         if (selectable != null)
         {
             _currentSelectable.Add(selectable);
-            selectable.OnHover();
+            //selectable.OnHover();
         }
     }
     
@@ -44,7 +44,7 @@ public class PointerSelectManager : MonoBehaviour
         var selectable = other.GetComponent<ISelectable>();
         if (selectable != null)
         {
-            selectable.OnUnhover();
+            //selectable.OnUnhover();
             _currentSelectable.Remove(selectable);
         }
     }

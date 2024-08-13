@@ -1,10 +1,16 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "AnswerCardAsset", menuName = "AnswerCardAsset")]
-public class AnswerCardAsset : ScriptableObject
+public class AnswerDataAsset : ScriptableObject
 {
-    [SerializeField]
-    private string name;
-    public string[] answeres;
-    public GameObject prefab;
+    public AnswerWordData[] answerWords;
+}
+
+
+[System.Serializable]
+public class AnswerWordData
+{
+    public string word;
+    public GameObject[] answerPrefabs;
 }
