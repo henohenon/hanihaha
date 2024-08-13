@@ -91,13 +91,18 @@ public partial class EditDataAsset : ScriptableObject
     }
 
 
-    [BoxGroup("Views")] [InlineEditor] public WardViewAsset wardView;
-
-    [BoxGroup("Views")]
+    [BoxGroup("Views")] 
+    [InlineEditor] public WardViewAsset wardView;
+    
+    [BoxGroup("Views")] 
     [Button]
     private void ReGenerate()
     {
-
+        wardView.Clear();
+        foreach (var prefab in prefabData.ward_link)
+        {
+            wardView.AddWardPrefab(wardData.wards[prefab.wardId], prefabData.list[prefab.valueId]);
+        }
     }
 
     [BoxGroup("Datas")]
