@@ -19,19 +19,21 @@ public partial class WardViewAsset : ScriptableObject
     
     public void AddWardPrefab(string ward, AnswerCardController prefab)
     {
-        var values = _wardViewValues[ward];
-        if (values == null)
+        if (!_wardViewValues.ContainsKey(ward))
         {
-            values = new WardViewValues();
-            _wardViewValues.Add(ward, values);
+            _wardViewValues.Add(ward, new WardViewValues());
         }
+        
+        var values = _wardViewValues[ward];
+        
         values.wardPrefabs.Add(prefab);
     }
     
     public void RemoveWardPrefab(string ward, AnswerCardController prefab)
     {
+        if (!_wardViewValues.ContainsKey(ward)) return;
+        
         var values = _wardViewValues[ward];
-        if (values == null) return;
         values.wardPrefabs.Remove(prefab);
     }
 }

@@ -84,12 +84,13 @@ public partial class EditDataAsset : ScriptableObject
     
     [BoxGroup("Views")] 
     [Button]
-    private void ReGenerate()
+    private void GenerateFromData()
     {
         wardView.Clear();
-        foreach (var prefab in prefabData.ward_link)
+        foreach (var link in prefabData.ward_link)
         {
-            wardView.AddWardPrefab(wardData.wards[prefab.wardId], prefabData.list[prefab.valueId]);
+            if(link.wardId < 0 || link.wardId >= wardData.wards.Count || link.valueId < 0 || link.valueId >= prefabData.list.Count ) continue;
+            wardView.AddWardPrefab(wardData.wards[link.wardId], prefabData.list[link.valueId]);
         }
     }
 
