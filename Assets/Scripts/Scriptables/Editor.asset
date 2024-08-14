@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wardInput: ha
   prefabInput: {fileID: 3252818736611624765, guid: 7cd46640f4b2e0c4e8d249eaa0785703, type: 3}
-  viewEdit: 0
+  viewEdit: 1
   wardView: {fileID: 11400000, guid: c07cac1cea1b50a4098f2ef1da5ddd47, type: 2}
   prefabView: {fileID: 11400000, guid: 8a125a8abad2b3e438098fd01d5b43a6, type: 2}
-  dataEdit: 0
+  dataEdit: 1
   wardData: {fileID: 11400000, guid: 75d1dcd79168df7438fbb9be80a57402, type: 2}
   prefabData: {fileID: 11400000, guid: 7540466d35952aa4ea8ac94823eba631, type: 2}
   __alchemySerializationData_EditDataAsset:

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using R3;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class AnswerCardController : MonoBehaviour, ISelectable
 {
     
     private SpriteRenderer _spriteRenderer;
+    private PolygonCollider2D _collider;
     
     private static readonly Subject<Unit> sampleStaticSubject = new();
 
@@ -22,7 +24,22 @@ public class AnswerCardController : MonoBehaviour, ISelectable
         sampleStaticSubject.OnNext(Unit.Default);
 
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _collider = GetComponent<PolygonCollider2D>();
+        var sprite = _spriteRenderer.sprite;
 
+        var physicsShapeCount = sprite.GetPhysicsShapeCount();
+
+        _collider.pathCount = physicsShapeCount;
+
+        var physicsShape = new List<Vector2>();
+
+        for ( var i = 0; i < physicsShapeCount; i++ )
+        {
+            physicsShape.Clear();
+            sprite.GetPhysicsShape( i, physicsShape );
+            var points = physicsShape.ToArray();
+            _collider.SetPath( i, points );
+        }
         
         onHover.Subscribe(isHovered =>
         {
