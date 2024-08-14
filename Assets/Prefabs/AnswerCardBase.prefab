@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 688276939389270378}
   - component: {fileID: 4137292315167024154}
   - component: {fileID: 6491076431448958238}
-  - component: {fileID: 5952330709572851257}
+  - component: {fileID: 871971395013366200}
   m_Layer: 7
   m_Name: AnswerCardBase
   m_TagString: Untagged
@@ -169,7 +169,7 @@ PolygonCollider2D:
       - {x: 0.58778536, y: -0.80901694}
       - {x: 0.9510565, y: 0.30901712}
   m_UseDelaunayMesh: 0
---- !u!114 &5952330709572851257
+--- !u!114 &871971395013366200
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,6 +178,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4015934133269891169}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b72d5d77f98db4187b83e2e13ab095, type: 3}
+  m_Script: {fileID: 11500000, guid: 08bf984c83f54b68972810c51e3d171b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _borderObj: {fileID: 0}

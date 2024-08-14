@@ -38,11 +38,19 @@ public partial class WardViewAsset : ScriptableObject
         values.wardPrefabs.Remove(prefab);
     }
 
-    public string GetRandomWord()
+    public string GetRandomWard()
     { 
         var keys = _wardViewValues.Keys.ToList();
         int randomIndex = UnityEngine.Random.Range(0, keys.Count);
         return keys[randomIndex];
+    }
+
+    public AnswerCardProp GetCorrectAnswerProp(string ward)
+    {
+        var values = _wardViewValues[ward];
+        var prefabs = values.wardPrefabs;
+        var randomIndex = UnityEngine.Random.Range(0, prefabs.Count);
+        return new AnswerCardProp(prefabs[randomIndex]);
     }
 }
 

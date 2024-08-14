@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using R3;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -22,7 +23,8 @@ public class PointerSelectManager : MonoBehaviour
             {
                 foreach (var selectable in _currentSelectable)
                 {
-                    //selectable.OnSelect();
+                    if(selectable == null) continue;
+                    selectable.onClick.OnNext(Unit.Default);
                 }                
             }
         };
@@ -34,8 +36,8 @@ public class PointerSelectManager : MonoBehaviour
         var selectable = other.GetComponent<ISelectable>();
         if (selectable != null)
         {
+            selectable.onHover.OnNext(true);
             _currentSelectable.Add(selectable);
-            //selectable.OnHover();
         }
     }
     
@@ -44,7 +46,7 @@ public class PointerSelectManager : MonoBehaviour
         var selectable = other.GetComponent<ISelectable>();
         if (selectable != null)
         {
-            //selectable.OnUnhover();
+            selectable.onHover.OnNext(false);
             _currentSelectable.Remove(selectable);
         }
     }

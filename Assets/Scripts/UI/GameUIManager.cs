@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Alchemy.Inspector;
 using Cysharp.Threading.Tasks;
 using LitMotion;
@@ -10,27 +12,37 @@ public class GameUIManager : MonoBehaviour
 {
     private UIDocument _uiDocument;
     private Label _timerLabel;
-    private VisualElement _targetCard;
+    private List<VisualElement> _targetContainers;
+    private List<VisualElement> _targetCards;
     private VisualElement _answerCardContainer;
+    private VisualElement _body;
+    
 
     [SerializeField] private VisualTreeAsset _answerCard;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         _uiDocument = GetComponent<UIDocument>();
         
         _timerLabel = _uiDocument.rootVisualElement.Q<Label>("Time");
-        _targetCard = _uiDocument.rootVisualElement.Q<VisualElement>("Target");
+        _targetContainers = _uiDocument.rootVisualElement.Query<VisualElement>(classes:"TargetContainer").ToList();
+        _targetCards = new List<VisualElement>();
         _answerCardContainer = _uiDocument.rootVisualElement.Q<VisualElement>("AnswerCards");
+        _body = _uiDocument.rootVisualElement.Q<VisualElement>("Body");
         
-        // GeometryChangedEventを登録
-        _targetCard.RegisterCallback<GeometryChangedEvent>(evt =>
+        foreach (var targetContainer in _targetContainers)
         {
-            SetWidthByHeight(_targetCard);
-        });
+            var targetCard = targetContainer.Query<VisualElement>(classes: "AnswerCard").ToList();
+            _targetCards.AddRange(targetCard);
+            
+            targetContainer.RegisterCallback<GeometryChangedEvent>(evt =>
+            {
+                SetWidthByHeight(targetContainer, 1);
+            });
+        }
     }
-
+    
     [Button]
     public async void TimerStart(float time = 3)
     {
@@ -38,13 +50,13 @@ public class GameUIManager : MonoBehaviour
             .BindWithState(_timerLabel, (x, label) => label.text = x.ToString("F2"));
         if (time <= 3)
         {
-            _timerLabel.AddToClassList("ThreeSeconds");
+            _body.AddToClassList("ThreeTime");
         }
         else
         {
-            _timerLabel.RemoveFromClassList("ThreeSeconds");
+            _body.RemoveFromClassList("ThreeTime");
             await UniTask.WaitForSeconds(time - 3);
-            _timerLabel.AddToClassList("ThreeSeconds");
+            _body.AddToClassList("ThreeTime");
         }
     }
     
@@ -57,12 +69,38 @@ public class GameUIManager : MonoBehaviour
         {
             SetWidthByHeight(card, 0.6f);
         });
+        
+        _body.AddToClassList("Answered");
     }
 
     [Button]
-    public void ResetAnswer()
+    public void Reset()
     {
         _answerCardContainer.Clear();
+        
+        _body.RemoveFromClassList("NextTarget");
+        _body.RemoveFromClassList("ThreeTime");
+        _body.RemoveFromClassList("Answered");
+        _body.RemoveFromClassList("GameOver");
+    }
+    
+    [Button]
+    public void NextTarget()
+    {
+        /*
+        var background = new StyleBackground(sprite);
+        foreach (var targetCard in _targetCards)
+        {
+            targetCard.style.backgroundImage = background;
+        }*/
+        
+        _body.AddToClassList("NextTarget");
+    }
+    
+    [Button]
+    public void GameOver()
+    {
+        _body.AddToClassList("GameOver");
     }
 
     

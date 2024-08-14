@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using R3;
 
-public class AnswerCardsManager
+public class ObjectContainerManager
 {
     private List<AnswerCardController> _answerCards = new ();
 
@@ -13,14 +13,17 @@ public class AnswerCardsManager
         
         card.onClick.Subscribe(_ =>
         {
-            if (isSame)
-            {
-                Debug.Log("Correct!");
-            }
-            else
-            {
-                Debug.Log("Incorrect!");
-            }
+            card.onAnswer.OnNext(isSame);
         }).AddTo(card);
+    }
+}
+
+public class AnswerCardProp
+{
+    public AnswerCardController prefab;
+
+    public AnswerCardProp(AnswerCardController prefab)
+    {
+        this.prefab = prefab;
     }
 }

@@ -1,3 +1,66 @@
-.ThreeSeconds{
+#Niha{
+    display: none;
+}
+
+#Target VisualElement{
+    -unity-background-image-tint-color: black;
+}
+
+.ThreeTime #Life{
     color: red;
+}
+.ThreeTime #Time{
+    color: red;
+}
+.ThreeTime #NihaQ{
+    color: red;
+}
+.ThreeTime #Wo{
+    color: red;
+}
+.ThreeTime #Target VisualElement{
+    -unity-background-image-tint-color: red;
+}
+
+#Answers{
+    display: none;
+}
+.Answered #Answers{
+    display: flex;
+}
+.Answered #Answers VisualElement{
+    -unity-background-image-tint-color: rgb(0, 255, 0);
+}
+.Answered #Life{
+    color: black;
+}
+.Answered #Time{
+    color: black;
+}
+.Answered #Niha{
+    color: black;
+    display: flex;
+}
+.Answered #NihaQ{
+    display: none;
+}
+.Answered #Wo{
+    color: black;
+}
+
+#Next{
+    display: none;
+}
+.NextTarget #Next{
+    display: flex;
+}
+.NextTarget #Footer{
+    display: none;
+}
+
+#End{
+    display: none;
+}
+.GameOver #End{
+    display: flex;
 }

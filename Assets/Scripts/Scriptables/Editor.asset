@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Editor
   m_EditorClassIdentifier: 
   wardInput: ha
-  prefabInput: {fileID: 8333740734965825724, guid: 3c443e30baa4c4f42880fe44bd573667, type: 3}
+  prefabInput: {fileID: 3252818736611624765, guid: 7cd46640f4b2e0c4e8d249eaa0785703, type: 3}
   viewEdit: 0
   wardView: {fileID: 11400000, guid: c07cac1cea1b50a4098f2ef1da5ddd47, type: 2}
   prefabView: {fileID: 11400000, guid: 8a125a8abad2b3e438098fd01d5b43a6, type: 2}
