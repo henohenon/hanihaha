@@ -16,7 +16,6 @@ public class GameUIManager : MonoBehaviour
     private List<VisualElement> _targetCards;
     private VisualElement _answerCardContainer;
     private VisualElement _body;
-    
 
     [SerializeField] private VisualTreeAsset _answerCard;
     
@@ -48,15 +47,17 @@ public class GameUIManager : MonoBehaviour
     {
         LMotion.Create(time, 0f, time)
             .BindWithState(_timerLabel, (x, label) => label.text = x.ToString("F2"));
-        if (time <= 3)
+    }
+
+    public void SetIsLimit(bool isLimit)
+    {
+        if (isLimit)
         {
-            _body.AddToClassList("ThreeTime");
+            _body.AddToClassList("Limit");
         }
         else
         {
-            _body.RemoveFromClassList("ThreeTime");
-            await UniTask.WaitForSeconds(time - 3);
-            _body.AddToClassList("ThreeTime");
+            _body.RemoveFromClassList("Limit");
         }
     }
     
@@ -79,7 +80,6 @@ public class GameUIManager : MonoBehaviour
         _answerCardContainer.Clear();
         
         _body.RemoveFromClassList("NextTarget");
-        _body.RemoveFromClassList("ThreeTime");
         _body.RemoveFromClassList("Successful");
         _body.RemoveFromClassList("GameOver");
     }

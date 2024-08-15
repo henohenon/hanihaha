@@ -14,12 +14,15 @@ public class SequenceManager : MonoBehaviour
     private Transform _borderObj;
     [SerializeField]
     private GameUIManager _gameUIManager;
+    [SerializeField]
+    private AudioManager _audioManager;
     [AssetsOnly]
     [SerializeField]
     private AnswerCardController prefab;
     
     private string targetWard;
     private bool _successful;
+    private bool _waiting = true;
     
     private List<AnswerCardController> _answerCards = new ();
 
@@ -44,19 +47,23 @@ public class SequenceManager : MonoBehaviour
         
         card.onClick.Subscribe(_ =>
         {
+            if (_waiting) return;
             card.onAnswer.OnNext(isSame);
         }).AddTo(card);
         
         card.onAnswer.Subscribe(isCorrect =>
         {
+            if (_waiting) return;
             if (isCorrect)
             {
                 _gameUIManager.AddAnswerCard();
                 _successful = true;
+                _audioManager.PlaySuccessEffect();
+                _audioManager.SetIsPlayLimit(false);
             }
             else
             {
-                
+                _audioManager.PlayFailEffect();
             }
         }).AddTo(card);
     }
@@ -103,12 +110,22 @@ public class SequenceManager : MonoBehaviour
         
         _successful = false;
         RefreshAnswerCards();
-        GenerateAnswerCards();
+        _waiting = true;
         _gameUIManager.NextTarget();
+        _gameUIManager.SetIsLimit(false);
+        GenerateAnswerCards();
+        _audioManager.PlayStarGameEffect();
         await UniTask.Delay(TimeSpan.FromSeconds(1));
         _gameUIManager.Reset();
+        _waiting = false;
         _gameUIManager.TimerStart(5);
-        await UniTask.Delay(TimeSpan.FromSeconds(5));
+        await UniTask.Delay(TimeSpan.FromSeconds(2));
+        if (!_successful)
+        {
+            _audioManager.SetIsPlayLimit(true);
+            _gameUIManager.SetIsLimit(true);
+        }
+        await UniTask.Delay(TimeSpan.FromSeconds(3));
         if (!_successful)
         {
             _gameUIManager.GameOver();
@@ -117,5 +134,6 @@ public class SequenceManager : MonoBehaviour
         {
             UpdateTarget();
         }
+        _audioManager.SetIsPlayLimit(false);
     }
 }

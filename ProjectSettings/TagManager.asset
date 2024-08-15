@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Pointer
+    uniqueID: 3391411119
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

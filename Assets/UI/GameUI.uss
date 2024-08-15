@@ -9,19 +9,19 @@
     -unity-background-image-tint-color: black;
 }
 
-.ThreeTime #Life{
+.Limit #Life{
     color: red;
 }
-.ThreeTime #Time{
+.Limit #Time{
     color: red;
 }
-.ThreeTime #NihaQ{
+.Limit #NihaQ{
     color: red;
 }
-.ThreeTime #Wo{
+.Limit #Wo{
     color: red;
 }
-.ThreeTime #Target VisualElement{
+.Limit #Target VisualElement{
     -unity-background-image-tint-color: red;
 }
 
