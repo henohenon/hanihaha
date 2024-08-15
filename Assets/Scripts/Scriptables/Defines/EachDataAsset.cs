@@ -5,8 +5,8 @@ using Alchemy.Inspector;
 using Alchemy.Serialization;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PrefabData", menuName = "Scriptable/Data/Each/PrefabData")]
-public class PrefabDataAsset: EachDataAsset<AnswerCardController> { }
+[CreateAssetMenu(fileName = "SpriteData", menuName = "Scriptable/Data/Each/SpriteData")]
+public class PrefabDataAsset: EachDataAsset<Sprite> { }
 
 [AlchemySerialize]
 public partial class EachDataAsset<T> : ScriptableObject

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6491076431448958238}
   - component: {fileID: 871971395013366200}
   m_Layer: 7
-  m_Name: AnswerCardBase
+  m_Name: AnswerCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

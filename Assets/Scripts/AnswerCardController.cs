@@ -19,15 +19,18 @@ public class AnswerCardController : MonoBehaviour, ISelectable
     
     private bool _isAnswered = false;
     
+    private Sprite _sprite;
+    
     private void Start()
     {
         sampleStaticSubject.OnNext(Unit.Default);
 
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _collider = GetComponent<PolygonCollider2D>();
-        var sprite = _spriteRenderer.sprite;
+        
+        _spriteRenderer.sprite = _sprite;
 
-        var physicsShapeCount = sprite.GetPhysicsShapeCount();
+        var physicsShapeCount = _sprite.GetPhysicsShapeCount();
 
         _collider.pathCount = physicsShapeCount;
 
@@ -36,7 +39,7 @@ public class AnswerCardController : MonoBehaviour, ISelectable
         for ( var i = 0; i < physicsShapeCount; i++ )
         {
             physicsShape.Clear();
-            sprite.GetPhysicsShape( i, physicsShape );
+            _sprite.GetPhysicsShape( i, physicsShape );
             var points = physicsShape.ToArray();
             _collider.SetPath( i, points );
         }
@@ -67,12 +70,15 @@ public class AnswerCardController : MonoBehaviour, ISelectable
             _isAnswered = true;
         }).AddTo(this);
     }
-    
+
+    public void Init(Sprite sprite)
+    {
+        _sprite = sprite;
+    }
 }
 
 public interface ISelectable
 {
     public Subject<bool> onHover { get; }
     public Subject<Unit> onClick { get; }
-    public Subject<bool> onAnswer { get; }
 }

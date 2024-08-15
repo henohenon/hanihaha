@@ -9,7 +9,7 @@ using UnityEngine;
 public partial class EditDataAsset : ScriptableObject
 {
     [BoxGroup("Functions")] public string wardInput = "";
-    [BoxGroup("Functions")] public AnswerCardController prefabInput;
+    [BoxGroup("Functions")] public Sprite spriteInput;
 
 
     [BoxGroup("Functions")]
@@ -28,11 +28,11 @@ public partial class EditDataAsset : ScriptableObject
         var wardIndex = wardData.GetOrAdd(wardInput);
         
         // ペアの追加
-        if (prefabData.AddInputPair(wardIndex, prefabInput))
+        if (spriteData.AddInputPair(wardIndex, spriteInput))
         {
             // ビューに反映
-            wardView.AddWardPrefab(wardInput, prefabInput);
-            prefabView.AddEachWard(prefabInput, wardInput);
+            wardView.AddWardEach(wardInput, spriteInput);
+            spriteView.AddEachWard(spriteInput, wardInput);
         }
     }
 
@@ -52,30 +52,30 @@ public partial class EditDataAsset : ScriptableObject
         }
 
         // プレファブがなければ
-        if (prefabInput == null)
+        if (spriteInput == null)
         {
             // プレファブのペアの削除
-            prefabData.RemoveWardPairList(wardIndex);
+            spriteData.RemoveWardPairList(wardIndex);
             // ワードの削除
             wardData.RemoveWard(wardInput);
             return;
         }
         // ワード_プレファブペアの削除
-        var prefabRemoved = prefabData.RemoveInputPair(wardIndex, prefabInput);
+        var spriteRemoved = spriteData.RemoveInputPair(wardIndex, spriteInput);
 
-        if (prefabRemoved)
+        if (spriteRemoved)
         {
-            wardView.RemoveWardPrefab(wardInput, prefabInput);
-            prefabView.RemoveEachWard(prefabInput, wardInput);
+            wardView.RemoveWardEach(wardInput, spriteInput);
+            spriteView.RemoveEachWard(spriteInput, wardInput);
         }
 
         // 削除できなかったら警告
-        if (!prefabRemoved)
+        if (!spriteRemoved)
         {
-            Debug.LogWarning("Not exists wardInput: " + wardInput + " prefabInput: " + prefabInput);
+            Debug.LogWarning("Not exists wardInput: " + wardInput + " spriteInput: " + spriteInput);
             return;
         }
-        var isPrefabHasWard = prefabData.HasWard(wardIndex);
+        var isPrefabHasWard = spriteData.HasWard(wardIndex);
         if (!isPrefabHasWard)
         {
             wardData.RemoveWard(wardInput);
@@ -89,24 +89,24 @@ public partial class EditDataAsset : ScriptableObject
     [InlineEditor] public WardViewAsset wardView;
     
     [BoxGroup("Views")] [EnableIf("viewEdit")] 
-    [InlineEditor] public PrefabViewAsset prefabView;
+    [InlineEditor] public SpriteViewAsset spriteView;
 
     [BoxGroup("Views")] 
     [Button]
     private void GenerateFromData()
     {
         wardView.Clear();
-        foreach (var link in prefabData.ward_link)
+        foreach (var link in spriteData.ward_link)
         {
-            if(link.wardId < 0 || link.wardId >= wardData.wards.Count || link.valueId < 0 || link.valueId >= prefabData.list.Count ) continue;
-            wardView.AddWardPrefab(wardData.wards[link.wardId], prefabData.list[link.valueId]);
+            if(link.wardId < 0 || link.wardId >= wardData.wards.Count || link.valueId < 0 || link.valueId >= spriteData.list.Count ) continue;
+            wardView.AddWardEach(wardData.wards[link.wardId], spriteData.list[link.valueId]);
         }
         
-        prefabView.Clear();
-        foreach (var link in prefabData.ward_link)
+        spriteView.Clear();
+        foreach (var link in spriteData.ward_link)
         {
-            if(link.wardId < 0 || link.wardId >= wardData.wards.Count || link.valueId < 0 || link.valueId >= prefabData.list.Count ) continue;
-            prefabView.AddEachWard(prefabData.list[link.valueId], wardData.wards[link.wardId]);
+            if(link.wardId < 0 || link.wardId >= wardData.wards.Count || link.valueId < 0 || link.valueId >= spriteData.list.Count ) continue;
+            spriteView.AddEachWard(spriteData.list[link.valueId], wardData.wards[link.wardId]);
         }
 
     }
@@ -117,7 +117,7 @@ public partial class EditDataAsset : ScriptableObject
     [BoxGroup("Datas")] [InlineEditor] [EnableIf("dataEdit")] 
     public WardDataAsset wardData;
     [BoxGroup("Datas")] [InlineEditor] [EnableIf("dataEdit")] 
-    public PrefabDataAsset prefabData;
+    public PrefabDataAsset spriteData;
     
     [BoxGroup("Datas")] 
     [Button]
@@ -129,16 +129,16 @@ public partial class EditDataAsset : ScriptableObject
             wardData.GetOrAdd(ward);
         }
         
-        prefabData.Clear();
-        foreach (var pair in prefabView._wardViewValues)
+        spriteData.Clear();
+        foreach (var pair in spriteView._wardViewValues)
         {
-            prefabData.AddListItem(pair.Key);
+            spriteData.AddListItem(pair.Key);
             
             foreach (var ward in pair.Value)
             {
                 var wardIndex = wardData.GetOrMinus(ward);
                 if (wardIndex == -1) continue;
-                prefabData.AddInputPair(wardIndex, pair.Key);
+                spriteData.AddInputPair(wardIndex, pair.Key);
             }
         }
 

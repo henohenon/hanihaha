@@ -70,7 +70,7 @@ public class GameUIManager : MonoBehaviour
             SetWidthByHeight(card, 0.6f);
         });
         
-        _body.AddToClassList("Answered");
+        _body.AddToClassList("Successful");
     }
 
     [Button]
@@ -80,7 +80,7 @@ public class GameUIManager : MonoBehaviour
         
         _body.RemoveFromClassList("NextTarget");
         _body.RemoveFromClassList("ThreeTime");
-        _body.RemoveFromClassList("Answered");
+        _body.RemoveFromClassList("Successful");
         _body.RemoveFromClassList("GameOver");
     }
     

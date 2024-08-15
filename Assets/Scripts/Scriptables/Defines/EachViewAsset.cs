@@ -4,8 +4,8 @@ using Alchemy.Inspector;
 using Alchemy.Serialization;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PrefabViewData", menuName = "Scriptable/View/PrefabView")]
-public class PrefabViewAsset : EachViewAsset<AnswerCardController> 
+[CreateAssetMenu(fileName = "SpriteViewData", menuName = "Scriptable/View/SpriteView")]
+public class SpriteViewAsset : EachViewAsset<Sprite> 
 {
 }
 

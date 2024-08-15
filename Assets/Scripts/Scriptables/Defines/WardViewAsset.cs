@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Alchemy.Inspector;
 using Alchemy.Serialization;
+using UnityEditorInternal;
 using UnityEngine;
 
 [AlchemySerialize]
@@ -18,7 +19,7 @@ public partial class WardViewAsset : ScriptableObject
         _wardViewValues.Clear();
     }
     
-    public void AddWardPrefab(string ward, AnswerCardController prefab)
+    public void AddWardEach<T>(string ward, T value)
     {
         if (!_wardViewValues.ContainsKey(ward))
         {
@@ -26,18 +27,17 @@ public partial class WardViewAsset : ScriptableObject
         }
         
         var values = _wardViewValues[ward];
-        
-        values.wardPrefabs.Add(prefab);
+        values.AddEach(value);
     }
     
-    public void RemoveWardPrefab(string ward, AnswerCardController prefab)
+    public void RemoveWardEach<T>(string ward, T value)
     {
         if (!_wardViewValues.ContainsKey(ward)) return;
         
         var values = _wardViewValues[ward];
-        values.wardPrefabs.Remove(prefab);
+        values.RemoveEach(value);
     }
-
+    
     public string GetRandomWard()
     { 
         var keys = _wardViewValues.Keys.ToList();
@@ -48,13 +48,49 @@ public partial class WardViewAsset : ScriptableObject
     public AnswerCardProp GetCorrectAnswerProp(string ward)
     {
         var values = _wardViewValues[ward];
-        var prefabs = values.wardPrefabs;
+        var prefabs = values.wardSprites;
         var randomIndex = UnityEngine.Random.Range(0, prefabs.Count);
         return new AnswerCardProp(prefabs[randomIndex]);
     }
 }
 
+public class AnswerCardProp
+{
+    public Sprite sprite;
+
+    public AnswerCardProp(Sprite sprite)
+    {
+        this.sprite = sprite;
+    }
+}
+
 public class WardViewValues
 {
-    public List<AnswerCardController> wardPrefabs = new ();
+    public List<Sprite> wardSprites = new();
+    
+    public void AddEach<T>(T each)
+    {
+        switch (each)
+        {
+            case Sprite sprite:
+                wardSprites.Add(sprite);
+                break;
+            default:
+                Debug.LogError("AddEach type not found");
+                break;
+        }
+    }
+    
+    public void RemoveEach<T>(T each)
+    {
+        switch (each)
+        {
+            case Sprite sprite:
+                wardSprites.Remove(sprite);
+                break;
+            default:
+                Debug.LogError("RemoveEach type not found");
+                break;
+        }
+    }
 }

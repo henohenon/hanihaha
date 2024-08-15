@@ -2,6 +2,9 @@
     display: none;
 }
 
+#TargetNext VisualElement{
+    -unity-background-image-tint-color: black;
+}
 #Target VisualElement{
     -unity-background-image-tint-color: black;
 }
@@ -25,26 +28,29 @@
 #Answers{
     display: none;
 }
-.Answered #Answers{
+.Successful #Answers{
     display: flex;
 }
-.Answered #Answers VisualElement{
+.Successful #Answers VisualElement{
     -unity-background-image-tint-color: rgb(0, 255, 0);
 }
-.Answered #Life{
+.Successful #Target VisualElement{
+    -unity-background-image-tint-color: black;
+}
+.Successful #Life{
     color: black;
 }
-.Answered #Time{
+.Successful #Time{
     color: black;
 }
-.Answered #Niha{
+.Successful #Niha{
     color: black;
     display: flex;
 }
-.Answered #NihaQ{
+.Successful #NihaQ{
     display: none;
 }
-.Answered #Wo{
+.Successful #Wo{
     color: black;
 }
 

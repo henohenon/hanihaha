@@ -2,6 +2,10 @@
     <engine:Template name="AnswerCard" src="project://database/Assets/UI/AnswerCard.uxml?fileID=9197481963319205126&amp;guid=10eaa5da8a16faf498f5a8536f5a2256&amp;type=3#AnswerCard" />
     <Style src="project://database/Assets/UI/GameUI.uss?fileID=7433441132597879392&amp;guid=79ff29fd15631f743956d4ad5a9aebfb&amp;type=3#GameUI" />
     <engine:VisualElement name="Body" class="NextTarget" style="flex-grow: 1;">
+        <engine:VisualElement name="Next" style="flex-grow: 1; position: absolute; height: 100%; width: 100%; align-items: center; justify-content: center; align-self: center; align-content: center; flex-direction: row; background-color: rgb(255, 255, 255);">
+            <engine:Instance template="AnswerCard" name="TargetNext" class="TargetContainer" style="max-width: none; height: 40%; width: auto; flex-shrink: 1; min-width: auto; min-height: auto; max-height: none;" />
+            <engine:Label text="には?" name="NextNiha" style="max-height: 100%; flex-direction: row; font-size: 30%; align-self: center; justify-content: flex-start; align-items: stretch; -unity-text-align: middle-left; max-width: none; text-overflow: clip; white-space: nowrap;" />
+        </engine:VisualElement>
         <engine:VisualElement name="Header" style="flex-grow: 1; height: auto; max-height: 10%; flex-direction: row; justify-content: space-between;">
             <engine:Label text="3" name="Life" style="max-height: 100%; flex-direction: row-reverse; align-self: center; font-size: 50%; -unity-text-align: middle-left;" />
             <engine:Label text="3.00" name="Time" style="max-height: 100%; flex-direction: row-reverse; font-size: 50%; align-self: center; -unity-text-align: middle-left;" />
@@ -17,10 +21,6 @@
                 </engine:VisualElement>
                 <engine:Label text="を！" name="Wo" style="max-height: 100%; flex-direction: row; font-size: 50%; align-self: center; -unity-text-align: middle-left; white-space: nowrap; text-overflow: clip; align-content: flex-start; align-items: stretch; justify-content: flex-start; flex-grow: 0; flex-wrap: nowrap; -unity-font-style: normal;" />
             </engine:VisualElement>
-        </engine:VisualElement>
-        <engine:VisualElement name="Next" style="flex-grow: 1; position: absolute; height: 100%; width: 100%; align-items: center; justify-content: center; align-self: center; align-content: center; flex-direction: row;">
-            <engine:Instance template="AnswerCard" name="TargetNext" class="TargetContainer" style="max-width: none; height: 40%; width: auto; flex-shrink: 1; min-width: auto; min-height: auto; max-height: none;" />
-            <engine:Label text="には?" name="NextNiha" style="max-height: 100%; flex-direction: row; font-size: 30%; align-self: center; justify-content: flex-start; align-items: stretch; -unity-text-align: middle-left; max-width: none; text-overflow: clip; white-space: nowrap;" />
         </engine:VisualElement>
         <engine:VisualElement name="End" enabled="true" style="flex-grow: 1; position: absolute; height: 100%; width: 100%; background-color: rgba(0, 0, 0, 0.78);">
             <engine:Label text="Game Over" style="-unity-text-align: lower-center; font-size: 150px; justify-content: flex-start; height: 50%; white-space: normal; margin-bottom: 5%; color: rgb(255, 0, 0);" />

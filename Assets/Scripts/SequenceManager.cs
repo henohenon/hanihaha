@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Alchemy.Inspector;
 using Cysharp.Threading.Tasks;
 using R3;
 using UnityEngine;
@@ -13,23 +14,50 @@ public class SequenceManager : MonoBehaviour
     private Transform _borderObj;
     [SerializeField]
     private GameUIManager _gameUIManager;
+    [AssetsOnly]
+    [SerializeField]
+    private AnswerCardController prefab;
     
     private string targetWard;
+    private bool _successful;
     
     private List<AnswerCardController> _answerCards = new ();
 
-    public void CreateAnswerCard(AnswerCardController prefab, bool isSame)
+    private void RefreshAnswerCards()
+    {
+        foreach (var card in _answerCards)
+        {
+            Destroy(card.gameObject);
+        }
+        _answerCards.Clear();
+    }
+    
+    private void CreateAnswerCard(AnswerCardProp prop, bool isSame)
     {
         var spawnPos = new Vector3(
             Random.Range(-_borderSize.x / 2, _borderSize.x / 2), 
             Random.Range(-_borderSize.y / 2, _borderSize.y / 2), 0);
         
         var card = Instantiate(prefab, spawnPos, Quaternion.identity, transform);
+        card.Init(prop.sprite);
         _answerCards.Add(card);
         
         card.onClick.Subscribe(_ =>
         {
             card.onAnswer.OnNext(isSame);
+        }).AddTo(card);
+        
+        card.onAnswer.Subscribe(isCorrect =>
+        {
+            if (isCorrect)
+            {
+                _gameUIManager.AddAnswerCard();
+                _successful = true;
+            }
+            else
+            {
+                
+            }
         }).AddTo(card);
     }
     
@@ -58,14 +86,14 @@ public class SequenceManager : MonoBehaviour
     {
         var correctProp = _wardViewAsset.GetCorrectAnswerProp(targetWard);
         
-        CreateAnswerCard(correctProp.prefab, true);
+        CreateAnswerCard(correctProp, true);
 
         var cardNumbs = Random.Range(0, 5);
         for (int i = 0; i < cardNumbs; i++)
         {
             var ward = _wardViewAsset.GetRandomWard();
             var prop = _wardViewAsset.GetCorrectAnswerProp(ward);
-            CreateAnswerCard(prop.prefab, ward == targetWard);
+            CreateAnswerCard(prop, ward == targetWard);
         }
     }
 
@@ -73,13 +101,21 @@ public class SequenceManager : MonoBehaviour
     {
         targetWard = _wardViewAsset.GetRandomWard();
         
+        _successful = false;
+        RefreshAnswerCards();
         GenerateAnswerCards();
         _gameUIManager.NextTarget();
-        await UniTask.Delay(TimeSpan.FromSeconds(3));
+        await UniTask.Delay(TimeSpan.FromSeconds(1));
         _gameUIManager.Reset();
         _gameUIManager.TimerStart(5);
         await UniTask.Delay(TimeSpan.FromSeconds(5));
-        _gameUIManager.GameOver();
-        
+        if (!_successful)
+        {
+            _gameUIManager.GameOver();
+        }
+        else
+        {
+            UpdateTarget();
+        }
     }
 }
