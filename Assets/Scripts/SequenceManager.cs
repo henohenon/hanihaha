@@ -16,13 +16,18 @@ public class SequenceManager : MonoBehaviour
     private GameUIManager _gameUIManager;
     [SerializeField]
     private AudioManager _audioManager;
+    [SerializeField]
+    private ScoreManager _scoreManager;
     [AssetsOnly]
     [SerializeField]
     private AnswerCardController prefab;
     
+    
     private string targetWard;
     private bool _successful;
     private bool _waiting = true;
+    
+    private int _score = 0;
     
     private List<AnswerCardController> _answerCards = new ();
 
@@ -128,10 +133,12 @@ public class SequenceManager : MonoBehaviour
         await UniTask.Delay(TimeSpan.FromSeconds(3));
         if (!_successful)
         {
+            _scoreManager.SendScore(_score);
             _gameUIManager.GameOver();
         }
         else
         {
+            _score++;
             UpdateTarget();
         }
         _audioManager.SetIsPlayLimit(false);
