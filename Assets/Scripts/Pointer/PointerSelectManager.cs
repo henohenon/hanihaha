@@ -8,14 +8,14 @@ using UnityEngine.UI;
 
 public class PointerSelectManager : MonoBehaviour
 {
-    private HashSet<ISelectable> _currentSelectable;
+    private HashSet<IPointable> _currentSelectable;
     
     [SerializeField]
     private InputActionProperty _inputActionMap;
     
     private void Start()
     {
-        _currentSelectable = new HashSet<ISelectable>();
+        _currentSelectable = new HashSet<IPointable>();
         
         _inputActionMap.action.performed += ctx =>
         {
@@ -33,7 +33,7 @@ public class PointerSelectManager : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var selectable = other.GetComponent<ISelectable>();
+        var selectable = other.GetComponent<IPointable>();
         if (selectable != null)
         {
             selectable.onHover.OnNext(true);
@@ -43,7 +43,7 @@ public class PointerSelectManager : MonoBehaviour
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        var selectable = other.GetComponent<ISelectable>();
+        var selectable = other.GetComponent<IPointable>();
         if (selectable != null)
         {
             selectable.onHover.OnNext(false);

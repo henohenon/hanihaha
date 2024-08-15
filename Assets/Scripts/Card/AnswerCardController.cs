@@ -3,7 +3,7 @@ using R3;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class AnswerCardController : MonoBehaviour, ISelectable
+public class AnswerCardController : MonoBehaviour, IPointable
 {
     
     private SpriteRenderer _spriteRenderer;
@@ -13,9 +13,6 @@ public class AnswerCardController : MonoBehaviour, ISelectable
 
     public Subject<bool> onHover { get; } = new ();
     public Subject<Unit> onClick { get; } = new ();
-    public Subject<bool> onAnswer { get; } = new ();
-    
-    private Observable<Unit> OnClick => onClick;
     
     private bool _isAnswered = false;
     
@@ -56,10 +53,18 @@ public class AnswerCardController : MonoBehaviour, ISelectable
                 _spriteRenderer.color = Color.white;
             }
         }).AddTo(this);
-        
-        onAnswer.Subscribe(isCorrect =>
+    }
+
+    public void Init(Sprite sprite)
+    {
+        _sprite = sprite;
+    }
+
+    public void Answered(bool isSame)
+    {
+        onClick.Subscribe(_ =>
         {
-            if (isCorrect)
+            if (isSame)
             {
                 _spriteRenderer.color = new Color(14/255, 255/255, 0);
             }
@@ -70,14 +75,9 @@ public class AnswerCardController : MonoBehaviour, ISelectable
             _isAnswered = true;
         }).AddTo(this);
     }
-
-    public void Init(Sprite sprite)
-    {
-        _sprite = sprite;
-    }
 }
 
-public interface ISelectable
+public interface IPointable
 {
     public Subject<bool> onHover { get; }
     public Subject<Unit> onClick { get; }

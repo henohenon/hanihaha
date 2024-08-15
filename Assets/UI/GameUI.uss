@@ -2,16 +2,6 @@
     display: none;
 }
 
-#TargetNext VisualElement{
-    -unity-background-image-tint-color: black;
-}
-#Target VisualElement{
-    -unity-background-image-tint-color: black;
-}
-
-.Limit #Life{
-    color: red;
-}
 .Limit #Time{
     color: red;
 }
@@ -21,24 +11,12 @@
 .Limit #Wo{
     color: red;
 }
-.Limit #Target VisualElement{
-    -unity-background-image-tint-color: red;
-}
 
 #Answers{
     display: none;
 }
 .Successful #Answers{
     display: flex;
-}
-.Successful #Answers VisualElement{
-    -unity-background-image-tint-color: rgb(0, 255, 0);
-}
-.Successful #Target VisualElement{
-    -unity-background-image-tint-color: black;
-}
-.Successful #Life{
-    color: black;
 }
 .Successful #Time{
     color: black;

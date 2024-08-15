@@ -9,12 +9,19 @@ public class ScoreManager : MonoBehaviour
         HmacKey = Secrets.hmacKey
     };
     
-    public async void SendScore(int score)
+    private int _score = 0;
+    
+    public void AddScore()
+    {
+        _score ++;
+    }
+    
+    public async void SendScore()
     {
         var response = await _client.Scoreboards.SendAsync(new()
         {
             ScoreboardId = 1,
-            Score = score
+            Score = _score
         });
 
         if (response.ScoreUpdated)

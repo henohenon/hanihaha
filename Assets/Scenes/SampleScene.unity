@@ -949,6 +949,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1843496931}
   - component: {fileID: 1843496932}
+  - component: {fileID: 1843496933}
   m_Layer: 0
   m_Name: ObjectContainer
   m_TagString: Untagged
@@ -988,7 +989,20 @@ MonoBehaviour:
   _borderObj: {fileID: 404797059}
   _gameUIManager: {fileID: 1899052325}
   _audioManager: {fileID: 937364889}
+  _scoreManager: {fileID: 1843496933}
   prefab: {fileID: 871971395013366200, guid: 7689ab3a08b51bb4595804436c2bc1c3, type: 3}
+--- !u!114 &1843496933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843496930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec45eb8de61bd64ab32abf1c55004bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1878183636
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip _failClip;
     [SerializeField]
-    private AudioClip _startGameClip;
+    private AudioClip _nextTargetClip;
 
     private AudioSource _audioSource;
     
@@ -23,21 +23,21 @@ public class AudioManager : MonoBehaviour
     }
     
     [Button]
-    public void PlaySuccessEffect()
+    public void PlaySuccessSound()
     {
         _audioSource.PlayOneShot(_successClip);
     }
     
     [Button]
-    public void PlayFailEffect()
+    public void PlayFailSound()
     {
         _audioSource.PlayOneShot(_failClip);
     }
     
     [Button]
-    public void PlayStarGameEffect()
+    public void PlayNextTargetSound()
     {
-        _audioSource.PlayOneShot(_startGameClip);
+        _audioSource.PlayOneShot(_nextTargetClip);
     }
     
     public void SetIsPlayLimit(bool isPlay)

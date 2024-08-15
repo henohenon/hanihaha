@@ -1,9 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using Alchemy.Inspector;
 using Cysharp.Threading.Tasks;
 using LitMotion;
+using R3;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 
@@ -11,11 +15,13 @@ using UnityEngine.UIElements;
 public class GameUIManager : MonoBehaviour
 {
     private UIDocument _uiDocument;
-    private Label _timerLabel;
+    
     private List<VisualElement> _targetContainers;
     private List<VisualElement> _targetCards;
+    private Label _timerLabel;
+    private TextElement _minusTime;
+    private TextElement _plusTime;
     private VisualElement _answerCardContainer;
-    private VisualElement _body;
 
     [SerializeField] private VisualTreeAsset _answerCard;
     
@@ -24,17 +30,20 @@ public class GameUIManager : MonoBehaviour
     {
         _uiDocument = GetComponent<UIDocument>();
         
-        _timerLabel = _uiDocument.rootVisualElement.Q<Label>("Time");
         _targetContainers = _uiDocument.rootVisualElement.Query<VisualElement>(classes:"TargetContainer").ToList();
         _targetCards = new List<VisualElement>();
+        _timerLabel = _uiDocument.rootVisualElement.Q<Label>("Time");
+        _minusTime = _uiDocument.rootVisualElement.Q<TextElement>("MinusTime");
+        _plusTime = _uiDocument.rootVisualElement.Q<TextElement>("PlusTime");
         _answerCardContainer = _uiDocument.rootVisualElement.Q<VisualElement>("AnswerCards");
-        _body = _uiDocument.rootVisualElement.Q<VisualElement>("Body");
         
+        // あらかじめターゲットカードを取得しておく
         foreach (var targetContainer in _targetContainers)
         {
             var targetCard = targetContainer.Query<VisualElement>(classes: "AnswerCard").ToList();
             _targetCards.AddRange(targetCard);
             
+            // 高さに合わせて幅を設定
             targetContainer.RegisterCallback<GeometryChangedEvent>(evt =>
             {
                 SetWidthByHeight(targetContainer, 1);
@@ -42,70 +51,90 @@ public class GameUIManager : MonoBehaviour
         }
     }
     
-    [Button]
-    public async void TimerStart(float time = 3)
+    // タイマーを設定
+    public void SetTimer(float time)
     {
-        LMotion.Create(time, 0f, time)
-            .BindWithState(_timerLabel, (x, label) => label.text = x.ToString("F2"));
-    }
-
-    public void SetIsLimit(bool isLimit)
-    {
-        if (isLimit)
-        {
-            _body.AddToClassList("Limit");
-        }
-        else
-        {
-            _body.RemoveFromClassList("Limit");
-        }
+        _timerLabel.text = time.ToString("F2");
     }
     
-    [Button]
-    public void AddAnswerCard()
+    // アンサーカードを追加
+    public void AddAnswerCard(Sprite sprite)
     {
         var card = _answerCard.CloneTree();
+        var cardImg = card.Q<VisualElement>(classes: "AnswerCard");
+        cardImg.style.backgroundImage = new StyleBackground(sprite);
         _answerCardContainer.Add(card);
-        card.RegisterCallback<GeometryChangedEvent>(evt =>
+
+        // 高さに合わせて幅を設定
+        void OnGeometryChanged(GeometryChangedEvent evt)
         {
             SetWidthByHeight(card, 0.6f);
-        });
-        
-        _body.AddToClassList("Successful");
+            card.UnregisterCallback<GeometryChangedEvent>(OnGeometryChanged);
+        }
+        card.RegisterCallback<GeometryChangedEvent>(OnGeometryChanged);
     }
 
-    [Button]
-    public void Reset()
+    // ターゲットカードを更新
+    public void UpdateTarget(Sprite sprite)
     {
+        // アンサーカードをクリア
         _answerCardContainer.Clear();
         
-        _body.RemoveFromClassList("NextTarget");
-        _body.RemoveFromClassList("Successful");
-        _body.RemoveFromClassList("GameOver");
-    }
-    
-    [Button]
-    public void NextTarget()
-    {
-        /*
         var background = new StyleBackground(sprite);
         foreach (var targetCard in _targetCards)
         {
             targetCard.style.backgroundImage = background;
-        }*/
-        
-        _body.AddToClassList("NextTarget");
+        }
     }
     
-    [Button]
-    public void GameOver()
-    {
-        _body.AddToClassList("GameOver");
-    }
-
-    
+    // 高さに合わせて幅を設定
     private void SetWidthByHeight(VisualElement element, float rate = 1)
     {
         element.style.width = element.resolvedStyle.height * rate;
+    }
+    
+    // プラスのタイマーを表示
+    private CancellationTokenSource _plusTimeCts;
+    public void ShowPlusTime(float time)
+    {
+        ShowTimer(time, _plusTime, _plusTimeCts);
+    }
+
+    // マイナスのタイマーを表示
+    private CancellationTokenSource _minusTimeCts;
+    public void ShowMinusTime(float time)
+    {
+        ShowTimer(time, _minusTime, _minusTimeCts);
+    }
+
+    // キャンセル可能なタイマー表示
+    private async void ShowTimer(float time, TextElement elem, CancellationTokenSource _cts)
+    {
+        
+        // 既存のタスクがあればキャンセル
+        _cts?.Cancel();
+        _cts = new CancellationTokenSource();
+
+        try
+        {
+            elem.text = "+" + time.ToString("F2");
+            elem.style.display = DisplayStyle.Flex;
+
+            // 一定時間待機するが、キャンセルが可能
+            await UniTask.Delay(TimeSpan.FromSeconds(1), cancellationToken: _cts.Token);
+
+            elem.style.display = DisplayStyle.None;
+        }
+        catch (OperationCanceledException)
+        {
+            // タスクがキャンセルされたとき。tryは必ずcatchがいるのです。
+        }
+        _cts.Dispose();
+    }
+
+    private void OnDestroy()
+    {
+        _plusTimeCts?.Dispose();
+        _minusTimeCts?.Dispose();
     }
 }
