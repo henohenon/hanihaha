@@ -573,7 +573,7 @@ MonoBehaviour:
   _limitSource: {fileID: 937364893}
   _successClip: {fileID: 8300000, guid: dec96c9d7c7fe694fa4d2195d6153343, type: 3}
   _failClip: {fileID: 8300000, guid: abc76e092b8470b48a345c86da6e56b1, type: 3}
-  _startGameClip: {fileID: 8300000, guid: 218a128d49576b244aa15945a6bd9add, type: 3}
+  _nextTargetClip: {fileID: 8300000, guid: 218a128d49576b244aa15945a6bd9add, type: 3}
 --- !u!82 &937364890
 AudioSource:
   m_ObjectHideFlags: 0
@@ -950,6 +950,7 @@ GameObject:
   - component: {fileID: 1843496931}
   - component: {fileID: 1843496932}
   - component: {fileID: 1843496933}
+  - component: {fileID: 1843496934}
   m_Layer: 0
   m_Name: ObjectContainer
   m_TagString: Untagged
@@ -986,11 +987,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wardViewAsset: {fileID: 11400000, guid: c07cac1cea1b50a4098f2ef1da5ddd47, type: 2}
-  _borderObj: {fileID: 404797059}
+  _answerCardsManager: {fileID: 1843496934}
   _gameUIManager: {fileID: 1899052325}
+  _screenUIManager: {fileID: 1899052326}
+  _noGameUIManager: {fileID: 1899052327}
   _audioManager: {fileID: 937364889}
   _scoreManager: {fileID: 1843496933}
-  prefab: {fileID: 871971395013366200, guid: 7689ab3a08b51bb4595804436c2bc1c3, type: 3}
+  _timerDefault: 10
 --- !u!114 &1843496933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,6 +1006,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec45eb8de61bd64ab32abf1c55004bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1843496934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843496930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994972126b2bc0e4e952c5fa79a0bf42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 871971395013366200, guid: 7689ab3a08b51bb4595804436c2bc1c3, type: 3}
+  _borderObj: {fileID: 404797059}
 --- !u!1 &1878183636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,6 +1109,8 @@ GameObject:
   - component: {fileID: 1899052324}
   - component: {fileID: 1899052323}
   - component: {fileID: 1899052325}
+  - component: {fileID: 1899052326}
+  - component: {fileID: 1899052327}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -1146,6 +1165,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _answerCard: {fileID: 9197481963319205126, guid: 10eaa5da8a16faf498f5a8536f5a2256, type: 3}
+--- !u!114 &1899052326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899052322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00701f55b1b46d7a307a2186c41004d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1899052327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899052322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1a9dbc223193a4d8c4848be6c29cf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1621857716771542010
 PrefabInstance:
   m_ObjectHideFlags: 0

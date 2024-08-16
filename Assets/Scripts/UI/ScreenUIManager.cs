@@ -33,6 +33,7 @@ public class ScreenUIManager : MonoBehaviour
                 _body.AddToClassList("Game");
                 break;
             case ScreenType.HighScore:
+                _body.AddToClassList("GameOver");
                 _body.AddToClassList("HighScore");
                 break;
             case ScreenType.GameOver:

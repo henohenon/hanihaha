@@ -53,6 +53,12 @@ public class AnswerCardController : MonoBehaviour, IPointable
                 _spriteRenderer.color = Color.white;
             }
         }).AddTo(this);
+        
+        onClick.Subscribe(_ =>
+        {
+            _spriteRenderer.enabled = false;
+            _collider.enabled = false;
+        }).AddTo(this);
     }
 
     public void Init(Sprite sprite)
@@ -62,18 +68,6 @@ public class AnswerCardController : MonoBehaviour, IPointable
 
     public void Answered(bool isSame)
     {
-        onClick.Subscribe(_ =>
-        {
-            if (isSame)
-            {
-                _spriteRenderer.color = new Color(14/255, 255/255, 0);
-            }
-            else
-            {
-                _spriteRenderer.color = Color.red;
-            }
-            _isAnswered = true;
-        }).AddTo(this);
     }
 }
 

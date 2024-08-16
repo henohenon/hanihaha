@@ -42,6 +42,7 @@ public class AudioManager : MonoBehaviour
     
     public void SetIsPlayLimit(bool isPlay)
     {
+        if(_limitSource.isPlaying == isPlay) return;
         if (isPlay)
         {
             _limitSource.Play();

@@ -2,7 +2,17 @@
     display: none;
 }
 
+#Start{
+    display: none;
+}
+.Start #Start{
+    display: flex;
+}
+
 .Limit #Time{
+    color: red;
+}
+.Limit #Niha{
     color: red;
 }
 .Limit #NihaQ{
@@ -18,18 +28,11 @@
 .Successful #Answers{
     display: flex;
 }
-.Successful #Time{
-    color: black;
-}
 .Successful #Niha{
-    color: black;
     display: flex;
 }
 .Successful #NihaQ{
     display: none;
-}
-.Successful #Wo{
-    color: black;
 }
 
 #Next{
@@ -45,6 +48,15 @@
 #End{
     display: none;
 }
+#HighScore{
+    display: none;
+}
 .GameOver #End{
     display: flex;
+}
+.HighScore #HighScore{
+    display: flex;
+}
+.HighScore #GameOver{
+    display: none;
 }

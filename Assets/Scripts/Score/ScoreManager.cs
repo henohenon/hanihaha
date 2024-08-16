@@ -10,10 +10,17 @@ public class ScoreManager : MonoBehaviour
     };
     
     private int _score = 0;
+    private int _highScore = 0;
     
-    public void AddScore()
+    public bool AddScore()
     {
         _score ++;
+        if(_score > _highScore)
+        {
+            _highScore = _score;
+            return true;
+        }
+        return false;
     }
     
     public async void SendScore()
@@ -28,6 +35,16 @@ public class ScoreManager : MonoBehaviour
         {
             Debug.Log("Score updated!");
         }
+    }
+    
+    public void ResetScore()
+    {
+        _score = 0;
+    }
+    
+    public int GetScore()
+    {
+        return _score;
     }
     
     void OnDestroy()

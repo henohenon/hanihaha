@@ -22,6 +22,8 @@ public class GameUIManager : MonoBehaviour
     private TextElement _minusTime;
     private TextElement _plusTime;
     private VisualElement _answerCardContainer;
+    private VisualElement _footer;
+    private VisualElement _body;
 
     [SerializeField] private VisualTreeAsset _answerCard;
     
@@ -36,6 +38,8 @@ public class GameUIManager : MonoBehaviour
         _minusTime = _uiDocument.rootVisualElement.Q<TextElement>("MinusTime");
         _plusTime = _uiDocument.rootVisualElement.Q<TextElement>("PlusTime");
         _answerCardContainer = _uiDocument.rootVisualElement.Q<VisualElement>("AnswerCards");
+        _footer = _uiDocument.rootVisualElement.Q<VisualElement>("Footer");
+        _body = _uiDocument.rootVisualElement.Q<VisualElement>("Body");
         
         // あらかじめターゲットカードを取得しておく
         foreach (var targetContainer in _targetContainers)
@@ -57,13 +61,31 @@ public class GameUIManager : MonoBehaviour
         _timerLabel.text = time.ToString("F2");
     }
     
+    private bool _oldIsLimit = false;
+    public void SetLimit(bool isLimit)
+    {
+        if (_oldIsLimit == isLimit) return;
+        _oldIsLimit = isLimit;
+        
+        if (isLimit){
+            _body.AddToClassList("Limit");
+        }
+        else
+        {
+            _body.RemoveFromClassList("Limit");
+        }
+
+    }
+    
     // アンサーカードを追加
     public void AddAnswerCard(Sprite sprite)
     {
+        Debug.Log("AddAnswerCard");
         var card = _answerCard.CloneTree();
         var cardImg = card.Q<VisualElement>(classes: "AnswerCard");
         cardImg.style.backgroundImage = new StyleBackground(sprite);
         _answerCardContainer.Add(card);
+        _footer.AddToClassList("Successful");
 
         // 高さに合わせて幅を設定
         void OnGeometryChanged(GeometryChangedEvent evt)
@@ -79,7 +101,8 @@ public class GameUIManager : MonoBehaviour
     {
         // アンサーカードをクリア
         _answerCardContainer.Clear();
-        
+        _footer.RemoveFromClassList("Successful");
+
         var background = new StyleBackground(sprite);
         foreach (var targetCard in _targetCards)
         {
@@ -130,6 +153,7 @@ public class GameUIManager : MonoBehaviour
             // タスクがキャンセルされたとき。tryは必ずcatchがいるのです。
         }
         _cts.Dispose();
+        
     }
 
     private void OnDestroy()

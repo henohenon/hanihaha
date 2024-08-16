@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using R3;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,24 +9,24 @@ using UnityEngine.UI;
 
 public class PointerSelectManager : MonoBehaviour
 {
-    private HashSet<IPointable> _currentSelectable;
+    private HashSet<IPointable> _currentSelectable = new HashSet<IPointable>();
     
     [SerializeField]
     private InputActionProperty _inputActionMap;
     
     private void Start()
     {
-        _currentSelectable = new HashSet<IPointable>();
-        
-        _inputActionMap.action.performed += ctx =>
+        _inputActionMap.action.started += ctx =>
         {
             if (_currentSelectable != null)
             {
-                foreach (var selectable in _currentSelectable)
+                var selectables = _currentSelectable.ToList();
+                
+                foreach (var selectable in selectables)
                 {
-                    if(selectable == null) continue;
+                    if (selectable == null) continue;
                     selectable.onClick.OnNext(Unit.Default);
-                }                
+                }
             }
         };
         _inputActionMap.action.Enable();

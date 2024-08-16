@@ -76,9 +76,6 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.serialization/Runtime/Unity.Serialization/Json/JsonSerialization+FromJson.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unityroom.client/Runtime/UnityroomClient.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
-  <component name="PerforceDirect.Settings">
-    <option name="CHARSET" value="なし" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -163,6 +160,7 @@
       <workItem from="1723678558280" duration="185000" />
       <workItem from="1723678761436" duration="6476000" />
       <workItem from="1723705864970" duration="4600000" />
+      <workItem from="1723766198086" duration="2000" />
     </task>
     <servers />
   </component>
