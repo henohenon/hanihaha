@@ -22,7 +22,7 @@ public class AnswerCardsManager : MonoBehaviour
     private Subject<Sprite> _onFialur = new ();
     public Observable<Sprite> OnAnswer => _onAnswer;
     public Observable<Sprite> OnFailure => _onFialur;
-
+    
     private void Start()
     {
         ResetBorderSize();

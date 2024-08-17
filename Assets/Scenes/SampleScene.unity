@@ -574,6 +574,8 @@ MonoBehaviour:
   _successClip: {fileID: 8300000, guid: dec96c9d7c7fe694fa4d2195d6153343, type: 3}
   _failClip: {fileID: 8300000, guid: abc76e092b8470b48a345c86da6e56b1, type: 3}
   _nextTargetClip: {fileID: 8300000, guid: 218a128d49576b244aa15945a6bd9add, type: 3}
+  _gameOverClip: {fileID: 8300000, guid: 9688d8396a529aa479144270a8e2cf77, type: 3}
+  _highScoreClip: {fileID: 8300000, guid: 3cc018d79a3f69248a120232f2946213, type: 3}
 --- !u!82 &937364890
 AudioSource:
   m_ObjectHideFlags: 0
@@ -993,7 +995,6 @@ MonoBehaviour:
   _noGameUIManager: {fileID: 1899052327}
   _audioManager: {fileID: 937364889}
   _scoreManager: {fileID: 1843496933}
-  _timerDefault: 10
 --- !u!114 &1843496933
 MonoBehaviour:
   m_ObjectHideFlags: 0

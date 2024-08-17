@@ -2,10 +2,10 @@
     display: none;
 }
 
-#Start{
+#Title{
     display: none;
 }
-.Start #Start{
+.Title #Title{
     display: flex;
 }
 

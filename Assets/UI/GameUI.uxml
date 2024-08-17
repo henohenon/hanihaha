@@ -1,7 +1,7 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <engine:Template name="AnswerCard" src="project://database/Assets/UI/AnswerCard.uxml?fileID=9197481963319205126&amp;guid=10eaa5da8a16faf498f5a8536f5a2256&amp;type=3#AnswerCard" />
     <Style src="project://database/Assets/UI/GameUI.uss?fileID=7433441132597879392&amp;guid=79ff29fd15631f743956d4ad5a9aebfb&amp;type=3#GameUI" />
-    <engine:VisualElement name="Body" class="Start" style="flex-grow: 1;">
+    <engine:VisualElement name="Body" class="Title" style="flex-grow: 1;">
         <engine:VisualElement name="Next" style="flex-grow: 1; position: absolute; height: 100%; width: 100%; align-items: center; justify-content: center; align-self: center; align-content: center; flex-direction: row; background-color: rgb(255, 255, 255);">
             <engine:Instance template="AnswerCard" name="TargetNext" class="TargetContainer" style="max-width: none; height: 40%; width: auto; flex-shrink: 1; min-width: auto; min-height: auto; max-height: none;" />
             <engine:Label text="には?" name="NextNiha" style="max-height: 100%; flex-direction: row; font-size: 30%; align-self: center; justify-content: flex-start; align-items: stretch; -unity-text-align: middle-left; max-width: none; text-overflow: clip; white-space: nowrap; -unity-font-definition: url(&quot;project://database/Assets/Fonts/x12y16pxMaruMonica.ttf?fileID=12800000&amp;guid=8e3e3f114a8eaee40b1c0ad3e65cb602&amp;type=3#x12y16pxMaruMonica&quot;);" />
@@ -36,7 +36,7 @@
                 <engine:Button text="Return" name="ReturnButton" style="-unity-font-definition: url(&quot;project://database/Assets/Fonts/x12y16pxMaruMonica.ttf?fileID=12800000&amp;guid=8e3e3f114a8eaee40b1c0ad3e65cb602&amp;type=3#x12y16pxMaruMonica&quot;);" />
             </engine:VisualElement>
         </engine:VisualElement>
-        <engine:VisualElement name="Start" style="flex-grow: 1; position: absolute; height: 100%; width: 100%; align-items: center; justify-content: center; align-self: center; align-content: center; flex-direction: column; background-color: rgb(255, 255, 255);">
+        <engine:VisualElement name="Title" style="flex-grow: 1; position: absolute; height: 100%; width: 100%; align-items: center; justify-content: center; align-self: center; align-content: center; flex-direction: column; background-color: rgb(255, 255, 255);">
             <engine:Label text="&quot;は&quot; には &quot;は&quot; を" name="Title" style="max-height: 100%; flex-direction: row; font-size: 30%; align-self: center; justify-content: flex-start; align-items: stretch; -unity-text-align: middle-left; max-width: none; text-overflow: clip; white-space: nowrap; -unity-font-definition: url(&quot;project://database/Assets/Fonts/x12y16pxMaruMonica.ttf?fileID=12800000&amp;guid=8e3e3f114a8eaee40b1c0ad3e65cb602&amp;type=3#x12y16pxMaruMonica&quot;);" />
             <engine:Button text="Start" name="StartButton" style="-unity-font-definition: url(&quot;project://database/Assets/Fonts/x12y16pxMaruMonica.ttf?fileID=12800000&amp;guid=8e3e3f114a8eaee40b1c0ad3e65cb602&amp;type=3#x12y16pxMaruMonica&quot;);" />
         </engine:VisualElement>

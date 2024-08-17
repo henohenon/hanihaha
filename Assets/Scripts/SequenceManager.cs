@@ -10,6 +10,8 @@ using Random = UnityEngine.Random;
 
 public class SequenceManager : MonoBehaviour
 {
+    private float _timerDefault = 10;
+
     [SerializeField]
     private WardViewAsset _wardViewAsset;
     [SerializeField]
@@ -24,8 +26,6 @@ public class SequenceManager : MonoBehaviour
     private AudioManager _audioManager;
     [SerializeField]
     private ScoreManager _scoreManager;
-    [SerializeField]
-    private float _timerDefault = 10;
     private float _timer = 10;
     
     private int _sameCount = 0;
@@ -33,20 +33,22 @@ public class SequenceManager : MonoBehaviour
     private string _targetWard;
     private bool _isHighScore = false;
     
+    private DifficultyLevel _currentLevel;
+    
     private MotionHandle _timerHandle; 
     private void Start()
     {
         _noGameUIManager.OnStart.Subscribe(_ =>
         {
-            StartGame();
+            ReStartGame();
         }).AddTo(this);
         _noGameUIManager.OnRestart.Subscribe(_ =>
         {
-            StartGame();
+            ReStartGame();
         }).AddTo(this);
         _noGameUIManager.OnReturn.Subscribe(_ =>
         {
-            _screenUIManager.ChangeScreen(ScreenType.Start);
+            GoToTitle();
         }).AddTo(this);
         
         _answerCardsManager.OnAnswer.Subscribe(sprite =>
@@ -55,7 +57,7 @@ public class SequenceManager : MonoBehaviour
             _answerCount++;
             if (_answerCount == _sameCount)
             {
-                AddTime(5);
+                AddTime(_currentLevel.eachPlusTime);
                 _isHighScore = _scoreManager.AddScore();
                 UpdateTarget();
             }
@@ -67,11 +69,21 @@ public class SequenceManager : MonoBehaviour
         _answerCardsManager.OnFailure.Subscribe(_ =>
         {
             _audioManager.PlayFailSound();
-            MinusTime(5);
+            MinusTime(_currentLevel.eachMinusTime);
+        }).AddTo(this);
+        
+        _scoreManager.OnLevelUpdate.Subscribe(level =>
+        {
+            _currentLevel = level;
         }).AddTo(this);
     }
+    
+    private void GoToTitle()
+    {
+        _screenUIManager.ChangeScreen(ScreenType.Title);
+    }
 
-    private void StartGame()
+    private void ReStartGame()
     {
         _timer = _timerDefault;
         _scoreManager.ResetScore();
@@ -86,18 +98,26 @@ public class SequenceManager : MonoBehaviour
         {
             _timerHandle.Cancel();
         }
+        
+        
+        var isLimit = _timer <= 5;
+        _audioManager.SetIsPlayLimit(isLimit);
+        _gameUIManager.SetLimit(isLimit);
+        
         _timerHandle = LMotion.Create(_timer, 0, _timer).WithOnComplete(() =>
         {
             _noGameUIManager.SetScore(_scoreManager.GetScore());
             _audioManager.SetIsPlayLimit(false);
             if (_isHighScore)
             {
+                _audioManager.PlayHighScoreSound();
                 _scoreManager.SendScore();
                 _isHighScore = false;
                 _screenUIManager.ChangeScreen(ScreenType.HighScore);
             }
             else
             {
+                _audioManager.PlayGameOverSound();
                 _screenUIManager.ChangeScreen(ScreenType.GameOver);
             }
         }).BindWithState(_gameUIManager, (_time, _ui) =>
@@ -105,8 +125,8 @@ public class SequenceManager : MonoBehaviour
             _timer = _time;
             _ui.SetTimer(_timer);
             var isLimit = _timer <= 5;
-            _ui.SetLimit(isLimit);
             _audioManager.SetIsPlayLimit(isLimit);
+            _ui.SetLimit(isLimit);
         }).AddTo(this);
     }
     
@@ -116,7 +136,7 @@ public class SequenceManager : MonoBehaviour
         _answerCardsManager.CreateAnswerCard(correctProp.sprite, true);
         _sameCount++;
         
-        var cardNumbs = Random.Range(5, 10);
+        var cardNumbs = Random.Range(_currentLevel.minCardNum, _currentLevel.maxCardNum);
         for (int i = 0; i < cardNumbs; i++)
         {
             var ward = _wardViewAsset.GetRandomWard();
@@ -130,20 +150,30 @@ public class SequenceManager : MonoBehaviour
             }
         }
     }
-
-    private async void UpdateTarget()
+    
+    private void ForNextTarget()
     {
         _timerHandle.PlaybackSpeed = 0;
 
+        // 値をクリア
         _answerCount = 0;
         _sameCount = 0;
         _answerCardsManager.ClearAnswerCards();
+
+        // 新ターゲット
         _targetWard = _wardViewAsset.GetRandomWard();
         var questionProp = _wardViewAsset.GetCorrectAnswerProp(_targetWard);
+        // UI更新
         _gameUIManager.UpdateTarget(questionProp.sprite);
         _screenUIManager.ChangeScreen(ScreenType.NextTarget);
         _audioManager.PlayNextTargetSound();
+        // アンサーカード生成
         GenerateAnswerCards();
+    }
+
+    private async void UpdateTarget()
+    {
+        ForNextTarget();
         
         await UniTask.Delay(TimeSpan.FromSeconds(1));
         
@@ -151,14 +181,14 @@ public class SequenceManager : MonoBehaviour
         _screenUIManager.ChangeScreen(ScreenType.Game);
     }
 
-    private void AddTime(int addTime)
+    private void AddTime(float addTime)
     {
         _timer += addTime;
         ResetTimer();
         _gameUIManager.ShowPlusTime(addTime);
     }
     
-    private void MinusTime(int minusTime)
+    private void MinusTime(float minusTime)
     {
         _timer -= minusTime;
         ResetTimer();

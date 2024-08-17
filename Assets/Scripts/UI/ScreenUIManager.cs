@@ -23,8 +23,8 @@ public class ScreenUIManager : MonoBehaviour
         
         switch (type)
         {
-            case ScreenType.Start:
-                _body.AddToClassList("Start");
+            case ScreenType.Title:
+                _body.AddToClassList("Title");
                 break;
             case ScreenType.NextTarget:
                 _body.AddToClassList("NextTarget");
@@ -45,7 +45,7 @@ public class ScreenUIManager : MonoBehaviour
 
 public enum ScreenType
 {
-    Start,
+    Title,
     NextTarget,
     Game,
     HighScore,

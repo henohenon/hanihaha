@@ -14,6 +14,10 @@ public class AudioManager : MonoBehaviour
     private AudioClip _failClip;
     [SerializeField]
     private AudioClip _nextTargetClip;
+    [SerializeField]
+    private AudioClip _gameOverClip;
+    [SerializeField]
+    private AudioClip _highScoreClip;
 
     private AudioSource _audioSource;
     
@@ -38,6 +42,16 @@ public class AudioManager : MonoBehaviour
     public void PlayNextTargetSound()
     {
         _audioSource.PlayOneShot(_nextTargetClip);
+    }
+    
+    public void PlayGameOverSound()
+    {
+        _audioSource.PlayOneShot(_gameOverClip);
+    }
+    
+    public void PlayHighScoreSound()
+    {
+        _audioSource.PlayOneShot(_highScoreClip);
     }
     
     public void SetIsPlayLimit(bool isPlay)

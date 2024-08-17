@@ -27,7 +27,7 @@ public class GameUIManager : MonoBehaviour
 
     [SerializeField] private VisualTreeAsset _answerCard;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Title is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         _uiDocument = GetComponent<UIDocument>();
@@ -120,18 +120,18 @@ public class GameUIManager : MonoBehaviour
     private CancellationTokenSource _plusTimeCts;
     public void ShowPlusTime(float time)
     {
-        ShowTimer(time, _plusTime, _plusTimeCts);
+        ShowTimer(time, true, _plusTime, _plusTimeCts);
     }
 
     // マイナスのタイマーを表示
     private CancellationTokenSource _minusTimeCts;
     public void ShowMinusTime(float time)
     {
-        ShowTimer(time, _minusTime, _minusTimeCts);
+        ShowTimer(time, false, _minusTime, _minusTimeCts);
     }
 
     // キャンセル可能なタイマー表示
-    private async void ShowTimer(float time, TextElement elem, CancellationTokenSource _cts)
+    private async void ShowTimer(float time, bool isPlus, TextElement elem, CancellationTokenSource _cts)
     {
         
         // 既存のタスクがあればキャンセル
@@ -140,7 +140,8 @@ public class GameUIManager : MonoBehaviour
 
         try
         {
-            elem.text = "+" + time.ToString("F2");
+            var timeString = time.ToString("F2");
+            elem.text = isPlus ? $"+{timeString}" : $"-{timeString}";
             elem.style.display = DisplayStyle.Flex;
 
             // 一定時間待機するが、キャンセルが可能
