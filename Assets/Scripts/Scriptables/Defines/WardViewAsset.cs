@@ -41,7 +41,7 @@ public partial class WardViewAsset : ScriptableObject
     public string GetRandomWard()
     { 
         var keys = _wardViewValues.Keys.ToList();
-        int randomIndex = UnityEngine.Random.Range(0, keys.Count);
+        var randomIndex = UnityEngine.Random.Range(0, keys.Count);
         return keys[randomIndex];
     }
 
