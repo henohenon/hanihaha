@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a0fd79f4f43b8c4a8fe94dbabdee9c4, type: 3}
   m_Name: AnswerData
   m_EditorClassIdentifier: 
-  wards: []
-  prefabs: []
-  __alchemySerializationData_AnswerDataAsset:
-    ward_prefabs:
-      isCreated: 1
-      data: '[]'
+  wards:
+  - tori
+  - agypt
+  - inu
+  __alchemySerializationData_WardDataAsset:
     unityObjectReferences: []

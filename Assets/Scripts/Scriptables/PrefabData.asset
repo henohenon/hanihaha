@@ -12,9 +12,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b45bf08713a9f4642ae739989d0e67ae, type: 3}
   m_Name: PrefabData
   m_EditorClassIdentifier: 
-  list: []
+  list:
+  - {fileID: 21300000, guid: 34034dc50139fd3439910d0e4af4ffa3, type: 3}
+  - {fileID: 21300000, guid: 15b4be0321b35874994fa32473fc3b42, type: 3}
+  - {fileID: 21300000, guid: 95ed919e803615646be2fdc7791696f6, type: 3}
+  - {fileID: 21300000, guid: 2428b06422c10bf44b6becfece63a72c, type: 3}
+  - {fileID: 21300000, guid: 9334739f11d970643b4d3f166154a745, type: 3}
+  - {fileID: 21300000, guid: 3e2c900da2d2fee44a4bcacebc306e3c, type: 3}
+  - {fileID: 21300000, guid: 02c763693509e134fa9e9dea6050b241, type: 3}
+  - {fileID: 21300000, guid: 22d4d52d1e6bcd945ba8f4353a8c9726, type: 3}
+  - {fileID: 21300000, guid: 46f245ddf2bd1e347a7e8fda72e26937, type: 3}
+  - {fileID: 21300000, guid: 938d2b4bb28f29d4bb71f4ed6f4d87d8, type: 3}
+  - {fileID: 21300000, guid: 43712f3a6e45ec4459fedb6ace7e9912, type: 3}
+  - {fileID: 21300000, guid: 3a0233e78121ed34e8fe805b2639520d, type: 3}
+  - {fileID: 21300000, guid: 1edddcc2952b23e408f62e3be1dc26aa, type: 3}
+  - {fileID: 21300000, guid: 667a20b9d898c0c4898723b1a871bfbc, type: 3}
+  - {fileID: 21300000, guid: 00ad0a1458c928246bd659726072940b, type: 3}
+  - {fileID: 21300000, guid: 18f4afe9c4e0c6b429269b7465799ed2, type: 3}
+  - {fileID: 21300000, guid: ae52fa7a4bef45940b995dfcb1ea6d27, type: 3}
+  - {fileID: 21300000, guid: 90819b2a1a6507a4f996e5a143d2cb57, type: 3}
+  - {fileID: 21300000, guid: e73e37d582691044f936eda23847b1b9, type: 3}
+  - {fileID: 21300000, guid: a403964936c6620448ad928d61204031, type: 3}
+  - {fileID: 21300000, guid: 2cae02128b9dadd4b919bf0261c7d6cc, type: 3}
+  - {fileID: 21300000, guid: 54b043c724474834fa6b3ae2a009b98f, type: 3}
+  - {fileID: 21300000, guid: 35a8c923d95dab54aa1840ed721221d4, type: 3}
+  - {fileID: 21300000, guid: a50bd34d1b780774a9efd2a51ac6bc37, type: 3}
+  - {fileID: 21300000, guid: 2f6115890baa73647a5f7cda1f060bc9, type: 3}
+  - {fileID: 21300000, guid: a6bd5fb59653ede45af76c6153592322, type: 3}
+  - {fileID: 21300000, guid: 61b027ba4b84fff4092e1217fb8b2f9f, type: 3}
   __alchemySerializationData_EachDataAsset1:
     ward_link:
       isCreated: 1
-      data: '[]'
+      data: "[\n    {\n        \"wardId\": 0,\n        \"valueId\": 0\n    },\n   
+        {\n        \"wardId\": 0,\n        \"valueId\": 1\n    },\n    {\n       
+        \"wardId\": 0,\n        \"valueId\": 2\n    },\n    {\n        \"wardId\":
+        0,\n        \"valueId\": 3\n    },\n    {\n        \"wardId\": 0,\n       
+        \"valueId\": 4\n    },\n    {\n        \"wardId\": 0,\n        \"valueId\":
+        5\n    },\n    {\n        \"wardId\": 0,\n        \"valueId\": 6\n    },\n   
+        {\n        \"wardId\": 0,\n        \"valueId\": 7\n    },\n    {\n       
+        \"wardId\": 0,\n        \"valueId\": 8\n    },\n    {\n        \"wardId\":
+        0,\n        \"valueId\": 9\n    },\n    {\n        \"wardId\": 0,\n       
+        \"valueId\": 10\n    },\n    {\n        \"wardId\": 0,\n        \"valueId\":
+        11\n    },\n    {\n        \"wardId\": 0,\n        \"valueId\": 12\n    },\n   
+        {\n        \"wardId\": 0,\n        \"valueId\": 13\n    },\n    {\n       
+        \"wardId\": 0,\n        \"valueId\": 14\n    },\n    {\n        \"wardId\":
+        0,\n        \"valueId\": 15\n    },\n    {\n        \"wardId\": 0,\n       
+        \"valueId\": 16\n    },\n    {\n        \"wardId\": 0,\n        \"valueId\":
+        17\n    },\n    {\n        \"wardId\": 0,\n        \"valueId\": 18\n    },\n   
+        {\n        \"wardId\": 1,\n        \"valueId\": 2\n    },\n    {\n       
+        \"wardId\": 1,\n        \"valueId\": 19\n    },\n    {\n        \"wardId\":
+        1,\n        \"valueId\": 20\n    },\n    {\n        \"wardId\": 1,\n       
+        \"valueId\": 21\n    },\n    {\n        \"wardId\": 2,\n        \"valueId\":
+        22\n    },\n    {\n        \"wardId\": 2,\n        \"valueId\": 23\n    },\n   
+        {\n        \"wardId\": 2,\n        \"valueId\": 24\n    },\n    {\n       
+        \"wardId\": 2,\n        \"valueId\": 25\n    },\n    {\n        \"wardId\":
+        -1,\n        \"valueId\": -1\n    },\n    {\n        \"wardId\": 2,\n       
+        \"valueId\": 26\n    },\n    {\n        \"wardId\": 2,\n        \"valueId\":
+        20\n    }\n]"
     unityObjectReferences: []

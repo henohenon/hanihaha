@@ -7,12 +7,12 @@
             "actions": [
                 {
                     "name": "click",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "4ce51d89-bd63-4ee1-9d53-e44a5f0a1bc6",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "move",
@@ -40,6 +40,28 @@
                     "name": "",
                     "id": "c5a52019-5540-400d-a65c-5bfdf4e7045b",
                     "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "29162311-5334-4001-897d-c65499d1c7ae",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a1ee2456-3df1-4db9-89d5-cc6e1e902527",
+                    "path": "<Pen>/press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

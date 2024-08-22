@@ -26,6 +26,8 @@ public class SequenceManager : MonoBehaviour
     private AudioManager _audioManager;
     [SerializeField]
     private ScoreManager _scoreManager;
+    [SerializeField]
+    private PointerSelectManager _pointerSelectManager;
     private float _timer = 10;
     
     private int _sameCount = 0;
@@ -106,6 +108,7 @@ public class SequenceManager : MonoBehaviour
         
         _timerHandle = LMotion.Create(_timer, 0, _timer).WithOnComplete(() =>
         {
+            _pointerSelectManager.IsCanSelect = false;
             _noGameUIManager.SetScore(_scoreManager.GetScore());
             _audioManager.SetIsPlayLimit(false);
             if (_isHighScore)
@@ -153,6 +156,7 @@ public class SequenceManager : MonoBehaviour
     
     private void ForNextTarget()
     {
+        _pointerSelectManager.IsCanSelect = false;
         _timerHandle.PlaybackSpeed = 0;
 
         // 値をクリア
@@ -179,6 +183,7 @@ public class SequenceManager : MonoBehaviour
         
         _timerHandle.PlaybackSpeed = 1;
         _screenUIManager.ChangeScreen(ScreenType.Game);
+        _pointerSelectManager.IsCanSelect = true;
     }
 
     private void AddTime(float addTime)

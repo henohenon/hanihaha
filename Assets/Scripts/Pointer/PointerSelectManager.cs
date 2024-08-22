@@ -13,11 +13,14 @@ public class PointerSelectManager : MonoBehaviour
     
     [SerializeField]
     private InputActionProperty _inputActionMap;
+
+    public bool IsCanSelect = false;
     
     private void Start()
     {
         _inputActionMap.action.started += ctx =>
         {
+            if(!IsCanSelect) return;
             if (_currentSelectable != null)
             {
                 var selectables = _currentSelectable.ToList();

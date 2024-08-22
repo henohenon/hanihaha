@@ -13,7 +13,7 @@ public class SpriteViewAsset : EachViewAsset<Sprite>
 public partial class EachViewAsset<T> : ScriptableObject
 {
     [AlchemySerializeField, NonSerialized]
-    public Dictionary<T, List<string>> _wardViewValues = new ();
+    public Dictionary<T, List<string>> _wardViewValues;
     
     [Button]
     public void Clear()

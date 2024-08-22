@@ -11,7 +11,7 @@ using UnityEngine;
 public partial class WardViewAsset : ScriptableObject
 {
     [AlchemySerializeField, NonSerialized]
-    public Dictionary<string, WardViewValues> _wardViewValues = new ();
+    public Dictionary<string, WardViewValues> _wardViewValues;
     
     [Button]
     public void Clear()

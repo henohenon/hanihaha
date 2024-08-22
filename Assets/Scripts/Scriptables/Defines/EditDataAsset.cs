@@ -1,10 +1,10 @@
 using System;
 using Alchemy.Inspector;
 using Alchemy.Serialization;
+using UnityEditor;
 using UnityEngine;
 
 
-[AlchemySerialize]
 [CreateAssetMenu(fileName = "EditData", menuName = "Scriptable/EditDataAsset")]
 public partial class EditDataAsset : ScriptableObject
 {
@@ -17,6 +17,7 @@ public partial class EditDataAsset : ScriptableObject
     [Button]
     public void Add()
     {
+        Debug.Log(wardInput);
         // 空白ならエラー
         if (wardInput == "")
         {
@@ -35,7 +36,6 @@ public partial class EditDataAsset : ScriptableObject
             spriteView.AddEachWard(spriteInput, wardInput);
         }
     }
-
 
 
     [BoxGroup("Functions")]
@@ -80,15 +80,27 @@ public partial class EditDataAsset : ScriptableObject
         {
             wardData.RemoveWard(wardInput);
         }
-        
     }
+    
+    [BoxGroup("Functions")]
+    [Button]
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public void Save()
+    {
+        EditorUtility.SetDirty(wardData);
+        EditorUtility.SetDirty(spriteData);
+        EditorUtility.SetDirty(wardView);
+        EditorUtility.SetDirty(spriteView);
+        AssetDatabase.SaveAssets();
+    }
+
 
     [BoxGroup("Views")]
     public bool viewEdit = false;
-    [BoxGroup("Views")] [EnableIf("viewEdit")] 
+    [BoxGroup("Views")] [EnableIf("viewEdit")] [SerializeReference]
     [InlineEditor] public WardViewAsset wardView;
     
-    [BoxGroup("Views")] [EnableIf("viewEdit")] 
+    [BoxGroup("Views")] [EnableIf("viewEdit")] [SerializeReference]
     [InlineEditor] public SpriteViewAsset spriteView;
 
     [BoxGroup("Views")] 
@@ -114,12 +126,12 @@ public partial class EditDataAsset : ScriptableObject
     [BoxGroup("Datas")]
     public bool dataEdit = false;
 
-    [BoxGroup("Datas")] [InlineEditor] [EnableIf("dataEdit")] 
+    [BoxGroup("Datas")] [InlineEditor] [EnableIf("dataEdit")] [SerializeReference]
     public WardDataAsset wardData;
-    [BoxGroup("Datas")] [InlineEditor] [EnableIf("dataEdit")] 
+    [BoxGroup("Datas")] [InlineEditor] [EnableIf("dataEdit")] [SerializeReference]
     public PrefabDataAsset spriteData;
-    
-    [BoxGroup("Datas")] 
+
+    [BoxGroup("Datas")]
     [Button]
     private void GenerateFromView()
     {
@@ -128,12 +140,12 @@ public partial class EditDataAsset : ScriptableObject
         {
             wardData.GetOrAdd(ward);
         }
-        
+
         spriteData.Clear();
         foreach (var pair in spriteView._wardViewValues)
         {
             spriteData.AddListItem(pair.Key);
-            
+
             foreach (var ward in pair.Value)
             {
                 var wardIndex = wardData.GetOrMinus(ward);

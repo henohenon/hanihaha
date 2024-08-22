@@ -6,15 +6,47 @@
   <component name="ChangeListManager">
     <list default="true" id="316b81c6-f56a-460c-8464-45f40629beb6" name="変更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.hanihaha/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.hanihaha/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardsManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Score/ScoreManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Score/ScoreManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/おすわりハト.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/おすわりハト.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/おすわり白バト.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/おすわり白バト.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/こっち向きのダックスフンド.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/こっち向きのダックスフンド.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/エジプト神（イヌ型）.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/エジプト神（イヌ型）.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/エジプト神（トリ型）.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/エジプト神（トリ型）.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/エジプト神（ヒト型）.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/エジプト神（ヒト型）.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/カラス.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/カラス.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/クジャク.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/クジャク.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/クジャク2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/クジャク2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/サタケ犬.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/サタケ犬.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/チビイヌ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/チビイヌ.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/デカイヌ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/デカイヌ.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/ドーベルマン.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/ドーベルマン.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/ハト.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/ハト.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/ヒヨコ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/ヒヨコ.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/ピラミッド.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/ピラミッド.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/前を向いたペンギン.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/前を向いたペンギン.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/左を向いたペンギン.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/左を向いたペンギン.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/座っているカラス.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/座っているカラス.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/横向きのクジャク.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/横向きのクジャク.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/横向きのクジャク2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/横向きのクジャク2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/横向きのシマエナガ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/横向きのシマエナガ.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/横向きのダックスフンド.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/横向きのダックスフンド.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/白バト.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/白バト.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/白鳥の男の子.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/白鳥の男の子.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/立っているカラス.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/立っているカラス.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/翼をひろげたカラス.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/翼をひろげたカラス.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/葉物野菜.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/葉物野菜.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/鶴.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/鶴.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Controls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Controls.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pointer/PointerSelectManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pointer/PointerSelectManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/AnswerData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/AnswerData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/Defines/EachViewAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/Defines/EachViewAsset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/Defines/EditDataAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/Defines/EditDataAsset.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/Defines/WardViewAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/Defines/WardViewAsset.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/Editor.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/Editor.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/PrefabData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/PrefabData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/SpriteViewData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/SpriteViewData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/WardViewData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/WardViewData.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SequenceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SequenceManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/GameUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/GameUIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/ScreenUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ScreenUIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/GameUI.uss" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/GameUI.uss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/GameUI.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/GameUI.uxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,9 +77,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/06b24f3f8f804fdfb8ea805f63cc29b01f1c00/9d/ce3c38c0/Label.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6de24b6f6601482bb2f559a1760cc7898f200/ee/d0587260/Subject`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6e4d42f29c6d4de498866a408486511d9ace00/13/64ec69c6/EditorWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/dc/3efde49a/ScriptableObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/f6/57368878/Color.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Timer/TimerManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Scriptables/EditorSaver.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/GameUIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/NoGameUIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.annulusgames.alchemy/Editor/Alchemy.Editor.asmdef" root0="SKIP_HIGHLIGHTING" />
@@ -67,6 +100,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.annulusgames.lit-motion/Runtime/MotionDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.annulusgames.lit-motion/Tests/Runtime/AddToTest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.r3/Runtime/SerializableReactiveProperty.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Actions/InputActionState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics/Tests/Tests/Shared/TestInt4.gen.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics/Tests/Tests/Shared/TestPlane.cs" root0="SKIP_HIGHLIGHTING" />
@@ -160,7 +194,9 @@
       <workItem from="1723678761436" duration="6476000" />
       <workItem from="1723705864970" duration="4600000" />
       <workItem from="1723766201952" duration="12893000" />
-      <workItem from="1723887790715" duration="5577000" />
+      <workItem from="1723887790715" duration="12698000" />
+      <workItem from="1724293593960" duration="2728000" />
+      <workItem from="1724326468460" duration="3417000" />
     </task>
     <servers />
   </component>
