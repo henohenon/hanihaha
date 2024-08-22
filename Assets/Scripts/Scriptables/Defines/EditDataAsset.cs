@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Alchemy.Inspector;
 using Alchemy.Serialization;
 using UnityEditor;
@@ -97,12 +98,13 @@ public partial class EditDataAsset : ScriptableObject
 
     [BoxGroup("Views")]
     public bool viewEdit = false;
-    [BoxGroup("Views")] [EnableIf("viewEdit")] [SerializeReference]
+    [BoxGroup("Views")] [EnableIf("viewEdit")]
     [InlineEditor] public WardViewAsset wardView;
     
-    [BoxGroup("Views")] [EnableIf("viewEdit")] [SerializeReference]
+    [BoxGroup("Views")] [EnableIf("viewEdit")]
     [InlineEditor] public SpriteViewAsset spriteView;
 
+    
     [BoxGroup("Views")] 
     [Button]
     private void GenerateFromData()
@@ -113,22 +115,22 @@ public partial class EditDataAsset : ScriptableObject
             if(link.wardId < 0 || link.wardId >= wardData.wards.Count || link.valueId < 0 || link.valueId >= spriteData.list.Count ) continue;
             wardView.AddWardEach(wardData.wards[link.wardId], spriteData.list[link.valueId]);
         }
-        
+
         spriteView.Clear();
         foreach (var link in spriteData.ward_link)
         {
             if(link.wardId < 0 || link.wardId >= wardData.wards.Count || link.valueId < 0 || link.valueId >= spriteData.list.Count ) continue;
             spriteView.AddEachWard(spriteData.list[link.valueId], wardData.wards[link.wardId]);
         }
-
     }
 
     [BoxGroup("Datas")]
     public bool dataEdit = false;
 
-    [BoxGroup("Datas")] [InlineEditor] [EnableIf("dataEdit")] [SerializeReference]
+    [BoxGroup("Datas")] [InlineEditor] [EnableIf("dataEdit")]
     public WardDataAsset wardData;
-    [BoxGroup("Datas")] [InlineEditor] [EnableIf("dataEdit")] [SerializeReference]
+    [BoxGroup("Datas")] [InlineEditor] [EnableIf("dataEdit")]
+    
     public PrefabDataAsset spriteData;
 
     [BoxGroup("Datas")]

@@ -8,12 +8,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SpriteData", menuName = "Scriptable/Data/Each/SpriteData")]
 public class PrefabDataAsset: EachDataAsset<Sprite> { }
 
-[AlchemySerialize]
 public partial class EachDataAsset<T> : ScriptableObject
 {
     public List<T> list = new ();
     
-    [AlchemySerializeField, NonSerialized]
     public List<WardValueLink> ward_link = new ();
     
     [Button]

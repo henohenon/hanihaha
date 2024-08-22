@@ -5,7 +5,6 @@ using Alchemy.Inspector;
 using Alchemy.Serialization;
 using UnityEngine;
 
-[AlchemySerialize]
 [CreateAssetMenu(fileName = "AnswerData", menuName = "Scriptable/Data/WardData")]
 public partial class WardDataAsset : ScriptableObject
 {

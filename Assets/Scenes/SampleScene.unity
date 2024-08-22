@@ -999,7 +999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62eb47138c67b3418f32d10f7e6c93f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wardViewAsset: {fileID: 11400000, guid: c07cac1cea1b50a4098f2ef1da5ddd47, type: 2}
+  _spriteViewAsset: {fileID: 11400000, guid: 1e29fbf44cafa5f41b483d88d04506f6, type: 2}
   _answerCardsManager: {fileID: 1843496934}
   _gameUIManager: {fileID: 1899052325}
   _screenUIManager: {fileID: 1899052326}

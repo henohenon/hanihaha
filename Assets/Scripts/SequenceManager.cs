@@ -13,7 +13,7 @@ public class SequenceManager : MonoBehaviour
     private float _timerDefault = 10;
 
     [SerializeField]
-    private WardViewAsset _wardViewAsset;
+    private SpriteViewAsset _spriteViewAsset;
     [SerializeField]
     private AnswerCardsManager _answerCardsManager;
     [SerializeField]
@@ -32,7 +32,7 @@ public class SequenceManager : MonoBehaviour
     
     private int _sameCount = 0;
     private int _answerCount = 0;
-    private string _targetWard;
+    private Sprite _target;
     private bool _isHighScore = false;
     
     private DifficultyLevel _currentLevel;
@@ -135,21 +135,21 @@ public class SequenceManager : MonoBehaviour
     
     private void GenerateAnswerCards()
     {
-        var correctProp = _wardViewAsset.GetCorrectAnswerProp(_targetWard);
-        _answerCardsManager.CreateAnswerCard(correctProp.sprite, true);
-        _sameCount++;
-        
         var cardNumbs = Random.Range(_currentLevel.minCardNum, _currentLevel.maxCardNum);
         for (int i = 0; i < cardNumbs; i++)
         {
-            var ward = _wardViewAsset.GetRandomWard();
-            var prop = _wardViewAsset.GetCorrectAnswerProp(ward);
-            var isSame = ward == _targetWard;
-            _answerCardsManager.CreateAnswerCard(prop.sprite, isSame);
+            var sprite = _spriteViewAsset.GetRandom();
+            var isSame = _spriteViewAsset.IsSame(_target, sprite);
+            _answerCardsManager.CreateAnswerCard(sprite, isSame);
             
             if (isSame)
             {
                 _sameCount++;
+            }
+
+            if (i + 1 >= cardNumbs)
+            {
+                i--;
             }
         }
     }
@@ -165,10 +165,9 @@ public class SequenceManager : MonoBehaviour
         _answerCardsManager.ClearAnswerCards();
 
         // 新ターゲット
-        _targetWard = _wardViewAsset.GetRandomWard();
-        var questionProp = _wardViewAsset.GetCorrectAnswerProp(_targetWard);
+        _target = _spriteViewAsset.GetRandom();
         // UI更新
-        _gameUIManager.UpdateTarget(questionProp.sprite);
+        _gameUIManager.UpdateTarget(_target);
         _screenUIManager.ChangeScreen(ScreenType.NextTarget);
         _audioManager.PlayNextTargetSound();
         // アンサーカード生成
