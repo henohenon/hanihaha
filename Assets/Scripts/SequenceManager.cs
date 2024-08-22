@@ -147,7 +147,7 @@ public class SequenceManager : MonoBehaviour
                 _sameCount++;
             }
 
-            if (i + 1 >= cardNumbs)
+            if (_sameCount <= 0 && i + 1 >= cardNumbs)
             {
                 i--;
             }
@@ -177,7 +177,7 @@ public class SequenceManager : MonoBehaviour
     private async void UpdateTarget()
     {
         ForNextTarget();
-        
+     
         await UniTask.Delay(TimeSpan.FromSeconds(1));
         
         _timerHandle.PlaybackSpeed = 1;

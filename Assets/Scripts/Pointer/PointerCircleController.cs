@@ -26,6 +26,7 @@ public class PointerCircleController : MonoBehaviour
         // マウス位置に移動
         _moveAction.action.performed += ctx =>
         {
+            Debug.Log("Move");
             Vector2 pos = ctx.ReadValue<Vector2>();
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(pos.x, pos.y, 0));
         
