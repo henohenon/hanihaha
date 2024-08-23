@@ -36,7 +36,7 @@ public class AnswerCardsManager : MonoBehaviour
     private void ResetBorderSize()
     {
         var cam = Camera.main;
-        var height = 2f * cam.orthographicSize;
+        var height = 2f * cam.orthographicSize - 2;
         var width = height * cam.aspect;
         
         _borderSize = new Vector2(width, height);
@@ -84,7 +84,7 @@ public class AnswerCardsManager : MonoBehaviour
     public void AddComboCard(int comboIndex)
     {
         var instancePos = _lastSelectedPos;
-        instancePos.x = 1;
+        instancePos.z = 1;
         var comboCardInstance = Instantiate(comboTextPrefab, instancePos, Quaternion.identity, transform);
         new ComboCardController(comboIndex, comboCardInstance);
     }

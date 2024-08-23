@@ -8,6 +8,12 @@
 .Title #Title{
     display: flex;
 }
+.Title #Footer{
+    display: none;
+}
+.Title #Header{
+    display: none;
+}
 
 .Limit #Time{
     color: red;
@@ -47,9 +53,13 @@
 
 #End{
     display: none;
+    background-color: rgba(0, 0, 0, 0.75);
 }
 #HighScore{
     display: none;
+}
+#Score{
+     color: rgb(255, 255, 255);
 }
 .GameOver #End{
     display: flex;
@@ -57,6 +67,18 @@
 .HighScore #HighScore{
     display: flex;
 }
+.HighScore #End{
+    background-color: rgba(0, 0, 0, 0);
+}
 .HighScore #GameOver{
     display: none;
+}
+.HighScore #Footer{
+    display: none;
+}
+.HighScore #Header{
+    display: none;
+}
+.HighScore #Score{
+    color: rgb(0, 255, 0);
 }

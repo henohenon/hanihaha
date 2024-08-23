@@ -47,6 +47,6 @@ public class NoGameUIManager : MonoBehaviour
     
     public void SetScore(int score)
     {
-        _scoreLabel.text = "Score: " + score.ToString();
+        _scoreLabel.text = "Score " + score.ToString();
     }
 }
