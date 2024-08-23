@@ -1,0 +1,6 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement style="flex-grow: 1; flex-direction: row; position: relative; width: 100%; height: 100%;">
+        <engine:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/UIpackSheet_transparent.png?fileID=1785337604&amp;guid=83a43cca929d38f48a8b371d2ab0c0e1&amp;type=3#UIpackSheet_transparent_214&quot;); -unity-background-scale-mode: scale-and-crop; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0; -unity-slice-scale: 2px;" />
+        <engine:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/UIpackSheet_transparent.png?fileID=-1904530851&amp;guid=83a43cca929d38f48a8b371d2ab0c0e1&amp;type=3#UIpackSheet_transparent_215&quot;); -unity-slice-scale: 2px;" />
+    </engine:VisualElement>
+</engine:UXML>

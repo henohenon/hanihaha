@@ -7,11 +7,10 @@
     <list default="true" id="316b81c6-f56a-460c-8464-45f40629beb6" name="変更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.hanihaha/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.hanihaha/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardsManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NoGameUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/NoGameUIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/GameUI.uss" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/GameUI.uss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/GameUI.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/GameUI.uxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/haikeei (4) Variant.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/haikeei (4) Variant.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
