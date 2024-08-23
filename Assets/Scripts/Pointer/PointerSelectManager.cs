@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using R3;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -18,16 +19,16 @@ public class PointerSelectManager : MonoBehaviour
     
     private void Start()
     {
-        _inputActionMap.action.started += ctx =>
+        _inputActionMap.action.performed += ctx =>
         {
             if(!IsCanSelect) return;
-            if (_currentSelectable != null)
+            var hits = Physics2D.CircleCastAll(transform.position, transform.localScale.x/2, Vector2.zero);
+            
+            foreach (var hit in hits)
             {
-                var selectables = _currentSelectable.ToList();
-                
-                foreach (var selectable in selectables)
+                var selectable = hit.collider.GetComponent<IPointable>();
+                if (selectable != null)
                 {
-                    if (selectable == null) continue;
                     selectable.onClick.OnNext(Unit.Default);
                 }
             }

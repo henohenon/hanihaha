@@ -46,7 +46,6 @@ public partial class EachViewAsset<T> : ScriptableObject
     public T GetRandom()
     { 
         var keys = _wardViewValues.Keys.ToList();
-        Debug.Log(keys.Count);
         var randomIndex = UnityEngine.Random.Range(0, keys.Count-1);
         return keys[randomIndex];
     }

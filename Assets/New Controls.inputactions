@@ -7,12 +7,12 @@
             "actions": [
                 {
                     "name": "click",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "4ce51d89-bd63-4ee1-9d53-e44a5f0a1bc6",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "move",
@@ -49,19 +49,8 @@
                 },
                 {
                     "name": "",
-                    "id": "29162311-5334-4001-897d-c65499d1c7ae",
-                    "path": "<Touchscreen>/Press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a1ee2456-3df1-4db9-89d5-cc6e1e902527",
-                    "path": "<Pen>/press",
+                    "id": "7ba6f79a-e210-422f-a8f9-309f6f96b0fb",
+                    "path": "<Touchscreen>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
