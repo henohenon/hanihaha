@@ -8,7 +8,8 @@ public class TimerManager : MonoBehaviour
     private AudioManager _audioManager;
     [SerializeField]
     private GameUIManager _gameUIManager;
-
+    [SerializeField]
+    private BackGroundManager _backgroundManager;
     
     private float _timer = 10;
     private MotionHandle _timerHandle;
@@ -38,6 +39,7 @@ public class TimerManager : MonoBehaviour
             _ui.SetTimer(_timer);
             var isLimit = _timer <= 5;
             _audioManager.SetIsPlayLimit(isLimit);
+            _backgroundManager.SetLimit(isLimit);
             _ui.SetLimit(isLimit);
         }).AddTo(this);
     }

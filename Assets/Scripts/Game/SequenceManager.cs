@@ -30,6 +30,8 @@ public class SequenceManager : MonoBehaviour
     private TimerManager _timerManager;
     [SerializeField] 
     private PointerSelectManager _pointerSelectManager;
+    [SerializeField]
+    private BackGroundManager _backGroundManager;
     
     private int _sameCount = 0;
     private int _answerCount = 0;
@@ -60,20 +62,24 @@ public class SequenceManager : MonoBehaviour
         {
             _gameUIManager.AddAnswerCard(sprite);
             _answerCount++;
-            _audioManager.PlaySuccessSound();
             
             
             var deltaTime = Time.time - lastAnswerTime;
             if (comboCount == -1 || deltaTime < 0.5f)
             {
-                comboCount+=2;
+                comboCount++;
                 if (comboCount != 0)
                 {
                     _answerCardsManager.AddComboCard(comboCount);
                     _timerManager.AddTime(GetComboAddTime(comboCount));
                 }
+            }else
+            {
+                comboCount = 0;
             }
             lastAnswerTime = Time.time;
+            _audioManager.PlaySuccessSound(comboCount >= 1);
+            
             if (_answerCount == _sameCount)
             {
                 _timerManager.AddTime(_currentLevel.eachPlusTime);
@@ -99,16 +105,19 @@ public class SequenceManager : MonoBehaviour
             _pointerSelectManager.IsCanSelect = false;
             _noGameUIManager.SetScore(_scoreManager.GetScore());
             _audioManager.SetIsPlayLimit(false);
+            _backGroundManager.SetLimit(false);
             if (_isHighScore)
             {
                 _audioManager.PlayHighScoreSound();
                 _scoreManager.SendScore();
                 _isHighScore = false;
+                _backGroundManager.ChangeScreen(ScreenType.HighScore);
                 _screenUIManager.ChangeScreen(ScreenType.HighScore);
             }
             else
             {
                 _audioManager.PlayGameOverSound();
+                _backGroundManager.ChangeScreen(ScreenType.GameOver);
                 _screenUIManager.ChangeScreen(ScreenType.GameOver);
             }
 
@@ -118,10 +127,12 @@ public class SequenceManager : MonoBehaviour
     private void GoToTitle()
     {
         _screenUIManager.ChangeScreen(ScreenType.Title);
+        _backGroundManager.ChangeScreen(ScreenType.Title);
     }
 
     private void ReStartGame()
     {
+        _audioManager.PlayGameStartSound();
         _timerManager.SetTime(_timerDefault);
         _scoreManager.ResetScore();
         _screenUIManager.ChangeScreen(ScreenType.Game);
@@ -164,7 +175,7 @@ public class SequenceManager : MonoBehaviour
         // UI更新
         _gameUIManager.UpdateTarget(_target);
         _screenUIManager.ChangeScreen(ScreenType.NextTarget);
-        _audioManager.PlayNextTargetSound();
+        _backGroundManager.ChangeScreen(ScreenType.NextTarget);
         // アンサーカード生成
         GenerateAnswerCards();
     }
@@ -177,8 +188,10 @@ public class SequenceManager : MonoBehaviour
         
         _timerManager.SetPause(false);
         _screenUIManager.ChangeScreen(ScreenType.Game);
+        _backGroundManager.ChangeScreen(ScreenType.Game);
         lastAnswerTime = Time.time;
         comboCount = -1;
+        _audioManager.PlayNextTargetSound();
         _pointerSelectManager.IsCanSelect = true;
     }
 

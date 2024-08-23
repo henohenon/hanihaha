@@ -5,8 +5,11 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField]
     private AudioSource _effectSource;
+    [SerializeField] 
+    private AudioSource _highPitchSource;
     [SerializeField]
     private AudioSource _limitSource;
+
     
     [SerializeField]
     private AudioClip _successClip;
@@ -15,43 +18,50 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip _nextTargetClip;
     [SerializeField]
+    private AudioClip _gameStartClip;
+    [SerializeField]
     private AudioClip _gameOverClip;
     [SerializeField]
     private AudioClip _highScoreClip;
-
-    private AudioSource _audioSource;
     
-    private void Awake()
+    public void PlayGameStartSound()
     {
-        _audioSource = GetComponent<AudioSource>();
+        _effectSource.PlayOneShot(_gameStartClip);
     }
     
     [Button]
-    public void PlaySuccessSound()
+    public void PlaySuccessSound(bool isCombo)
     {
-        _audioSource.PlayOneShot(_successClip);
+        if (isCombo)
+        {
+            _highPitchSource.PlayOneShot(_successClip);
+        }
+        else
+        {
+            _effectSource.PlayOneShot(_successClip);
+        }
     }
     
     [Button]
     public void PlayFailSound()
     {
-        _audioSource.PlayOneShot(_failClip);
+        _effectSource.PlayOneShot(_failClip);
     }
     
     [Button]
     public void PlayNextTargetSound()
     {
-        _audioSource.PlayOneShot(_nextTargetClip);
+        _effectSource.PlayOneShot(_nextTargetClip);
     }
     
     public void PlayGameOverSound()
     {
-        _audioSource.PlayOneShot(_gameOverClip);
+        _effectSource.PlayOneShot(_gameOverClip);
     }
     
     public void PlayHighScoreSound()
     {
-        _audioSource.PlayOneShot(_highScoreClip);
+        _effectSource.PlayOneShot(_highScoreClip);
     }
     
     public void SetIsPlayLimit(bool isPlay)

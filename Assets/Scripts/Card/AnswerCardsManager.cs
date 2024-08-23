@@ -61,8 +61,8 @@ public class AnswerCardsManager : MonoBehaviour
         var spawnPos = new Vector3(
             Random.Range(-_spawnSize.x / 2, _spawnSize.x / 2), 
             Random.Range(-_spawnSize.y / 2, _spawnSize.y / 2), 0);
-        
-        var card = Instantiate(answerCardPrefab, spawnPos, Quaternion.identity, transform);
+        var randomRot = Random.Range(0, 360);
+        var card = Instantiate(answerCardPrefab, spawnPos, Quaternion.Euler(0, 0, randomRot), transform);
         card.Init(sprite);
         _answerCards.Add(card);
         
@@ -83,7 +83,9 @@ public class AnswerCardsManager : MonoBehaviour
 
     public void AddComboCard(int comboIndex)
     {
-        var comboCardInstance = Instantiate(comboTextPrefab, _lastSelectedPos, Quaternion.identity, transform);
+        var instancePos = _lastSelectedPos;
+        instancePos.x = 1;
+        var comboCardInstance = Instantiate(comboTextPrefab, instancePos, Quaternion.identity, transform);
         new ComboCardController(comboIndex, comboCardInstance);
     }
 }
