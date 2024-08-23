@@ -88,11 +88,14 @@ public partial class EditDataAsset : ScriptableObject
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Save()
     {
+#if UNITY_EDITOR
+
         EditorUtility.SetDirty(wardData);
         EditorUtility.SetDirty(spriteData);
         EditorUtility.SetDirty(wardView);
         EditorUtility.SetDirty(spriteView);
         AssetDatabase.SaveAssets();
+#endif
     }
 
 

@@ -27,8 +27,10 @@ public class SequenceManager : MonoBehaviour
     [SerializeField]
     private ScoreManager _scoreManager;
     [SerializeField]
+    private TimerManager _timerManager;
+    [SerializeField]
     private PointerSelectManager _pointerSelectManager;
-    private float _timer = 10;
+    
     
     private int _sameCount = 0;
     private int _answerCount = 0;
@@ -37,7 +39,6 @@ public class SequenceManager : MonoBehaviour
     
     private DifficultyLevel _currentLevel;
     
-    private MotionHandle _timerHandle; 
     private void Start()
     {
         _noGameUIManager.OnStart.Subscribe(_ =>
@@ -57,57 +58,27 @@ public class SequenceManager : MonoBehaviour
         {
             _gameUIManager.AddAnswerCard(sprite);
             _answerCount++;
+            _audioManager.PlaySuccessSound();
             if (_answerCount == _sameCount)
             {
-                AddTime(_currentLevel.eachPlusTime);
+                _timerManager.AddTime(_currentLevel.eachPlusTime);
                 _isHighScore = _scoreManager.AddScore();
                 UpdateTarget();
-            }
-            else
-            {
-                _audioManager.PlaySuccessSound();
             }
         }).AddTo(this);
         _answerCardsManager.OnFailure.Subscribe(_ =>
         {
             _audioManager.PlayFailSound();
-            MinusTime(_currentLevel.eachMinusTime);
+            _timerManager.MinusTime(_currentLevel.eachMinusTime);
         }).AddTo(this);
         
         _scoreManager.OnLevelUpdate.Subscribe(level =>
         {
             _currentLevel = level;
         }).AddTo(this);
-    }
-    
-    private void GoToTitle()
-    {
-        _screenUIManager.ChangeScreen(ScreenType.Title);
-    }
-
-    private void ReStartGame()
-    {
-        _timer = _timerDefault;
-        _scoreManager.ResetScore();
-        _screenUIManager.ChangeScreen(ScreenType.Game);
-        ResetTimer();
-        UpdateTarget();
-    }
-    
-    private void ResetTimer()
-    {
-        if (_timerHandle.IsActive())
-        {
-            _timerHandle.Cancel();
-        }
         
-        
-        var isLimit = _timer <= 5;
-        _audioManager.SetIsPlayLimit(isLimit);
-        _gameUIManager.SetLimit(isLimit);
-        
-        _timerHandle = LMotion.Create(_timer, 0, _timer).WithOnComplete(() =>
-        {
+        _timerManager.OnTimeUp.Subscribe(_ =>
+        {            
             _pointerSelectManager.IsCanSelect = false;
             _noGameUIManager.SetScore(_scoreManager.GetScore());
             _audioManager.SetIsPlayLimit(false);
@@ -123,14 +94,21 @@ public class SequenceManager : MonoBehaviour
                 _audioManager.PlayGameOverSound();
                 _screenUIManager.ChangeScreen(ScreenType.GameOver);
             }
-        }).BindWithState(_gameUIManager, (_time, _ui) =>
-        {
-            _timer = _time;
-            _ui.SetTimer(_timer);
-            var isLimit = _timer <= 5;
-            _audioManager.SetIsPlayLimit(isLimit);
-            _ui.SetLimit(isLimit);
+
         }).AddTo(this);
+    }
+    
+    private void GoToTitle()
+    {
+        _screenUIManager.ChangeScreen(ScreenType.Title);
+    }
+
+    private void ReStartGame()
+    {
+        _timerManager.SetTime(_timerDefault);
+        _scoreManager.ResetScore();
+        _screenUIManager.ChangeScreen(ScreenType.Game);
+        UpdateTarget();
     }
     
     private void GenerateAnswerCards()
@@ -157,8 +135,8 @@ public class SequenceManager : MonoBehaviour
     private void ForNextTarget()
     {
         _pointerSelectManager.IsCanSelect = false;
-        _timerHandle.PlaybackSpeed = 0;
-
+        _timerManager.SetPause(true);
+        
         // 値をクリア
         _answerCount = 0;
         _sameCount = 0;
@@ -178,24 +156,11 @@ public class SequenceManager : MonoBehaviour
     {
         ForNextTarget();
      
-        await UniTask.Delay(TimeSpan.FromSeconds(1));
+        await UniTask.Delay(TimeSpan.FromSeconds(1.5f));
         
-        _timerHandle.PlaybackSpeed = 1;
+        _timerManager.SetPause(false);
         _screenUIManager.ChangeScreen(ScreenType.Game);
         _pointerSelectManager.IsCanSelect = true;
     }
 
-    private void AddTime(float addTime)
-    {
-        _timer += addTime;
-        ResetTimer();
-        _gameUIManager.ShowPlusTime(addTime);
-    }
-    
-    private void MinusTime(float minusTime)
-    {
-        _timer -= minusTime;
-        ResetTimer();
-        _gameUIManager.ShowMinusTime(minusTime);
-    }
 }
