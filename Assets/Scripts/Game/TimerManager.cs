@@ -49,6 +49,7 @@ public class TimerManager : MonoBehaviour
     }
     public void AddTime(float addTime)
     {
+        if(addTime <= 0) return;
         _timer += addTime;
         ReStartTimer();
         _gameUIManager.ShowPlusTime(addTime);

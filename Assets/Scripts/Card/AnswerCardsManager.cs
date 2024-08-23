@@ -9,7 +9,10 @@ public class AnswerCardsManager : MonoBehaviour
 {
     [AssetsOnly]
     [SerializeField]
-    private AnswerCardController prefab;
+    private AnswerCardController answerCardPrefab;
+    [AssetsOnly]
+    [SerializeField]
+    private TextMesh comboTextPrefab;
     [SerializeField]
     private Transform _borderObj;
     
@@ -17,6 +20,7 @@ public class AnswerCardsManager : MonoBehaviour
     
     private Vector2 _spawnSize;
     private Vector2 _borderSize;
+    private Vector3 _lastSelectedPos;
 
     private Subject<Sprite> _onAnswer = new ();
     private Subject<Sprite> _onFialur = new ();
@@ -36,7 +40,7 @@ public class AnswerCardsManager : MonoBehaviour
         var width = height * cam.aspect;
         
         _borderSize = new Vector2(width, height);
-        _spawnSize = new Vector2(width - 1, height - 1);
+        _spawnSize = new Vector2(width - 3, height - 3);
         _borderObj.localScale = new Vector3(_borderSize.x, _borderSize.y, 1);
     }
     
@@ -58,13 +62,14 @@ public class AnswerCardsManager : MonoBehaviour
             Random.Range(-_spawnSize.x / 2, _spawnSize.x / 2), 
             Random.Range(-_spawnSize.y / 2, _spawnSize.y / 2), 0);
         
-        var card = Instantiate(prefab, spawnPos, Quaternion.identity, transform);
+        var card = Instantiate(answerCardPrefab, spawnPos, Quaternion.identity, transform);
         card.Init(sprite);
         _answerCards.Add(card);
         
         // クリック時の処理
         card.onClick.Subscribe(_ =>
         {
+            _lastSelectedPos = card.transform.position;
             if (isSame)
             {
                 _onAnswer.OnNext(sprite);
@@ -76,4 +81,9 @@ public class AnswerCardsManager : MonoBehaviour
         }).AddTo(card);
     }
 
+    public void AddComboCard(int comboIndex)
+    {
+        var comboCardInstance = Instantiate(comboTextPrefab, _lastSelectedPos, Quaternion.identity, transform);
+        new ComboCardController(comboIndex, comboCardInstance);
+    }
 }

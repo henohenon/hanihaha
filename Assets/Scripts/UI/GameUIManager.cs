@@ -80,7 +80,6 @@ public class GameUIManager : MonoBehaviour
     // アンサーカードを追加
     public void AddAnswerCard(Sprite sprite)
     {
-        Debug.Log("AddAnswerCard");
         var card = _answerCard.CloneTree();
         var cardImg = card.Q<VisualElement>(classes: "AnswerCard");
         cardImg.style.backgroundImage = new StyleBackground(sprite);

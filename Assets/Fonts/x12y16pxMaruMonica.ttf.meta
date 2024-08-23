@@ -12,7 +12,7 @@ TrueTypeFontImporter:
   - x12y16pxMaruMonica
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 0
+  fontRenderingMode: 3
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
   shouldRoundAdvanceValue: 1

@@ -28,9 +28,8 @@ public class SequenceManager : MonoBehaviour
     private ScoreManager _scoreManager;
     [SerializeField]
     private TimerManager _timerManager;
-    [SerializeField]
+    [SerializeField] 
     private PointerSelectManager _pointerSelectManager;
-    
     
     private int _sameCount = 0;
     private int _answerCount = 0;
@@ -38,6 +37,9 @@ public class SequenceManager : MonoBehaviour
     private bool _isHighScore = false;
     
     private DifficultyLevel _currentLevel;
+    
+    private float lastAnswerTime;
+    private int comboCount = 0;
     
     private void Start()
     {
@@ -59,15 +61,30 @@ public class SequenceManager : MonoBehaviour
             _gameUIManager.AddAnswerCard(sprite);
             _answerCount++;
             _audioManager.PlaySuccessSound();
+            
+            
+            var deltaTime = Time.time - lastAnswerTime;
+            if (comboCount == -1 || deltaTime < 0.5f)
+            {
+                comboCount+=2;
+                if (comboCount != 0)
+                {
+                    _answerCardsManager.AddComboCard(comboCount);
+                    _timerManager.AddTime(GetComboAddTime(comboCount));
+                }
+            }
+            lastAnswerTime = Time.time;
             if (_answerCount == _sameCount)
             {
                 _timerManager.AddTime(_currentLevel.eachPlusTime);
                 _isHighScore = _scoreManager.AddScore();
                 UpdateTarget();
             }
+            
         }).AddTo(this);
         _answerCardsManager.OnFailure.Subscribe(_ =>
         {
+            comboCount = -1;
             _audioManager.PlayFailSound();
             _timerManager.MinusTime(_currentLevel.eachMinusTime);
         }).AddTo(this);
@@ -160,7 +177,38 @@ public class SequenceManager : MonoBehaviour
         
         _timerManager.SetPause(false);
         _screenUIManager.ChangeScreen(ScreenType.Game);
+        lastAnswerTime = Time.time;
+        comboCount = -1;
         _pointerSelectManager.IsCanSelect = true;
     }
 
+    private float GetComboAddTime(int comboCount)
+    {
+        switch (comboCount)
+        {
+            case 0:
+                return 0;
+            case 1:
+                return 0.1f;
+            case 2:
+                return 0.1f;
+            case 3:
+                return 0.2f;
+            case 4:
+                return 0.2f;
+            case 5:
+                return 0.3f;
+            case 6:
+                return 0.3f;
+            case 7:
+                return 0.5f;
+            case 8:
+                return 0.5f;
+            case 9:
+                return 0.5f;
+            default:
+                return 0.5f + comboCount-0.9f * 0.1f;
+
+        }
+    }
 }
