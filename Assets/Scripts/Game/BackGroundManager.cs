@@ -23,7 +23,7 @@ public class BackGroundManager : MonoBehaviour
             (x, _mat) =>
             {
                 if(colorHandle.PlaybackSpeed == 0) return;
-                var color = Color.HSVToRGB(x, 1, 1);
+                var color = Color.HSVToRGB(x, 0.65f, 1);
                 _mat.color = color;
             });
         _whiteMaterial.color = Color.white;
