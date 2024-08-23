@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ef5fc5811af0e4cbe37ce173beea93, type: 3}
   m_Name: Editor
   m_EditorClassIdentifier: 
-  wardInput: inu
-  spriteInput: {fileID: 21300000, guid: 2cae02128b9dadd4b919bf0261c7d6cc, type: 3}
+  wardInput: tora
+  spriteInput: {fileID: 21300000, guid: 936d131380713ec4cafae25392958c31, type: 3}
   viewEdit: 1
   wardView: {fileID: 11400000, guid: c07cac1cea1b50a4098f2ef1da5ddd47, type: 2}
   spriteView: {fileID: 11400000, guid: 1e29fbf44cafa5f41b483d88d04506f6, type: 2}
