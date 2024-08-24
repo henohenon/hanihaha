@@ -26,16 +26,19 @@ MonoBehaviour:
         27,\n            28,\n            22,\n            29,\n            30,\n           
         31\n        ]\n    },\n    \"hito\": {\n        \"wardSprites\": [\n           
         32,\n            33,\n            34,\n            22,\n            2,\n           
-        21,\n            35,\n            18\n        ]\n    },\n    \"unchi\": {\n       
+        21,\n            35,\n            18,\n            36,\n            37,\n           
+        38,\n            39,\n            40\n        ]\n    },\n    \"unchi\": {\n       
         \"wardSprites\": [\n            32,\n            33,\n            34,\n           
-        35,\n            29,\n            36,\n            37,\n            38,\n           
-        39,\n            40,\n            41,\n            42,\n            30\n       
-        ]\n    },\n    \"neko\": {\n        \"wardSprites\": [\n            42,\n           
-        43,\n            44,\n            45,\n            46,\n            47,\n           
+        35,\n            29,\n            41,\n            42,\n            43,\n           
+        44,\n            45,\n            46,\n            47,\n            30\n       
+        ]\n    },\n    \"neko\": {\n        \"wardSprites\": [\n            47,\n           
         48,\n            49,\n            50,\n            51,\n            52,\n           
         53,\n            54,\n            55,\n            56,\n            57,\n           
-        58\n        ]\n    },\n    \"tora\": {\n        \"wardSprites\": [\n           
-        59,\n            60,\n            44\n        ]\n    }\n}"
+        58,\n            59,\n            60,\n            61,\n            62,\n           
+        63\n        ]\n    },\n    \"tora\": {\n        \"wardSprites\": [\n           
+        64,\n            65,\n            49\n        ]\n    },\n    \"alien\": {\n       
+        \"wardSprites\": [\n            66,\n            67,\n            68,\n           
+        69,\n            70,\n            71,\n            72\n        ]\n    }\n}"
     unityObjectReferences:
     - {fileID: 21300000, guid: 34034dc50139fd3439910d0e4af4ffa3, type: 3}
     - {fileID: 21300000, guid: 15b4be0321b35874994fa32473fc3b42, type: 3}
@@ -73,6 +76,11 @@ MonoBehaviour:
     - {fileID: 21300000, guid: d5cb7749bc5c62e4a85958b3d7b1f9e7, type: 3}
     - {fileID: 21300000, guid: 3505fb418c987d24095eda80e1b29543, type: 3}
     - {fileID: 21300000, guid: f5587f7eb9bf79647bd21e3d81976bed, type: 3}
+    - {fileID: 21300000, guid: dc6ccaddaa7f945498d9c750b0c75905, type: 3}
+    - {fileID: 21300000, guid: 373095e2d7e0d704da2573b19067b843, type: 3}
+    - {fileID: 21300000, guid: 187484497e3a4474681fbe73cc86ba62, type: 3}
+    - {fileID: 21300000, guid: d14be9e05dbb50a4f8c062f2e57bc911, type: 3}
+    - {fileID: 21300000, guid: d751c83092d539e458533a02d0fab4fb, type: 3}
     - {fileID: 21300000, guid: 9c11c7e7a2a21714a9208d479e566cf1, type: 3}
     - {fileID: 21300000, guid: 89c75d6d0a8e7ce4d9a43873bacca82b, type: 3}
     - {fileID: 21300000, guid: 2de783ac8a1efa14bb5476ad3fd967f3, type: 3}
@@ -98,3 +106,10 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 88942a09995f6bf499e1ddf197e1c0a8, type: 3}
     - {fileID: 21300000, guid: a0ec96641dfc41d47b7aea87dee09662, type: 3}
     - {fileID: 21300000, guid: 7fa012f2bfdc3ad4ab83aedef825cf81, type: 3}
+    - {fileID: 21300000, guid: 6e665c2fa92f9c54fa66656e0002e410, type: 3}
+    - {fileID: 21300000, guid: 3c2c9255a3468ef4e946d9535e4dcbaa, type: 3}
+    - {fileID: 21300000, guid: 60f4d2c85d1d87645be150233e84080c, type: 3}
+    - {fileID: 21300000, guid: f2f44892e7b114e40a41501d859a7b2f, type: 3}
+    - {fileID: 21300000, guid: 8bbb9ee04d1e784488d53c469b93e877, type: 3}
+    - {fileID: 21300000, guid: eff65863feffcef45af42defdee73480, type: 3}
+    - {fileID: 21300000, guid: e80a84dd0fa45c74e9dec8b218d10c6f, type: 3}

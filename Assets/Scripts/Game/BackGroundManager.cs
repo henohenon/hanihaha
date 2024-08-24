@@ -26,7 +26,7 @@ public class BackGroundManager : MonoBehaviour
                 var color = Color.HSVToRGB(x, 0.65f, 1);
                 _mat.color = color;
             });
-        _whiteMaterial.color = Color.white;
+        //_whiteMaterial.color = Color.white;
         ChangeScreen(ScreenType.Title);
     }
 
@@ -91,7 +91,7 @@ public class BackGroundManager : MonoBehaviour
         }
         else
         {
-            _whiteMaterial.color = Color.white;
+            //_whiteMaterial.color = Color.white;
             rotHandle.PlaybackSpeed = 1;
         }
     }
