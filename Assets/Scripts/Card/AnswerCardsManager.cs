@@ -9,7 +9,7 @@ public class AnswerCardsManager : MonoBehaviour
 {
     [AssetsOnly]
     [SerializeField]
-    private AnswerCardController answerCardPrefab;
+    private AnswerCardController[] answerCardPrefabs;
     [AssetsOnly]
     [SerializeField]
     private TextMesh comboTextPrefab;
@@ -63,7 +63,9 @@ public class AnswerCardsManager : MonoBehaviour
             Random.Range(-_spawnSize.x / 2, _spawnSize.x / 2), 
             Random.Range(-_spawnSize.y / 2, _spawnSize.y / 2), 0);
         var randomRot = Random.Range(0, 360);
-        var card = Instantiate(answerCardPrefab, spawnPos, Quaternion.Euler(0, 0, randomRot), transform);
+        
+        var randomIndex = Random.Range(0, answerCardPrefabs.Length);
+        var card = Instantiate(answerCardPrefabs[randomIndex], spawnPos, Quaternion.Euler(0, 0, randomRot), transform);
         card.Init(sprite);
         
         _answerCards.Add(card);

@@ -22,11 +22,11 @@ public class PointerSelectManager : MonoBehaviour
         _inputActionMap.action.performed += ctx =>
         {
             if(!IsCanSelect) return;
-            var hits = Physics2D.CircleCastAll(transform.position, transform.localScale.x/2, Vector2.zero);
+            var hits = Physics2D.OverlapCircleAll(transform.position, transform.localScale.x/2);
             
             foreach (var hit in hits)
             {
-                var selectable = hit.collider.GetComponent<IPointable>();
+                var selectable = hit.GetComponent<IPointable>();
                 if (selectable != null)
                 {
                     selectable.onClick.OnNext(Unit.Default);

@@ -128,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 142737530}
   - component: {fileID: 142737531}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: BorderesTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9b10d85298a724747b2180986e963bfb, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -345,7 +345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 404797059}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Borderes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 0.4
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -554,7 +554,7 @@ GameObject:
   - component: {fileID: 937364893}
   - component: {fileID: 937364889}
   - component: {fileID: 937364894}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SoundEffects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -914,7 +914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1528391039}
   - component: {fileID: 1528391040}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: BorderesRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -946,7 +946,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9b10d85298a724747b2180986e963bfb, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -992,7 +992,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1774011452}
   - component: {fileID: 1774011453}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: BorderesBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1024,7 +1024,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9b10d85298a724747b2180986e963bfb, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1142,7 +1142,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 994972126b2bc0e4e952c5fa79a0bf42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answerCardPrefab: {fileID: 189921820012172100, guid: 77a8560357d777448943b64a815ee47c, type: 3}
+  answerCardPrefabs:
+  - {fileID: 189921820012172100, guid: 77a8560357d777448943b64a815ee47c, type: 3}
+  - {fileID: 3722062167957306828, guid: 844e70c8ad8ef504c919a41293eb6d78, type: 3}
+  - {fileID: 8864472692948115590, guid: 42f0899d76b8eba4b9576900bd63799c, type: 3}
+  - {fileID: 8755121484054767452, guid: 3e2e645d79d1a3e4cb6dabc9e6ab33db, type: 3}
   comboTextPrefab: {fileID: 1245940459325483291, guid: 1e94ac2c3da635e46ac699b039dde66e, type: 3}
   _borderObj: {fileID: 404797059}
 --- !u!114 &1843496935
@@ -1170,7 +1174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1878183637}
   - component: {fileID: 1878183638}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: BorderesLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1202,7 +1206,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9b10d85298a724747b2180986e963bfb, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1393,7 +1397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec58dbb68c7d224f80e44476f582304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lightTrans: {fileID: 410087041}
+  _light: {fileID: 410087040}
   _circleTrans: {fileID: 4083501151345441244}
   _colorMaterial: {fileID: 2100000, guid: b3085429f5e13134eb1da0113b67f80c, type: 2}
   _whiteMaterial: {fileID: 2100000, guid: 5e909e60c226c454d9036c176b8288d1, type: 2}
