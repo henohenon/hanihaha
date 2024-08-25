@@ -9,7 +9,7 @@ public class AnswerCardsManager : MonoBehaviour
 {
     [AssetsOnly]
     [SerializeField]
-    private AnswerCardController answerCardPrefab;
+    private GameObject answerCardPrefab;
     [AssetsOnly]
     [SerializeField]
     private TextMesh comboTextPrefab;
@@ -49,7 +49,7 @@ public class AnswerCardsManager : MonoBehaviour
     {
         foreach (var card in _answerCards)
         {
-            Destroy(card.gameObject);
+            card.Destroy();
         }
         _answerCards.Clear();
     }
@@ -62,14 +62,15 @@ public class AnswerCardsManager : MonoBehaviour
             Random.Range(-_spawnSize.x / 2, _spawnSize.x / 2), 
             Random.Range(-_spawnSize.y / 2, _spawnSize.y / 2), 0);
         var randomRot = Random.Range(0, 360);
-        var card = Instantiate(answerCardPrefab, spawnPos, Quaternion.Euler(0, 0, randomRot), transform);
-        card.Init(sprite);
-        _answerCards.Add(card);
+        var cardObj = Instantiate(answerCardPrefab, spawnPos, Quaternion.Euler(0, 0, randomRot), transform);
+        var controller = new AnswerCardController(sprite, cardObj);
+        
+        _answerCards.Add(controller);
         
         // クリック時の処理
-        card.onClick.Subscribe(_ =>
+        controller.onClick.Subscribe(_ =>
         {
-            _lastSelectedPos = card.transform.position;
+            _lastSelectedPos = cardObj.transform.position;
             if (isSame)
             {
                 _onAnswer.OnNext(sprite);
@@ -78,7 +79,7 @@ public class AnswerCardsManager : MonoBehaviour
             {
                 _onFialur.OnNext(sprite);
             }
-        }).AddTo(card);
+        }).AddTo(cardObj);
     }
 
     public void AddComboCard(int comboIndex)

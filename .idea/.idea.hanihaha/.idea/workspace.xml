@@ -6,14 +6,27 @@
   <component name="ChangeListManager">
     <list default="true" id="316b81c6-f56a-460c-8464-45f40629beb6" name="変更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.hanihaha/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.hanihaha/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/BackGroundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/BackGroundManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/AnswerData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/AnswerData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/Editor.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/Editor.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/PrefabData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/PrefabData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/SpriteViewData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/SpriteViewData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/WardViewData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/WardViewData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/GameUI.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/GameUI.uxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/neko/うんち猫.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/neko/うんち猫.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/neko/しっぽを立てた黒ネコ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/neko/しっぽを立てた黒ネコ.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/neko/トラネコ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/neko/トラネコ.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/neko/ネコチャン.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/neko/ネコチャン.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/neko/三毛ネコ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/neko/三毛ネコ.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/neko/右手をあげた招き猫.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/neko/右手をあげた招き猫.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/neko/左手をあげた招き猫.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/neko/左手をあげた招き猫.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/neko/白い子ネコ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/neko/白い子ネコ.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/neko/白い座りネコ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/neko/白い座りネコ.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/neko/白ネコ (1).png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/neko/白ネコ (1).png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/neko/白ネコ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/neko/白ネコ.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/neko/茶色のネコ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/neko/茶色のネコ.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/neko/茶色の座りネコ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/neko/茶色の座りネコ.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/neko/靴下ネコ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/neko/靴下ネコ.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/neko/黒い座りネコ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/neko/黒い座りネコ.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/neko/黒ネコ (1).png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/neko/黒ネコ (1).png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/neko/黒ネコ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/neko/黒ネコ.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AnswerCard.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AnswerCard.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardsManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/haikeei (4) Variant 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/haikeei (4) Variant 1.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/haikeei (4) Variant.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/haikeei (4) Variant.mat" afterDir="false" />
     </list>
@@ -141,10 +154,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Unity エディターにアタッチ" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="21416">
+    <configuration name="Unity エディターにアタッチ" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="51216">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="21416" />
+      <option name="pid" value="51216" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -162,4 +175,29 @@
     <option name="unityProjectFolder" value="true" />
   </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardController.cs</url>
+          <line>19</line>
+          <properties documentPath="C:\projects\hanihaha\Assets\Scripts\Card\AnswerCardController.cs" containingFunctionPresentation="コンストラクター 'AnswerCardController'">
+            <startOffsets>
+              <option value="528" />
+            </startOffsets>
+            <endOffsets>
+              <option value="596" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#UnityEngine.Sprite" memberName="bounds" />
+        <PinnedItemInfo parentTag="Type#UnityEngine.Rect" memberName="size" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
 </project>

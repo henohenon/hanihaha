@@ -2,32 +2,33 @@ using System.Collections.Generic;
 using R3;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
-public class AnswerCardController : MonoBehaviour, IPointable
+public class AnswerCardController : IPointable
 {
-    
-    private SpriteRenderer _spriteRenderer;
-    private PolygonCollider2D _collider;
-    
-    private static readonly Subject<Unit> sampleStaticSubject = new();
-
     public Subject<bool> onHover { get; } = new ();
     public Subject<Unit> onClick { get; } = new ();
     
     private bool _isAnswered = false;
+    private GameObject _obj;
     
-    private Sprite _sprite;
-    
-    private void Start()
+
+    public AnswerCardController(Sprite sprite, GameObject obj)
     {
-        sampleStaticSubject.OnNext(Unit.Default);
-
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _collider = GetComponent<PolygonCollider2D>();
+        _obj = obj;
+        var _collider = _obj.GetComponent<PolygonCollider2D>();
+        var _meshRenderer = _obj.GetComponent<MeshRenderer>();
         
-        _spriteRenderer.sprite = _sprite;
+        var _spriteRenderer = _obj.GetComponentInChildren<SpriteRenderer>();
+        _spriteRenderer.sprite = sprite;
+        _meshRenderer.material.mainTexture = sprite.texture;
 
-        var physicsShapeCount = _sprite.GetPhysicsShapeCount();
+        _obj.transform.localScale = 
+            new Vector3(
+                sprite.rect.size.y / 500, 
+                sprite.rect.size.x / 500,
+                1
+            );
+        
+        var physicsShapeCount = sprite.GetPhysicsShapeCount();
 
         _collider.pathCount = physicsShapeCount;
 
@@ -36,7 +37,7 @@ public class AnswerCardController : MonoBehaviour, IPointable
         for ( var i = 0; i < physicsShapeCount; i++ )
         {
             physicsShape.Clear();
-            _sprite.GetPhysicsShape( i, physicsShape );
+            sprite.GetPhysicsShape( i, physicsShape );
             var points = physicsShape.ToArray();
             _collider.SetPath( i, points );
         }
@@ -46,28 +47,24 @@ public class AnswerCardController : MonoBehaviour, IPointable
             if (_isAnswered) return;
             if (isHovered)
             {
-                _spriteRenderer.color = Color.gray;
+                //_spriteRenderer.color = Color.gray;
             }
             else
             {
-                _spriteRenderer.color = Color.white;
+                //_spriteRenderer.color = Color.white;
             }
-        }).AddTo(this);
+        }).AddTo(_obj);
         
         onClick.Subscribe(_ =>
         {
-            _spriteRenderer.enabled = false;
+            //_spriteRenderer.enabled = false;
             _collider.enabled = false;
-        }).AddTo(this);
+        }).AddTo(_obj);
     }
 
-    public void Init(Sprite sprite)
+    public void Destroy()
     {
-        _sprite = sprite;
-    }
-
-    public void Answered(bool isSame)
-    {
+        GameObject.Destroy(_obj);
     }
 }
 
