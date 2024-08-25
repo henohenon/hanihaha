@@ -9,7 +9,7 @@ public class AnswerCardsManager : MonoBehaviour
 {
     [AssetsOnly]
     [SerializeField]
-    private GameObject answerCardPrefab;
+    private AnswerCardController answerCardPrefab;
     [AssetsOnly]
     [SerializeField]
     private TextMesh comboTextPrefab;
@@ -36,8 +36,9 @@ public class AnswerCardsManager : MonoBehaviour
     private void ResetBorderSize()
     {
         var cam = Camera.main;
-        var height = 2f * cam.orthographicSize - 2;
+        var height = 2f * cam.orthographicSize;
         var width = height * cam.aspect;
+        height -= 3;
         
         _borderSize = new Vector2(width, height);
         _spawnSize = new Vector2(width - 3, height - 3);
@@ -49,7 +50,7 @@ public class AnswerCardsManager : MonoBehaviour
     {
         foreach (var card in _answerCards)
         {
-            card.Destroy();
+            Destroy(card.gameObject);
         }
         _answerCards.Clear();
     }
@@ -62,15 +63,15 @@ public class AnswerCardsManager : MonoBehaviour
             Random.Range(-_spawnSize.x / 2, _spawnSize.x / 2), 
             Random.Range(-_spawnSize.y / 2, _spawnSize.y / 2), 0);
         var randomRot = Random.Range(0, 360);
-        var cardObj = Instantiate(answerCardPrefab, spawnPos, Quaternion.Euler(0, 0, randomRot), transform);
-        var controller = new AnswerCardController(sprite, cardObj);
+        var card = Instantiate(answerCardPrefab, spawnPos, Quaternion.Euler(0, 0, randomRot), transform);
+        card.Init(sprite);
         
-        _answerCards.Add(controller);
+        _answerCards.Add(card);
         
         // クリック時の処理
-        controller.onClick.Subscribe(_ =>
+        card.onClick.Subscribe(_ =>
         {
-            _lastSelectedPos = cardObj.transform.position;
+            _lastSelectedPos = card.transform.position;
             if (isSame)
             {
                 _onAnswer.OnNext(sprite);
@@ -79,7 +80,9 @@ public class AnswerCardsManager : MonoBehaviour
             {
                 _onFialur.OnNext(sprite);
             }
-        }).AddTo(cardObj);
+            _answerCards.Remove(card);
+            Destroy(card.gameObject);
+        }).AddTo(card);
     }
 
     public void AddComboCard(int comboIndex)

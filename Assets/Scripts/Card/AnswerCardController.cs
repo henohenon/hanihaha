@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using R3;
 using UnityEngine;
 
-public class AnswerCardController : IPointable
+public class AnswerCardController : MonoBehaviour, IPointable
 {
     public Subject<bool> onHover { get; } = new ();
     public Subject<Unit> onClick { get; } = new ();
@@ -10,21 +10,19 @@ public class AnswerCardController : IPointable
     private bool _isAnswered = false;
     private GameObject _obj;
     
+    [SerializeField]
+    private PolygonCollider2D _collider;
+    [SerializeField]
+    private MeshRenderer _renderer;
 
-    public AnswerCardController(Sprite sprite, GameObject obj)
+    public void Init(Sprite sprite)
     {
-        _obj = obj;
-        var _collider = _obj.GetComponent<PolygonCollider2D>();
-        var _meshRenderer = _obj.GetComponent<MeshRenderer>();
-        
-        var _spriteRenderer = _obj.GetComponentInChildren<SpriteRenderer>();
-        _spriteRenderer.sprite = sprite;
-        _meshRenderer.material.mainTexture = sprite.texture;
+        _renderer.material.mainTexture = sprite.texture;
 
-        _obj.transform.localScale = 
+        _renderer.gameObject.transform.localScale = 
             new Vector3(
-                sprite.rect.size.y / 500, 
-                sprite.rect.size.x / 500,
+                sprite.rect.width / 500 * 1.25f, 
+                sprite.rect.height / 500 * 1.25f,
                 1
             );
         
@@ -60,11 +58,6 @@ public class AnswerCardController : IPointable
             //_spriteRenderer.enabled = false;
             _collider.enabled = false;
         }).AddTo(_obj);
-    }
-
-    public void Destroy()
-    {
-        GameObject.Destroy(_obj);
     }
 }
 

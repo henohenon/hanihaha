@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BackGroundManager : MonoBehaviour
 {
+    [SerializeField] private Transform _lightTrans;
     [SerializeField]
     private Transform _circleTrans;
     [AssetsOnly]
@@ -13,11 +14,13 @@ public class BackGroundManager : MonoBehaviour
     [SerializeField] private Material _whiteMaterial;
 
 
-    private MotionHandle rotHandle;
+    private MotionHandle circleRotHandle;
+    private MotionHandle lightRotHandle;
     private MotionHandle colorHandle;
     
     private void Awake()
     {
+        CreateLightMotion();
         CreateRotMotion();
         colorHandle = LMotion.Create(0f, 1f, 120f).WithLoops(-1, LoopType.Restart).BindWithState(_colorMaterial,
             (x, _mat) =>
@@ -34,10 +37,22 @@ public class BackGroundManager : MonoBehaviour
     {
         var nowX = _circleTrans.localEulerAngles.x;
         var addRot = _isClockwise ? 360 : -360;
-        rotHandle = LMotion.Create(nowX, nowX+addRot, 60f).WithLoops(-1, LoopType.Restart).BindWithState(_circleTrans,
+        circleRotHandle = LMotion.Create(nowX, nowX+addRot, 60f).WithLoops(-1, LoopType.Restart).BindWithState(_circleTrans,
             (x, _trans) =>
             {
                 _trans.localEulerAngles = new Vector3(x, 0, 0);
+            });
+    }
+
+    private void CreateLightMotion()
+    {
+        lightRotHandle = LMotion.Create(0, 360f, 600f).WithLoops(-1, LoopType.Restart).BindWithState(_lightTrans,
+            (x, _trans) =>
+            {
+                if(lightRotHandle.PlaybackSpeed == 0) return;
+                var _nomRX = Math.Abs((x - 180) / 90);
+                var _nomRY = Math.Abs(((x + 90) % 360 - 180) / 90);
+                _trans.localEulerAngles = new Vector3(_nomRX-1, _nomRY-1, 0).normalized*15;
             });
     }
 
@@ -48,31 +63,37 @@ public class BackGroundManager : MonoBehaviour
         switch (type)
         {
             case ScreenType.Title:
-                rotHandle.PlaybackSpeed = 0;
+                circleRotHandle.PlaybackSpeed = 0;
                 colorHandle.PlaybackSpeed = 0f;
                 // 透明にしておく
                 _colorMaterial.color = new Color(0, 0, 0, 0);
+                lightRotHandle.PlaybackSpeed = 0;
+                _lightTrans.transform.rotation = Quaternion.Euler(0, 0, 0);
                 break;
             case ScreenType.NextTarget:
+                lightRotHandle.PlaybackSpeed = 1;
                 break;
             case ScreenType.Game:
                 colorHandle.PlaybackSpeed = 1;
+                lightRotHandle.PlaybackSpeed = 1;
                 
-                
-                if (rotHandle.IsActive())
+                if (circleRotHandle.IsActive())
                 {
-                    rotHandle.Cancel();
+                    circleRotHandle.Cancel();
                 }
                 _clockwise = !_clockwise;
                 CreateRotMotion(_clockwise);
                 break;
             case ScreenType.GameOver:
-                rotHandle.PlaybackSpeed = 0;
+                lightRotHandle.PlaybackSpeed = 0;
+                _lightTrans.transform.rotation = Quaternion.Euler(0, 0, 0);
+                circleRotHandle.PlaybackSpeed = 0;
                 colorHandle.PlaybackSpeed = 0;
                 _colorMaterial.color = Color.black;
                 break;
             case ScreenType.HighScore:
-                rotHandle.PlaybackSpeed = 0;
+                lightRotHandle.PlaybackSpeed = 600;
+                circleRotHandle.PlaybackSpeed = 0;
                 colorHandle.PlaybackSpeed = 100;
                 _colorMaterial.color = Color.green;
                 break;
@@ -87,12 +108,14 @@ public class BackGroundManager : MonoBehaviour
         
         if (isLimit){
             //_whiteMaterial.color = Color.black;
-            rotHandle.PlaybackSpeed = 30;
+            lightRotHandle.PlaybackSpeed = 3;
+            circleRotHandle.PlaybackSpeed = 30;
         }
         else
         {
             //_whiteMaterial.color = Color.white;
-            rotHandle.PlaybackSpeed = 1;
+            lightRotHandle.PlaybackSpeed = 1;
+            circleRotHandle.PlaybackSpeed = 1;
         }
     }
 }

@@ -128,6 +128,7 @@ public class SequenceManager : MonoBehaviour
     {
         _screenUIManager.ChangeScreen(ScreenType.Title);
         _backGroundManager.ChangeScreen(ScreenType.Title);
+        _answerCardsManager.ClearAnswerCards();
     }
 
     private void ReStartGame()
@@ -146,17 +147,17 @@ public class SequenceManager : MonoBehaviour
         {
             var sprite = _spriteViewAsset.GetRandom();
             var isSame = _spriteViewAsset.IsSame(_target, sprite);
-            _answerCardsManager.CreateAnswerCard(sprite, isSame);
-            
             if (isSame)
             {
                 _sameCount++;
             }
-
+            
             if (_sameCount <= 0 && i + 1 >= cardNumbs)
             {
                 i--;
+                continue;
             }
+            _answerCardsManager.CreateAnswerCard(sprite, isSame);
         }
     }
     
