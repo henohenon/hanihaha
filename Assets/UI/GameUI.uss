@@ -67,9 +67,6 @@
 .HighScore #HighScore{
     display: flex;
 }
-.HighScore #End{
-    background-color: rgba(0, 0, 0, 0);
-}
 .HighScore #GameOver{
     display: none;
 }

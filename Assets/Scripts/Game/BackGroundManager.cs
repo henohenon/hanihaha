@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BackGroundManager : MonoBehaviour
 {
-    [SerializeField] private Transform _lightTrans;
+    [SerializeField] private Light _light;
     [SerializeField]
     private Transform _circleTrans;
     [AssetsOnly]
@@ -46,7 +46,7 @@ public class BackGroundManager : MonoBehaviour
 
     private void CreateLightMotion()
     {
-        lightRotHandle = LMotion.Create(0, 360f, 600f).WithLoops(-1, LoopType.Restart).BindWithState(_lightTrans,
+        lightRotHandle = LMotion.Create(0, 360f, 600f).WithLoops(-1, LoopType.Restart).BindWithState(_light.transform,
             (x, _trans) =>
             {
                 if(lightRotHandle.PlaybackSpeed == 0) return;
@@ -63,17 +63,20 @@ public class BackGroundManager : MonoBehaviour
         switch (type)
         {
             case ScreenType.Title:
+                _light.intensity = 0.4f;
                 circleRotHandle.PlaybackSpeed = 0;
                 colorHandle.PlaybackSpeed = 0f;
                 // 透明にしておく
                 _colorMaterial.color = new Color(0, 0, 0, 0);
                 lightRotHandle.PlaybackSpeed = 0;
-                _lightTrans.transform.rotation = Quaternion.Euler(0, 0, 0);
+                _light.transform.rotation = Quaternion.Euler(0, 0, 0);
                 break;
             case ScreenType.NextTarget:
+                _light.intensity = 0.7f;
                 lightRotHandle.PlaybackSpeed = 1;
                 break;
             case ScreenType.Game:
+                _light.intensity = 0.7f;
                 colorHandle.PlaybackSpeed = 1;
                 lightRotHandle.PlaybackSpeed = 1;
                 
@@ -85,13 +88,15 @@ public class BackGroundManager : MonoBehaviour
                 CreateRotMotion(_clockwise);
                 break;
             case ScreenType.GameOver:
+                _light.intensity = 0f;
                 lightRotHandle.PlaybackSpeed = 0;
-                _lightTrans.transform.rotation = Quaternion.Euler(0, 0, 0);
+                _light.transform.rotation = Quaternion.Euler(0, 0, 0);
                 circleRotHandle.PlaybackSpeed = 0;
                 colorHandle.PlaybackSpeed = 0;
                 _colorMaterial.color = Color.black;
                 break;
             case ScreenType.HighScore:
+                _light.intensity = 3f;
                 lightRotHandle.PlaybackSpeed = 600;
                 circleRotHandle.PlaybackSpeed = 0;
                 colorHandle.PlaybackSpeed = 100;
