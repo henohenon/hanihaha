@@ -27,18 +27,24 @@ MonoBehaviour:
         31\n        ]\n    },\n    \"hito\": {\n        \"wardSprites\": [\n           
         32,\n            33,\n            34,\n            22,\n            2,\n           
         21,\n            35,\n            18,\n            36,\n            37,\n           
-        38,\n            39,\n            40\n        ]\n    },\n    \"unchi\": {\n       
+        38,\n            39,\n            40,\n            41,\n            42,\n           
+        43,\n            44,\n            45,\n            46,\n            47,\n           
+        48,\n            49,\n            50\n        ]\n    },\n    \"unchi\": {\n       
         \"wardSprites\": [\n            32,\n            33,\n            34,\n           
-        35,\n            29,\n            41,\n            42,\n            43,\n           
-        44,\n            45,\n            46,\n            47,\n            30\n       
-        ]\n    },\n    \"neko\": {\n        \"wardSprites\": [\n            47,\n           
-        48,\n            49,\n            50,\n            51,\n            52,\n           
-        53,\n            54,\n            55,\n            56,\n            57,\n           
+        35,\n            29,\n            51,\n            52,\n            53,\n           
+        54,\n            55,\n            56,\n            57,\n            30\n       
+        ]\n    },\n    \"neko\": {\n        \"wardSprites\": [\n            57,\n           
         58,\n            59,\n            60,\n            61,\n            62,\n           
-        63\n        ]\n    },\n    \"tora\": {\n        \"wardSprites\": [\n           
-        64,\n            65,\n            49\n        ]\n    },\n    \"alien\": {\n       
-        \"wardSprites\": [\n            66,\n            67,\n            68,\n           
-        69,\n            70,\n            71,\n            72\n        ]\n    }\n}"
+        63,\n            64,\n            65,\n            66,\n            67,\n           
+        68,\n            69,\n            70,\n            71,\n            72,\n           
+        73\n        ]\n    },\n    \"tora\": {\n        \"wardSprites\": [\n           
+        49,\n            50,\n            59\n        ]\n    },\n    \"alien\": {\n       
+        \"wardSprites\": [\n            74,\n            75,\n            76,\n           
+        77,\n            78,\n            79,\n            80\n        ]\n    },\n   
+        \"ongaku\": {\n        \"wardSprites\": [\n            81,\n            82,\n           
+        83,\n            84,\n            85,\n            48,\n            47,\n           
+        46,\n            86,\n            45,\n            43,\n            44,\n           
+        42,\n            41\n        ]\n    }\n}"
     unityObjectReferences:
     - {fileID: 21300000, guid: 34034dc50139fd3439910d0e4af4ffa3, type: 3}
     - {fileID: 21300000, guid: 15b4be0321b35874994fa32473fc3b42, type: 3}
@@ -81,6 +87,16 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 187484497e3a4474681fbe73cc86ba62, type: 3}
     - {fileID: 21300000, guid: d14be9e05dbb50a4f8c062f2e57bc911, type: 3}
     - {fileID: 21300000, guid: d751c83092d539e458533a02d0fab4fb, type: 3}
+    - {fileID: 21300000, guid: f31f2486bbb2f4649bee05fb93de7e01, type: 3}
+    - {fileID: 21300000, guid: cdd8477a846c74119a37b05f82426930, type: 3}
+    - {fileID: 21300000, guid: 6bf9cb93d3949406d9d6e165e08c18af, type: 3}
+    - {fileID: 21300000, guid: 0657dac7ca316466a828175ab31033b9, type: 3}
+    - {fileID: 21300000, guid: c47b612c51204410983a6a0969b951c6, type: 3}
+    - {fileID: 21300000, guid: 26c607ba57a48487d9630172cb3e9e4d, type: 3}
+    - {fileID: 21300000, guid: 367f933e7109e4e21b720a5c944de577, type: 3}
+    - {fileID: 21300000, guid: 023d77b22ff0a49c1853c62ed9dcf7d3, type: 3}
+    - {fileID: 21300000, guid: a0ec96641dfc41d47b7aea87dee09662, type: 3}
+    - {fileID: 21300000, guid: 7fa012f2bfdc3ad4ab83aedef825cf81, type: 3}
     - {fileID: 21300000, guid: 9c11c7e7a2a21714a9208d479e566cf1, type: 3}
     - {fileID: 21300000, guid: 89c75d6d0a8e7ce4d9a43873bacca82b, type: 3}
     - {fileID: 21300000, guid: 2de783ac8a1efa14bb5476ad3fd967f3, type: 3}
@@ -104,8 +120,6 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 97fbc1e0944601645b7582b4ec8228eb, type: 3}
     - {fileID: 21300000, guid: 91c084e5082413047b0777243bd0b413, type: 3}
     - {fileID: 21300000, guid: 88942a09995f6bf499e1ddf197e1c0a8, type: 3}
-    - {fileID: 21300000, guid: a0ec96641dfc41d47b7aea87dee09662, type: 3}
-    - {fileID: 21300000, guid: 7fa012f2bfdc3ad4ab83aedef825cf81, type: 3}
     - {fileID: 21300000, guid: 6e665c2fa92f9c54fa66656e0002e410, type: 3}
     - {fileID: 21300000, guid: 3c2c9255a3468ef4e946d9535e4dcbaa, type: 3}
     - {fileID: 21300000, guid: 60f4d2c85d1d87645be150233e84080c, type: 3}
@@ -113,3 +127,9 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 8bbb9ee04d1e784488d53c469b93e877, type: 3}
     - {fileID: 21300000, guid: eff65863feffcef45af42defdee73480, type: 3}
     - {fileID: 21300000, guid: e80a84dd0fa45c74e9dec8b218d10c6f, type: 3}
+    - {fileID: 21300000, guid: 6565816fca1354481b408880e84f5d26, type: 3}
+    - {fileID: 21300000, guid: a475eb67f9808474ab285d9f63570f28, type: 3}
+    - {fileID: 21300000, guid: 3325b6e5136f349ed9690824310a71bc, type: 3}
+    - {fileID: 21300000, guid: d2eb68513549d4b759676fb31140d31b, type: 3}
+    - {fileID: 21300000, guid: 55601192689674e66aa865d0edb553f9, type: 3}
+    - {fileID: 21300000, guid: 3d01901bb6e39409aa4ae71485e18dc5, type: 3}

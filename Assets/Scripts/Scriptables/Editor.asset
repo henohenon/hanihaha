@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ef5fc5811af0e4cbe37ce173beea93, type: 3}
   m_Name: Editor
   m_EditorClassIdentifier: 
-  wardInput: alien
-  spriteInput: {fileID: 21300000, guid: e80a84dd0fa45c74e9dec8b218d10c6f, type: 3}
-  viewEdit: 1
+  wardInput: hito
+  spriteInput: {fileID: 21300000, guid: 7fa012f2bfdc3ad4ab83aedef825cf81, type: 3}
+  viewEdit: 0
   wardView: {fileID: 11400000, guid: c07cac1cea1b50a4098f2ef1da5ddd47, type: 2}
   spriteView: {fileID: 11400000, guid: 1e29fbf44cafa5f41b483d88d04506f6, type: 2}
   dataEdit: 0
