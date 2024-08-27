@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: AnswerData
   m_EditorClassIdentifier: 
   wards:
-  - hito
   - unchi
   - inu
-  - tori
   - neko
+  - tori
   - tora
   - alien
   - ongaku
   - konbou
   - hoshi
   - utyuhiko
+  - ranger
+  - youkai
+  - husisya
