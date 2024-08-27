@@ -23,7 +23,7 @@ public class GameUIManager : MonoBehaviour
     private TextElement _plusTime;
     private VisualElement _answerCardContainer;
     private VisualElement _footer;
-    private VisualElement _body;
+    private VisualElement _game;
 
     [SerializeField] private VisualTreeAsset _answerCard;
     
@@ -39,7 +39,7 @@ public class GameUIManager : MonoBehaviour
         _plusTime = _uiDocument.rootVisualElement.Q<TextElement>("PlusTime");
         _answerCardContainer = _uiDocument.rootVisualElement.Q<VisualElement>("AnswerCards");
         _footer = _uiDocument.rootVisualElement.Q<VisualElement>("Footer");
-        _body = _uiDocument.rootVisualElement.Q<VisualElement>("Body");
+        _game = _uiDocument.rootVisualElement.Q<VisualElement>("Game");
         
         // あらかじめターゲットカードを取得しておく
         foreach (var targetContainer in _targetContainers)
@@ -68,11 +68,11 @@ public class GameUIManager : MonoBehaviour
         _oldIsLimit = isLimit;
         
         if (isLimit){
-            _body.AddToClassList("Limit");
+            _game.AddToClassList("Limit");
         }
         else
         {
-            _body.RemoveFromClassList("Limit");
+            _game.RemoveFromClassList("Limit");
         }
 
     }
@@ -152,7 +152,10 @@ public class GameUIManager : MonoBehaviour
         {
             // タスクがキャンセルされたとき。tryは必ずcatchがいるのです。
         }
-        _cts.Dispose();
+        finally
+        {
+            _cts.Dispose();
+        }
         
     }
 

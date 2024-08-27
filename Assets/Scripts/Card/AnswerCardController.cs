@@ -13,8 +13,6 @@ public class AnswerCardController : MonoBehaviour, IPointable
     public Subject<bool> onHover { get; } = new ();
     public Subject<Unit> onClick { get; } = new ();
     
-    private bool _isAnswered = false;
-    
     [SerializeField]
     private LayerMask _answerCardLayer;
     [SerializeField]
@@ -30,7 +28,10 @@ public class AnswerCardController : MonoBehaviour, IPointable
     {
         _rb = GetComponent<Rigidbody2D>();
         _rb.gravityScale = Random.Range(-1f, 1f) * 0.3f;
-        transform.localScale = Vector3.one * _sizeRandomCurve.Evaluate(Random.Range(0f, 1f));
+        var sizeRandom = _sizeRandomCurve.Evaluate(Random.Range(0f, 1f));
+        _rb.mass = sizeRandom;
+        transform.localScale = Vector3.one * sizeRandom;
+        transform.position = new Vector3(transform.position.x, transform.position.y, -sizeRandom/10);
     }
     
     public void Init(Sprite sprite)
@@ -58,19 +59,6 @@ public class AnswerCardController : MonoBehaviour, IPointable
             _collider.SetPath( i, points );
         }
         
-        onHover.Subscribe(isHovered =>
-        {
-            if (_isAnswered) return;
-            if (isHovered)
-            {
-                //_spriteRenderer.color = Color.gray;
-            }
-            else
-            {
-                //_spriteRenderer.color = Color.white;
-            }
-        }).AddTo(this);
-        
         onClick.Subscribe(_ =>
         {
             //_spriteRenderer.enabled = false;
@@ -78,74 +66,14 @@ public class AnswerCardController : MonoBehaviour, IPointable
         }).AddTo(this);
     }
 
-    private int hitCount = 0;
-    private CancellationTokenSource cts;
-    protected virtual void OnCollisionEnter2D(Collision2D other)
+    protected bool IsSameLayer(GameObject obj, LayerMask layerMask)
     {
-        if (other.gameObject.layer == _answerCardLayer)
-        {
-            hitCount++;
-            if (hitCount == 1)
-            {
-                WaitToTrigger();
-            }
-        }
+        return (layerMask.value & (1 << obj.layer)) != 0;
     }
 
-    private async UniTaskVoid WaitToTrigger()
+    public void ChangeColor(Color color)
     {
-        // 既存のタスクがあればキャンセル
-        cts?.Cancel();
-        cts = new CancellationTokenSource();
-
-        try
-        {
-            // 一定時間待機するが、キャンセルが可能
-            await UniTask.Delay(TimeSpan.FromSeconds(1.5f), cancellationToken: cts.Token);
-            _collider.isTrigger = true;
-        }
-        catch (OperationCanceledException)
-        {
-            // タスクがキャンセルされたとき。tryは必ずcatchがいるのです。
-        }
-        cts.Dispose();
-    }
-    
-    protected virtual void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.layer == _answerCardLayer)
-        {
-            hitCount--;
-            if (hitCount <= 0)
-            {
-                cts?.Cancel();
-            }
-        }
-    }
-    
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.layer == _answerCardLayer)
-        {
-            hitCount++;
-        }
-    }
-    
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.layer == _answerCardLayer)
-        {
-            hitCount--;
-            if (hitCount <= 0)
-            {
-                _collider.isTrigger = false;
-            }
-        }
-    }
-
-    private void OnDestroy()
-    {
-        cts?.Dispose();
+        _renderer.material.color = color;
     }
 }
 

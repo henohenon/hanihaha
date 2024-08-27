@@ -8,10 +8,7 @@
 .Title #Title{
     display: flex;
 }
-.Title #Footer{
-    display: none;
-}
-.Title #Header{
+.Title #Game{
     display: none;
 }
 
@@ -64,16 +61,13 @@
 .GameOver #End{
     display: flex;
 }
+.GameOver #Game{
+    display: none;
+}
 .HighScore #HighScore{
     display: flex;
 }
 .HighScore #GameOver{
-    display: none;
-}
-.HighScore #Footer{
-    display: none;
-}
-.HighScore #Header{
     display: none;
 }
 .HighScore #Score{

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Alchemy.Inspector;
 using R3;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,7 +17,7 @@ public class AnswerCardsManager : MonoBehaviour
     [SerializeField]
     private Transform _borderObj;
     
-    private List<AnswerCardController> _answerCards = new ();
+    private Dictionary<AnswerCardController, bool> _answerCards = new ();
     
     private Vector2 _spawnSize;
     private Vector2 _borderSize;
@@ -50,9 +51,30 @@ public class AnswerCardsManager : MonoBehaviour
     {
         foreach (var card in _answerCards)
         {
-            Destroy(card.gameObject);
+            Destroy(card.Key.gameObject);
         }
         _answerCards.Clear();
+        _isResulting = false;
+    }
+    
+    private bool _isResulting = false;
+    private Color _successColor = Color.HSVToRGB(0.47f, 0.7f, 1);
+    private Color _failureColor = Color.HSVToRGB(0.02f, 0.7f, 1);
+
+    public void ShowResults()
+    {
+        _isResulting = true;
+        foreach (var card in _answerCards)
+        {
+            if(card.Value)
+            {
+                card.Key.ChangeColor(_successColor);
+            }
+            else
+            {
+                card.Key.ChangeColor(_failureColor);
+            }
+        }
     }
     
     // カードを追加
@@ -68,11 +90,24 @@ public class AnswerCardsManager : MonoBehaviour
         var card = Instantiate(answerCardPrefabs[randomIndex], spawnPos, Quaternion.Euler(0, 0, randomRot), transform);
         card.Init(sprite);
         
-        _answerCards.Add(card);
+        _answerCards.Add(card, isSame);
         
+        card.onHover.Subscribe(isHover =>
+        {
+            if (_isResulting) return;
+            if (isHover)
+            {
+                card.ChangeColor(Color.gray);
+            }
+            else
+            {
+                card.ChangeColor(Color.white);
+            }
+        }).AddTo(card);
         // クリック時の処理
         card.onClick.Subscribe(_ =>
         {
+            if (_isResulting) return;
             _lastSelectedPos = card.transform.position;
             if (isSame)
             {
@@ -86,7 +121,7 @@ public class AnswerCardsManager : MonoBehaviour
             Destroy(card.gameObject);
         }).AddTo(card);
     }
-
+    
     public void AddComboCard(int comboIndex)
     {
         var instancePos = _lastSelectedPos;

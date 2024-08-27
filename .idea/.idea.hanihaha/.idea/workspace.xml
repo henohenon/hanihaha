@@ -5,13 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="316b81c6-f56a-460c-8464-45f40629beb6" name="変更" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AnswerMeshCard.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AnswerMeshCard.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ImpactAnswerCard.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ImpactAnswerCard.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ReflectionAnswerCard.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ReflectionAnswerCard.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/RotateAnswerCard.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/RotateAnswerCard.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/ReflectionACController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/ReflectionACController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/BackGroundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/BackGroundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/SequenceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/SequenceManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pointer/PointerSelectManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pointer/PointerSelectManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/GameUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/GameUIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/GameUI.uss" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/GameUI.uss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/GameUI.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/GameUI.uxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/haikeei (4) Variant.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/haikeei (4) Variant.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +40,16 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
@@ -85,6 +101,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.r3/Runtime/SerializableReactiveProperty.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask/Runtime/Channel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask/Runtime/EnumeratorAsyncExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask/Runtime/UniTaskScheduler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Actions/InputActionState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/Samples~/SimpleDemo/SimpleController_UsingActionAsset.cs" root0="SKIP_HIGHLIGHTING" />
@@ -165,23 +182,6 @@
   </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Pointer/PointerSelectManager.cs</url>
-          <line>24</line>
-          <properties documentPath="C:\projects\hanihaha\Assets\Scripts\Pointer\PointerSelectManager.cs" containingFunctionPresentation="次に含まれるラムダ式: メソッド 'Start'">
-            <startOffsets>
-              <option value="586" />
-            </startOffsets>
-            <endOffsets>
-              <option value="670" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#UnityEngine.Sprite" memberName="bounds" />

@@ -10,7 +10,8 @@ using UnityEngine.UI;
 
 public class PointerSelectManager : MonoBehaviour
 {
-    private HashSet<IPointable> _currentSelectable = new HashSet<IPointable>();
+    private HashSet<AnswerCardController> _currentHoveres = new ();
+    private AnswerCardController _currentSelected;
     
     [SerializeField]
     private InputActionProperty _inputActionMap;
@@ -22,37 +23,65 @@ public class PointerSelectManager : MonoBehaviour
         _inputActionMap.action.performed += ctx =>
         {
             if(!IsCanSelect) return;
-            var hits = Physics2D.OverlapCircleAll(transform.position, transform.localScale.x/2);
-            
-            foreach (var hit in hits)
+            if (_currentSelected != null)
             {
-                var selectable = hit.GetComponent<IPointable>();
-                if (selectable != null)
-                {
-                    selectable.onClick.OnNext(Unit.Default);
-                }
+                _currentSelected.onClick.OnNext(Unit.Default);
             }
         };
         _inputActionMap.action.Enable();
     }
-    
+
+    private void Update()
+    {
+        if (_currentHoveres.Count == 0)
+        {
+            if (_currentSelected != null)
+            {
+                _currentSelected.onHover.OnNext(false);
+            }
+            _currentSelected = null;
+            return;
+        }
+
+        var _distance = float.MaxValue;
+        AnswerCardController nearest = null;
+        foreach (var hover in _currentHoveres)
+        {
+            var distance = Vector2.Distance(transform.position, hover.gameObject.transform.position);
+            if (distance < _distance)
+            {
+                _distance = distance;
+                nearest = hover;
+            }
+        }
+
+        if (nearest != _currentSelected)
+        {
+            if (_currentSelected != null)
+            {
+                _currentSelected.onHover.OnNext(false);
+            }
+
+            _currentSelected = nearest;
+            _currentSelected.onHover.OnNext(true);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var selectable = other.GetComponent<IPointable>();
+        var selectable = other.GetComponent<AnswerCardController>();
         if (selectable != null)
         {
-            selectable.onHover.OnNext(true);
-            _currentSelectable.Add(selectable);
+            _currentHoveres.Add(selectable);
         }
     }
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        var selectable = other.GetComponent<IPointable>();
+        var selectable = other.GetComponent<AnswerCardController>();
         if (selectable != null)
         {
-            selectable.onHover.OnNext(false);
-            _currentSelectable.Remove(selectable);
+            _currentHoveres.Remove(selectable);
         }
     }
     

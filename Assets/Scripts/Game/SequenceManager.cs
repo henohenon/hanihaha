@@ -106,6 +106,7 @@ public class SequenceManager : MonoBehaviour
             _noGameUIManager.SetScore(_scoreManager.GetScore());
             _audioManager.SetIsPlayLimit(false);
             _backGroundManager.SetLimit(false);
+            _answerCardsManager.ShowResults();
             if (_isHighScore)
             {
                 _audioManager.PlayHighScoreSound();

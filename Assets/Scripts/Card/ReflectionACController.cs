@@ -20,9 +20,9 @@ public class ReflectionACController : ImpactACController
         _rb.linearVelocity = _moveSpeed;
     }
 
-    protected override void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.layer == _borderLayer) {
+        if (IsSameLayer(other.gameObject, _borderLayer)) {
             _moveSpeed = Vector2.Reflect(_moveSpeed, other.GetContact(0).normal);
         }
     }

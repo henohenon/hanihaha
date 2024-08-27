@@ -85,7 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _answerCardLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   _collider: {fileID: 4776995251315751128}
   _renderer: {fileID: 1328252717038856905}
   _sizeRandomCurve:

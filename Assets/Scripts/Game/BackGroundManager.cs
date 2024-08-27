@@ -1,6 +1,9 @@
 using System;
+using System.Threading;
 using Alchemy.Inspector;
+using Cysharp.Threading.Tasks;
 using LitMotion;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 public class BackGroundManager : MonoBehaviour
@@ -55,7 +58,7 @@ public class BackGroundManager : MonoBehaviour
                 _trans.localEulerAngles = new Vector3(_nomRX-1, _nomRY-1, 0).normalized*15;
             });
     }
-
+    
 
     private bool _clockwise = true;
     public void ChangeScreen(ScreenType type)
@@ -106,6 +109,7 @@ public class BackGroundManager : MonoBehaviour
     }
     
     private bool _oldIsLimit = false;
+    
     public void SetLimit(bool isLimit)
     {
         if (_oldIsLimit == isLimit) return;
@@ -118,6 +122,7 @@ public class BackGroundManager : MonoBehaviour
         }
         else
         {
+            _light.color = Color.white;
             //_whiteMaterial.color = Color.white;
             lightRotHandle.PlaybackSpeed = 1;
             circleRotHandle.PlaybackSpeed = 1;
