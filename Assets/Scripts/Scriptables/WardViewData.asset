@@ -15,73 +15,47 @@ MonoBehaviour:
   __alchemySerializationData_WardViewAsset:
     _wardViewValues:
       isCreated: 1
-      data: "{\n    \"tori\": {\n        \"wardSprites\": [\n            0,\n           
+      data: "{\n    \"hito\": {\n        \"wardSprites\": [\n            0,\n           
         1,\n            2,\n            3,\n            4,\n            5,\n           
         6,\n            7,\n            8,\n            9,\n            10,\n           
         11,\n            12,\n            13,\n            14,\n            15,\n           
-        16,\n            17,\n            18,\n            19,\n            20\n       
-        ]\n    },\n    \"agypt\": {\n        \"wardSprites\": [\n            2,\n           
-        21,\n            22,\n            23\n        ]\n    },\n    \"inu\": {\n       
-        \"wardSprites\": [\n            24,\n            25,\n            26,\n           
-        27,\n            28,\n            22,\n            29,\n            30,\n           
-        31\n        ]\n    },\n    \"hito\": {\n        \"wardSprites\": [\n           
-        32,\n            33,\n            34,\n            22,\n            2,\n           
-        21,\n            35,\n            18,\n            36,\n            37,\n           
-        38,\n            39,\n            40,\n            41,\n            42,\n           
-        43,\n            44,\n            45,\n            46,\n            47,\n           
-        48,\n            49,\n            50\n        ]\n    },\n    \"unchi\": {\n       
-        \"wardSprites\": [\n            32,\n            33,\n            34,\n           
-        35,\n            29,\n            51,\n            52,\n            53,\n           
-        54,\n            55,\n            56,\n            57,\n            30\n       
-        ]\n    },\n    \"neko\": {\n        \"wardSprites\": [\n            57,\n           
-        58,\n            59,\n            60,\n            61,\n            62,\n           
-        63,\n            64,\n            65,\n            66,\n            67,\n           
-        68,\n            69,\n            70,\n            71,\n            72,\n           
-        73\n        ]\n    },\n    \"tora\": {\n        \"wardSprites\": [\n           
-        49,\n            50,\n            59\n        ]\n    },\n    \"alien\": {\n       
-        \"wardSprites\": [\n            74,\n            75,\n            76,\n           
-        77,\n            78,\n            79,\n            80\n        ]\n    },\n   
-        \"ongaku\": {\n        \"wardSprites\": [\n            81,\n            82,\n           
-        83,\n            84,\n            85,\n            48,\n            47,\n           
-        46,\n            86,\n            45,\n            43,\n            44,\n           
-        42,\n            41\n        ]\n    }\n}"
+        16,\n            17,\n            18,\n            19,\n            20,\n           
+        21,\n            22,\n            23,\n            24,\n            25,\n           
+        26,\n            27,\n            28,\n            29,\n            30,\n           
+        31,\n            32\n        ]\n    },\n    \"unchi\": {\n        \"wardSprites\":
+        [\n            0,\n            1,\n            2,\n            6,\n           
+        33,\n            34,\n            35,\n            36,\n            37,\n           
+        38,\n            39,\n            40,\n            41\n        ]\n    },\n   
+        \"inu\": {\n        \"wardSprites\": [\n            33,\n            41,\n           
+        42\n        ]\n    },\n    \"tori\": {\n        \"wardSprites\": [\n           
+        43,\n            44\n        ]\n    },\n    \"neko\": {\n        \"wardSprites\":
+        [\n            40,\n            45,\n            46,\n            47,\n           
+        48,\n            49,\n            50,\n            51,\n            52,\n           
+        53,\n            54,\n            55,\n            56,\n            57,\n           
+        58,\n            59,\n            60,\n            32\n        ]\n    },\n   
+        \"tora\": {\n        \"wardSprites\": [\n            21,\n            22,\n           
+        46\n        ]\n    },\n    \"alien\": {\n        \"wardSprites\": [\n           
+        61,\n            62,\n            63,\n            64,\n            65,\n           
+        66,\n            67,\n            68\n        ]\n    },\n    \"ongaku\":
+        {\n        \"wardSprites\": [\n            69,\n            70,\n           
+        71,\n            72,\n            73,\n            20,\n            19,\n           
+        18,\n            74,\n            17,\n            15,\n            16,\n           
+        14,\n            13\n        ]\n    },\n    \"konbou\": {\n        \"wardSprites\":
+        [\n            28,\n            27,\n            23,\n            25,\n           
+        75,\n            29\n        ]\n    },\n    \"hoshi\": {\n        \"wardSprites\":
+        [\n            76,\n            77,\n            78,\n            79,\n           
+        80,\n            81,\n            82\n        ]\n    },\n    \"utyuhiko\":
+        {\n        \"wardSprites\": [\n            83,\n            84,\n           
+        68\n        ]\n    }\n}"
     unityObjectReferences:
-    - {fileID: 21300000, guid: 34034dc50139fd3439910d0e4af4ffa3, type: 3}
-    - {fileID: 21300000, guid: 15b4be0321b35874994fa32473fc3b42, type: 3}
-    - {fileID: 21300000, guid: 95ed919e803615646be2fdc7791696f6, type: 3}
-    - {fileID: 21300000, guid: 2428b06422c10bf44b6becfece63a72c, type: 3}
-    - {fileID: 21300000, guid: 9334739f11d970643b4d3f166154a745, type: 3}
-    - {fileID: 21300000, guid: 3e2c900da2d2fee44a4bcacebc306e3c, type: 3}
-    - {fileID: 21300000, guid: 02c763693509e134fa9e9dea6050b241, type: 3}
-    - {fileID: 21300000, guid: 22d4d52d1e6bcd945ba8f4353a8c9726, type: 3}
-    - {fileID: 21300000, guid: 46f245ddf2bd1e347a7e8fda72e26937, type: 3}
-    - {fileID: 21300000, guid: 938d2b4bb28f29d4bb71f4ed6f4d87d8, type: 3}
-    - {fileID: 21300000, guid: 43712f3a6e45ec4459fedb6ace7e9912, type: 3}
-    - {fileID: 21300000, guid: 3a0233e78121ed34e8fe805b2639520d, type: 3}
-    - {fileID: 21300000, guid: 1edddcc2952b23e408f62e3be1dc26aa, type: 3}
-    - {fileID: 21300000, guid: 667a20b9d898c0c4898723b1a871bfbc, type: 3}
-    - {fileID: 21300000, guid: 00ad0a1458c928246bd659726072940b, type: 3}
-    - {fileID: 21300000, guid: 18f4afe9c4e0c6b429269b7465799ed2, type: 3}
-    - {fileID: 21300000, guid: ae52fa7a4bef45940b995dfcb1ea6d27, type: 3}
-    - {fileID: 21300000, guid: 90819b2a1a6507a4f996e5a143d2cb57, type: 3}
-    - {fileID: 21300000, guid: e73e37d582691044f936eda23847b1b9, type: 3}
-    - {fileID: 21300000, guid: e696c7fa461e5124094e9cffa45bfe34, type: 3}
-    - {fileID: 21300000, guid: 08878faf86e80f841aefdcff3c7fd3d9, type: 3}
-    - {fileID: 21300000, guid: a403964936c6620448ad928d61204031, type: 3}
-    - {fileID: 21300000, guid: 2cae02128b9dadd4b919bf0261c7d6cc, type: 3}
-    - {fileID: 21300000, guid: 54b043c724474834fa6b3ae2a009b98f, type: 3}
-    - {fileID: 21300000, guid: 35a8c923d95dab54aa1840ed721221d4, type: 3}
-    - {fileID: 21300000, guid: a50bd34d1b780774a9efd2a51ac6bc37, type: 3}
-    - {fileID: 21300000, guid: 2f6115890baa73647a5f7cda1f060bc9, type: 3}
-    - {fileID: 21300000, guid: a6bd5fb59653ede45af76c6153592322, type: 3}
-    - {fileID: 21300000, guid: 61b027ba4b84fff4092e1217fb8b2f9f, type: 3}
-    - {fileID: 21300000, guid: e4ac9266b3e6c6143bcb129d1779f859, type: 3}
-    - {fileID: 21300000, guid: 14982c008b85b9544bf664941468e39a, type: 3}
-    - {fileID: 21300000, guid: 1739820b4c86a4046a8b73e278b22900, type: 3}
     - {fileID: 21300000, guid: 1130d204bef208d47a23edd64ee8508b, type: 3}
     - {fileID: 21300000, guid: d5cb7749bc5c62e4a85958b3d7b1f9e7, type: 3}
     - {fileID: 21300000, guid: 3505fb418c987d24095eda80e1b29543, type: 3}
+    - {fileID: 21300000, guid: 2cae02128b9dadd4b919bf0261c7d6cc, type: 3}
+    - {fileID: 21300000, guid: 95ed919e803615646be2fdc7791696f6, type: 3}
+    - {fileID: 21300000, guid: a403964936c6620448ad928d61204031, type: 3}
     - {fileID: 21300000, guid: f5587f7eb9bf79647bd21e3d81976bed, type: 3}
+    - {fileID: 21300000, guid: e73e37d582691044f936eda23847b1b9, type: 3}
     - {fileID: 21300000, guid: dc6ccaddaa7f945498d9c750b0c75905, type: 3}
     - {fileID: 21300000, guid: 373095e2d7e0d704da2573b19067b843, type: 3}
     - {fileID: 21300000, guid: 187484497e3a4474681fbe73cc86ba62, type: 3}
@@ -97,6 +71,17 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 023d77b22ff0a49c1853c62ed9dcf7d3, type: 3}
     - {fileID: 21300000, guid: a0ec96641dfc41d47b7aea87dee09662, type: 3}
     - {fileID: 21300000, guid: 7fa012f2bfdc3ad4ab83aedef825cf81, type: 3}
+    - {fileID: 21300000, guid: 0c2b9999575964627a8810b3869aba13, type: 3}
+    - {fileID: 21300000, guid: fcfebde1c70c744f7b3b4ee9b7e996a3, type: 3}
+    - {fileID: 21300000, guid: 9d0c3c5fe59fd469ba1970eec10b4f6d, type: 3}
+    - {fileID: 21300000, guid: e72ce3cfc81a7463ebbd757e9bf29bec, type: 3}
+    - {fileID: 21300000, guid: 48fd1bb0701244a75b3a7fa4f6d337bb, type: 3}
+    - {fileID: 21300000, guid: 2983db3e84ed34e49a7aa7043ff98765, type: 3}
+    - {fileID: 21300000, guid: efd6e9f95cba64c6b96d7828d8388095, type: 3}
+    - {fileID: 21300000, guid: a64d65e07e925434d8bac6360f210dfa, type: 3}
+    - {fileID: 21300000, guid: 2e3188130fb364af587fed5887bffce2, type: 3}
+    - {fileID: 21300000, guid: 8d638b82e044241b4a88a1169eef5d7b, type: 3}
+    - {fileID: 21300000, guid: e4ac9266b3e6c6143bcb129d1779f859, type: 3}
     - {fileID: 21300000, guid: 9c11c7e7a2a21714a9208d479e566cf1, type: 3}
     - {fileID: 21300000, guid: 89c75d6d0a8e7ce4d9a43873bacca82b, type: 3}
     - {fileID: 21300000, guid: 2de783ac8a1efa14bb5476ad3fd967f3, type: 3}
@@ -104,6 +89,10 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 6263739fd0b3e054793493f98746e729, type: 3}
     - {fileID: 21300000, guid: e444104a18de5ce42a63e77a61c98523, type: 3}
     - {fileID: 21300000, guid: e7f89997f0774a24b917da8f1938bd39, type: 3}
+    - {fileID: 21300000, guid: 14982c008b85b9544bf664941468e39a, type: 3}
+    - {fileID: 21300000, guid: 1739820b4c86a4046a8b73e278b22900, type: 3}
+    - {fileID: 21300000, guid: e696c7fa461e5124094e9cffa45bfe34, type: 3}
+    - {fileID: 21300000, guid: 08878faf86e80f841aefdcff3c7fd3d9, type: 3}
     - {fileID: 21300000, guid: 34faa836103ce314e8e3cd4b00273426, type: 3}
     - {fileID: 21300000, guid: 936d131380713ec4cafae25392958c31, type: 3}
     - {fileID: 21300000, guid: 0e62c7056a92bc94a84e13f8e41ce80e, type: 3}
@@ -127,9 +116,20 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 8bbb9ee04d1e784488d53c469b93e877, type: 3}
     - {fileID: 21300000, guid: eff65863feffcef45af42defdee73480, type: 3}
     - {fileID: 21300000, guid: e80a84dd0fa45c74e9dec8b218d10c6f, type: 3}
+    - {fileID: 21300000, guid: e3d2e1f7888b94ade987c5bcdff9c484, type: 3}
     - {fileID: 21300000, guid: 6565816fca1354481b408880e84f5d26, type: 3}
     - {fileID: 21300000, guid: a475eb67f9808474ab285d9f63570f28, type: 3}
     - {fileID: 21300000, guid: 3325b6e5136f349ed9690824310a71bc, type: 3}
     - {fileID: 21300000, guid: d2eb68513549d4b759676fb31140d31b, type: 3}
     - {fileID: 21300000, guid: 55601192689674e66aa865d0edb553f9, type: 3}
     - {fileID: 21300000, guid: 3d01901bb6e39409aa4ae71485e18dc5, type: 3}
+    - {fileID: 21300000, guid: d98a14f80aaaa4a9b9a559f3c744bdff, type: 3}
+    - {fileID: 21300000, guid: 21e07315df0894f97be848aac2c442d8, type: 3}
+    - {fileID: 21300000, guid: 3aad786575ef14e8a9fd2cae2b002d8a, type: 3}
+    - {fileID: 21300000, guid: c65fdf431920c49ef8d61808e3e55981, type: 3}
+    - {fileID: 21300000, guid: ec9fc8c3aeeaf49e2a9bea2fb8c7084d, type: 3}
+    - {fileID: 21300000, guid: deff6d559646849eda83fe0c1c2b5c33, type: 3}
+    - {fileID: 21300000, guid: cc44c6250aa18431ab84f1f47199f7fa, type: 3}
+    - {fileID: 21300000, guid: 0ed5cb2ed9ef348888f439bf4f220dc8, type: 3}
+    - {fileID: 21300000, guid: 496deb241b8764a15a8910cc40b46877, type: 3}
+    - {fileID: 21300000, guid: 41e9a9bf390cf4fc6906b85a248fc8d0, type: 3}

@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: AnswerData
   m_EditorClassIdentifier: 
   wards:
-  - tori
-  - agypt
-  - inu
   - hito
   - unchi
+  - inu
+  - tori
   - neko
   - tora
   - alien
   - ongaku
+  - konbou
+  - hoshi
+  - utyuhiko
