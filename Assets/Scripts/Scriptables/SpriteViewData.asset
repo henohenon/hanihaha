@@ -65,17 +65,19 @@ MonoBehaviour:
         39,\n        \"Value\": [\n            \"alien\"\n        ]\n    },\n   
         {\n        \"Key\": 40,\n        \"Value\": [\n            \"alien\"\n       
         ]\n    },\n    {\n        \"Key\": 41,\n        \"Value\": [\n           
-        \"ongaku\"\n        ]\n    },\n    {\n        \"Key\": 42,\n        \"Value\":
-        [\n            \"ongaku\"\n        ]\n    },\n    {\n        \"Key\": 43,\n       
-        \"Value\": [\n            \"ongaku\"\n        ]\n    },\n    {\n        \"Key\":
-        44,\n        \"Value\": [\n            \"ongaku\"\n        ]\n    },\n   
-        {\n        \"Key\": 45,\n        \"Value\": [\n            \"ongaku\"\n       
-        ]\n    },\n    {\n        \"Key\": 46,\n        \"Value\": [\n           
-        \"ongaku\"\n        ]\n    },\n    {\n        \"Key\": 47,\n        \"Value\":
-        [\n            \"ongaku\"\n        ]\n    },\n    {\n        \"Key\": 48,\n       
-        \"Value\": [\n            \"ongaku\"\n        ]\n    },\n    {\n        \"Key\":
-        49,\n        \"Value\": [\n            \"ongaku\"\n        ]\n    },\n   
-        {\n        \"Key\": 50,\n        \"Value\": [\n            \"ongaku\"\n       
+        \"ongaku\",\n            \"gakki\"\n        ]\n    },\n    {\n        \"Key\":
+        42,\n        \"Value\": [\n            \"ongaku\",\n            \"gakki\"\n       
+        ]\n    },\n    {\n        \"Key\": 43,\n        \"Value\": [\n           
+        \"ongaku\",\n            \"gakki\"\n        ]\n    },\n    {\n        \"Key\":
+        44,\n        \"Value\": [\n            \"ongaku\",\n            \"gakki\"\n       
+        ]\n    },\n    {\n        \"Key\": 45,\n        \"Value\": [\n           
+        \"ongaku\",\n            \"gakki\"\n        ]\n    },\n    {\n        \"Key\":
+        46,\n        \"Value\": [\n            \"ongaku\",\n            \"rappa\"\n       
+        ]\n    },\n    {\n        \"Key\": 47,\n        \"Value\": [\n           
+        \"ongaku\"\n        ]\n    },\n    {\n        \"Key\": 48,\n        \"Value\":
+        [\n            \"ongaku\"\n        ]\n    },\n    {\n        \"Key\": 49,\n       
+        \"Value\": [\n            \"ongaku\",\n            \"rappa\"\n        ]\n   
+        },\n    {\n        \"Key\": 50,\n        \"Value\": [\n            \"ongaku\"\n       
         ]\n    },\n    {\n        \"Key\": 51,\n        \"Value\": [\n           
         \"ongaku\"\n        ]\n    },\n    {\n        \"Key\": 52,\n        \"Value\":
         [\n            \"ongaku\"\n        ]\n    },\n    {\n        \"Key\": 53,\n       
@@ -94,26 +96,33 @@ MonoBehaviour:
         \"Key\": 62,\n        \"Value\": [\n            \"hoshi\"\n        ]\n   
         },\n    {\n        \"Key\": 63,\n        \"Value\": [\n            \"hoshi\"\n       
         ]\n    },\n    {\n        \"Key\": 64,\n        \"Value\": [\n           
-        \"hoshi\"\n        ]\n    },\n    {\n        \"Key\": 65,\n        \"Value\":
-        [\n            \"hoshi\"\n        ]\n    },\n    {\n        \"Key\": 66,\n       
-        \"Value\": [\n            \"hoshi\"\n        ]\n    },\n    {\n        \"Key\":
-        67,\n        \"Value\": [\n            \"hoshi\"\n        ]\n    },\n   
-        {\n        \"Key\": 68,\n        \"Value\": [\n            \"hoshi\"\n       
-        ]\n    },\n    {\n        \"Key\": 69,\n        \"Value\": [\n           
-        \"utyuhiko\"\n        ]\n    },\n    {\n        \"Key\": 70,\n        \"Value\":
-        [\n            \"utyuhiko\"\n        ]\n    },\n    {\n        \"Key\": 71,\n       
-        \"Value\": [\n            \"utyuhiko\",\n            \"alien\"\n        ]\n   
-        },\n    {\n        \"Key\": 72,\n        \"Value\": [\n            \"ranger\"\n       
-        ]\n    },\n    {\n        \"Key\": 73,\n        \"Value\": [\n           
-        \"ranger\"\n        ]\n    },\n    {\n        \"Key\": 74,\n        \"Value\":
-        [\n            \"ranger\"\n        ]\n    },\n    {\n        \"Key\": 75,\n       
+        \"hoshi\",\n            \"alien\"\n        ]\n    },\n    {\n        \"Key\":
+        65,\n        \"Value\": [\n            \"hoshi\"\n        ]\n    },\n   
+        {\n        \"Key\": 66,\n        \"Value\": [\n            \"hoshi\"\n       
+        ]\n    },\n    {\n        \"Key\": 67,\n        \"Value\": [\n           
+        \"hoshi\"\n        ]\n    },\n    {\n        \"Key\": 68,\n        \"Value\":
+        [\n            \"hoshi\"\n        ]\n    },\n    {\n        \"Key\": 69,\n       
+        \"Value\": [\n            \"utyuhiko\"\n        ]\n    },\n    {\n       
+        \"Key\": 70,\n        \"Value\": [\n            \"utyuhiko\"\n        ]\n   
+        },\n    {\n        \"Key\": 71,\n        \"Value\": [\n            \"utyuhiko\",\n           
+        \"alien\"\n        ]\n    },\n    {\n        \"Key\": 72,\n        \"Value\":
+        [\n            \"ranger\"\n        ]\n    },\n    {\n        \"Key\": 73,\n       
         \"Value\": [\n            \"ranger\"\n        ]\n    },\n    {\n        \"Key\":
-        76,\n        \"Value\": [\n            \"ranger\"\n        ]\n    },\n   
-        {\n        \"Key\": 77,\n        \"Value\": [\n            \"youkai\"\n       
-        ]\n    },\n    {\n        \"Key\": 78,\n        \"Value\": [\n           
-        \"youkai\"\n        ]\n    },\n    {\n        \"Key\": 79,\n        \"Value\":
-        [\n            \"husisya\"\n        ]\n    },\n    {\n        \"Key\": 80,\n       
-        \"Value\": [\n            \"husisya\"\n        ]\n    }\n]"
+        74,\n        \"Value\": [\n            \"ranger\"\n        ]\n    },\n   
+        {\n        \"Key\": 75,\n        \"Value\": [\n            \"ranger\"\n       
+        ]\n    },\n    {\n        \"Key\": 76,\n        \"Value\": [\n           
+        \"ranger\"\n        ]\n    },\n    {\n        \"Key\": 77,\n        \"Value\":
+        [\n            \"youkai\"\n        ]\n    },\n    {\n        \"Key\": 78,\n       
+        \"Value\": [\n            \"youkai\"\n        ]\n    },\n    {\n        \"Key\":
+        79,\n        \"Value\": [\n            \"husisya\"\n        ]\n    },\n   
+        {\n        \"Key\": 80,\n        \"Value\": [\n            \"husisya\"\n       
+        ]\n    },\n    {\n        \"Key\": 81,\n        \"Value\": [\n           
+        \"utyuhiko\"\n        ]\n    },\n    {\n        \"Key\": 82,\n        \"Value\":
+        [\n            \"utyuhiko\"\n        ]\n    },\n    {\n        \"Key\": 83,\n       
+        \"Value\": [\n            \"utyuhiko\"\n        ]\n    },\n    {\n       
+        \"Key\": 84,\n        \"Value\": [\n            \"gakki\"\n        ]\n   
+        },\n    {\n        \"Key\": 85,\n        \"Value\": [\n            \"gakki\"\n       
+        ]\n    }\n]"
     unityObjectReferences:
     - {fileID: 21300000, guid: 1130d204bef208d47a23edd64ee8508b, type: 3}
     - {fileID: 21300000, guid: d5cb7749bc5c62e4a85958b3d7b1f9e7, type: 3}
@@ -196,3 +205,8 @@ MonoBehaviour:
     - {fileID: 21300000, guid: e72ce3cfc81a7463ebbd757e9bf29bec, type: 3}
     - {fileID: 21300000, guid: a64d65e07e925434d8bac6360f210dfa, type: 3}
     - {fileID: 21300000, guid: 2e3188130fb364af587fed5887bffce2, type: 3}
+    - {fileID: 21300000, guid: 78540d79bb67e4df4828abef610b69a2, type: 3}
+    - {fileID: 21300000, guid: 5101c2115110c49f78250d5458e8fbfa, type: 3}
+    - {fileID: 21300000, guid: cf194ea8e59974fd0b76cda6822148ae, type: 3}
+    - {fileID: 21300000, guid: 93e5f4ff0b9cb459e8694dacf80f19d9, type: 3}
+    - {fileID: 21300000, guid: 691568c048f794b46920496c223519fa, type: 3}

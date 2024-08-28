@@ -14,13 +14,16 @@ public class PointerSelectManager : MonoBehaviour
     private AnswerCardController _currentSelected;
     
     [SerializeField]
-    private InputActionProperty _inputActionMap;
+    private InputActionProperty _mouseClick;
+    [SerializeField]
+    private InputActionProperty _touchClick;
+
 
     public bool IsCanSelect = false;
     
     private void Start()
     {
-        _inputActionMap.action.performed += ctx =>
+        _mouseClick.action.started += ctx =>
         {
             if(!IsCanSelect) return;
             if (_currentSelected != null)
@@ -28,7 +31,36 @@ public class PointerSelectManager : MonoBehaviour
                 _currentSelected.onClick.OnNext(Unit.Default);
             }
         };
-        _inputActionMap.action.Enable();
+        _mouseClick.action.Enable();
+        _touchClick.action.started += ctx =>
+        {
+            if(Touchscreen.current == null) return;
+            if(!IsCanSelect) return;
+            Vector2 touchPosition = Touchscreen.current.primaryTouch.position.ReadValue();
+            var worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(touchPosition.x, touchPosition.y, 0));
+            var hits = Physics2D.OverlapCircleAll(worldPosition, this.transform.localScale.x / 2);
+            if(hits.Length == 0) return;
+            var minDistance = float.MaxValue;
+            AnswerCardController nearest = null;
+            foreach (var hit in hits)
+            {
+                var selectable = hit.GetComponent<AnswerCardController>();
+                if (selectable != null)
+                {
+                    var distance = Vector2.Distance(worldPosition, selectable.gameObject.transform.position);
+                    if (distance < minDistance)
+                    {
+                        minDistance = distance;
+                        nearest = selectable;
+                    }
+                }
+            }
+            if (nearest != null)
+            {
+                nearest.onClick.OnNext(Unit.Default);
+            }
+        };
+        _touchClick.action.Enable();
     }
 
     private void Update()
@@ -87,6 +119,7 @@ public class PointerSelectManager : MonoBehaviour
     
     private void OnDestroy()
     {
-        _inputActionMap.action.Disable();
+        _mouseClick.action.Disable();
+        _touchClick.action.Disable();
     }
 }

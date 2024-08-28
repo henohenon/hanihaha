@@ -138,6 +138,7 @@ public class SequenceManager : MonoBehaviour
         _timerManager.SetTime(_timerDefault);
         _scoreManager.ResetScore();
         _screenUIManager.ChangeScreen(ScreenType.Game);
+        _backGroundManager.ChangeScreen(ScreenType.Game);
         UpdateTarget();
     }
     

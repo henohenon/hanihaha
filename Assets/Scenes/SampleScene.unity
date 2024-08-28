@@ -1413,6 +1413,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: PointerCircle
       objectReference: {fileID: 0}
+    - target: {fileID: 4237185610367843931, guid: 453fd0d7199139141a223b3591130194, type: 3}
+      propertyPath: _touch.m_Reference
+      value: 
+      objectReference: {fileID: 4525106440415599475, guid: 3df21c121fd76e642b247a6684025600, type: 3}
+    - target: {fileID: 4237185610367843931, guid: 453fd0d7199139141a223b3591130194, type: 3}
+      propertyPath: _touch.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237185610367843931, guid: 453fd0d7199139141a223b3591130194, type: 3}
+      propertyPath: _touch.m_Action.m_Name
+      value: Touch
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237185610367843931, guid: 453fd0d7199139141a223b3591130194, type: 3}
+      propertyPath: _mouseClick.m_Reference
+      value: 
+      objectReference: {fileID: -111623486625478965, guid: 3df21c121fd76e642b247a6684025600, type: 3}
+    - target: {fileID: 4237185610367843931, guid: 453fd0d7199139141a223b3591130194, type: 3}
+      propertyPath: _mouseClick.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237185610367843931, guid: 453fd0d7199139141a223b3591130194, type: 3}
+      propertyPath: _mouseClick.m_Action.m_Name
+      value: Mouse Click
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293727982706849447, guid: 453fd0d7199139141a223b3591130194, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5346418121422521929, guid: 453fd0d7199139141a223b3591130194, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1464,6 +1492,18 @@ PrefabInstance:
     - target: {fileID: 6001253714465340922, guid: 453fd0d7199139141a223b3591130194, type: 3}
       propertyPath: _clickAction.m_Name
       value: Click
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001253714465340922, guid: 453fd0d7199139141a223b3591130194, type: 3}
+      propertyPath: _touchAction.m_Reference
+      value: 
+      objectReference: {fileID: 4525106440415599475, guid: 3df21c121fd76e642b247a6684025600, type: 3}
+    - target: {fileID: 6001253714465340922, guid: 453fd0d7199139141a223b3591130194, type: 3}
+      propertyPath: _touchAction.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001253714465340922, guid: 453fd0d7199139141a223b3591130194, type: 3}
+      propertyPath: _touchAction.m_Action.m_Name
+      value: Touch
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -6,18 +6,36 @@
             "id": "73bbfe4a-34bf-4c5b-96f6-8bff0a2966f9",
             "actions": [
                 {
-                    "name": "click",
-                    "type": "PassThrough",
+                    "name": "mouseClick",
+                    "type": "Button",
                     "id": "4ce51d89-bd63-4ee1-9d53-e44a5f0a1bc6",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "move",
+                    "name": "mouseMove",
                     "type": "Value",
                     "id": "1edd8c7c-91f3-41fe-8826-387c83c1d4d4",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "touchClick",
+                    "type": "Button",
+                    "id": "48c83392-018d-4e55-81cf-bd18954c6087",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "touchMove",
+                    "type": "Value",
+                    "id": "d45dedc1-46fa-4ff0-82ec-062c9cecc36c",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -32,7 +50,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "move",
+                    "action": "mouseMove",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -43,7 +61,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "click",
+                    "action": "mouseClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -54,7 +72,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "click",
+                    "action": "touchMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6cc2b9dd-d8a3-494f-a261-048f1dcf3455",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "touchClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

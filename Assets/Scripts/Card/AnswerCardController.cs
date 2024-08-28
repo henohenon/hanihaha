@@ -31,7 +31,7 @@ public class AnswerCardController : MonoBehaviour, IPointable
         var sizeRandom = _sizeRandomCurve.Evaluate(Random.Range(0f, 1f));
         _rb.mass = sizeRandom;
         transform.localScale = Vector3.one * sizeRandom;
-        transform.position = new Vector3(transform.position.x, transform.position.y, -sizeRandom/10);
+        transform.position = new Vector3(transform.position.x, transform.position.y, sizeRandom/4);
     }
     
     public void Init(Sprite sprite)
