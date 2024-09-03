@@ -1,20 +1,16 @@
-
 using LitMotion;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-[RequireComponent(typeof(UIDocument))]
-public class ScreenUIManager : MonoBehaviour
+public class ScreenUIManager
 {
-    private UIDocument _uiDocument;
-    
     private VisualElement _body;
+    private VisualElement _game;
     
-    private void Start()
+    public ScreenUIManager(VisualElement root)
     {
-        _uiDocument = GetComponent<UIDocument>();
-        
-        _body = _uiDocument.rootVisualElement.Q<VisualElement>("Body");
+        _body = root.Q<VisualElement>("Body");
+        _game = root.Q<VisualElement>("Game");
     }
     
     public void ChangeScreen(ScreenType type)
@@ -39,6 +35,22 @@ public class ScreenUIManager : MonoBehaviour
             case ScreenType.GameOver:
                 _body.AddToClassList("GameOver");
                 break;
+        }
+    }
+    
+    
+    private bool _oldIsLimit = false;
+    public void SetLimit(bool isLimit)
+    {
+        if (_oldIsLimit == isLimit) return;
+        _oldIsLimit = isLimit;
+        
+        if (isLimit){
+            _game.AddToClassList("Limit");
+        }
+        else
+        {
+            _game.RemoveFromClassList("Limit");
         }
     }
 }

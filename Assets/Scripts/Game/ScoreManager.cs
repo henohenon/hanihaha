@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using R3;
 using UnityEngine;
@@ -10,25 +12,17 @@ public class ScoreManager : MonoBehaviour
         HmacKey = Secrets.hmacKey
     };
     
-    private int _currentLevel = 0;
-    private static DifficultyLevel[] Levels = new[]
-    {
-        new DifficultyLevel(0, 5, 1, 5, 3),
-        new DifficultyLevel(3, 4, 1.5f, 9, 4),
-        new DifficultyLevel(10, 3, 1.5f, 12, 6),
-        new DifficultyLevel(15, 2, 2f, 16, 9),
-        new DifficultyLevel(30, 1, 2f, 20, 13)
-    };
+    [SerializeField] private readonly Dictionary<int, LevelDataAsset> Levels; 
     
+    private int _currentLevel = 0;
     private int _score = 0;
     private int _highScore = 0;
-    
-    public Subject<DifficultyLevel> OnLevelUpdate = new();
+    private NoGameUIManager _screenUIManager;
     
     public bool AddScore()
     {
         _score ++;
-        if (_score >= Levels[_currentLevel].levelScore && _currentLevel < Levels.Length - 1)
+        if (_score >= Levels.ElementAt(_currentLevel).Key && _currentLevel < Levels.Count - 1)
         {
             _currentLevel++;
             OnLevelUpdate.OnNext(Levels[_currentLevel]);
@@ -38,6 +32,7 @@ public class ScoreManager : MonoBehaviour
             _highScore = _score;
             return true;
         }
+        _screenUIManager.SetScore(_score);
         return false;
     }
     
@@ -59,6 +54,7 @@ public class ScoreManager : MonoBehaviour
     {
         _score = 0;
         _currentLevel = 0;
+        _screenUIManager.SetScore(_score);
         OnLevelUpdate.OnNext(Levels[_currentLevel]);
     }
     
@@ -70,24 +66,5 @@ public class ScoreManager : MonoBehaviour
     void OnDestroy()
     {
         _client.Dispose();
-    }
-}
-
-
-public class DifficultyLevel
-{
-    public int levelScore;
-    public float eachPlusTime;
-    public float eachMinusTime;
-    public int maxCardNum;
-    public float minCardNum;
-    
-    public DifficultyLevel(int levelScore, float eachPlusTime, float eachMinusTime, int maxCardNum, float minCardNum)
-    {
-        this.levelScore = levelScore;
-        this.eachPlusTime = eachPlusTime;
-        this.eachMinusTime = eachMinusTime;
-        this.maxCardNum = maxCardNum;
-        this.minCardNum = minCardNum;
     }
 }

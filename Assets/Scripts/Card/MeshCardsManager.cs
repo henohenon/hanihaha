@@ -6,22 +6,16 @@ using UnityEditor.ShaderGraph;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class AnswerCardsManager : MonoBehaviour
+public class MeshCardsManager : MonoBehaviour
 {
-    [AssetsOnly]
-    [SerializeField]
-    private AnswerCardController[] answerCardPrefabs;
-    [AssetsOnly]
-    [SerializeField]
-    private TextMesh comboTextPrefab;
     [SerializeField]
     private Transform _borderObj;
     
-    private Dictionary<AnswerCardController, bool> _answerCards = new ();
+    private Dictionary<MeshCardController, bool> _answerCards = new ();
     
     private Vector2 _spawnSize;
     private Vector2 _borderSize;
-    private Vector3 _lastSelectedPos;
+    private MeshCardGenerator _cardGenerator;
 
     private Subject<Sprite> _onAnswer = new ();
     private Subject<Sprite> _onFialur = new ();
@@ -76,20 +70,45 @@ public class AnswerCardsManager : MonoBehaviour
             }
         }
     }
-    
-    // カードを追加
-    public void CreateAnswerCard(Sprite sprite, bool isSame)
+
+    public Vector3 GetNewCardPosition()
     {
         // ランダムな位置
         var spawnPos = new Vector3(
-            Random.Range(-_spawnSize.x / 2, _spawnSize.x / 2), 
+            Random.Range(-_spawnSize.x / 2, _spawnSize.x / 2),
             Random.Range(-_spawnSize.y / 2, _spawnSize.y / 2), 0);
-        var randomRot = Random.Range(0, 360);
-        
-        var randomIndex = Random.Range(0, answerCardPrefabs.Length);
-        var card = Instantiate(answerCardPrefabs[randomIndex], spawnPos, Quaternion.Euler(0, 0, randomRot), transform);
-        card.Init(sprite);
-        
+
+        // 近くにカードがある場合は再生成。最大5回
+        for (var i = 0; i < 5; i++)
+        {
+            var _notNear = false;
+            foreach (var _card in _answerCards)
+            {
+                if (Vector3.Distance(_card.Key.transform.position, spawnPos) < 1.5f)
+                {
+                    _notNear = true;
+                    break;
+                }
+
+            }
+
+            if (_notNear)
+            {
+                break;
+            }
+
+            spawnPos = new Vector3(
+                Random.Range(-_spawnSize.x / 2, _spawnSize.x / 2),
+                Random.Range(-_spawnSize.y / 2, _spawnSize.y / 2), 0);
+        }
+
+        return spawnPos;
+    }
+
+    // カードを追加
+    public void CreateAnswerCard(Sprite sprite, bool isSame)
+    {
+        var card = _cardGenerator.GenerateCard(sprite);
         _answerCards.Add(card, isSame);
         
         card.onHover.Subscribe(isHover =>
@@ -108,7 +127,6 @@ public class AnswerCardsManager : MonoBehaviour
         card.onClick.Subscribe(_ =>
         {
             if (_isResulting) return;
-            _lastSelectedPos = card.transform.position;
             if (isSame)
             {
                 _onAnswer.OnNext(sprite);
@@ -120,13 +138,5 @@ public class AnswerCardsManager : MonoBehaviour
             _answerCards.Remove(card);
             Destroy(card.gameObject);
         }).AddTo(card);
-    }
-    
-    public void AddComboCard(int comboIndex)
-    {
-        var instancePos = _lastSelectedPos;
-        instancePos.z = 1;
-        var comboCardInstance = Instantiate(comboTextPrefab, instancePos, Quaternion.identity, transform);
-        new ComboCardController(comboIndex, comboCardInstance);
     }
 }

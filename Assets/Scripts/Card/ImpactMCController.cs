@@ -1,19 +1,19 @@
+using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class ImpactACController : AnswerCardController
+public class ImpactMCController : MeshCardController
 {
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
         LateAddForce().Forget();
     }
 
     private async UniTask LateAddForce()
     {
-        await UniTask.WaitForSeconds(Random.Range(0, 1.5f));
+        await UniTask.WaitForSeconds(Random.Range(0, 1.3f));
         var force = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-        _rb.AddForce(force * 2000);
+        rb.AddForce(force * 2000);
     }
-    
 }

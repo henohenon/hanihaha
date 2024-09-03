@@ -1,11 +1,27 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:Template name="AnswerCard" src="project://database/Assets/UI/AnswerCard.uxml?fileID=9197481963319205126&amp;guid=10eaa5da8a16faf498f5a8536f5a2256&amp;type=3#AnswerCard" />
+    <engine:Template name="AnswerCard" src="project://database/Assets/UI/AnswerCardUXM.uxml?fileID=9197481963319205126&amp;guid=10eaa5da8a16faf498f5a8536f5a2256&amp;type=3#AnswerCardUXM" />
     <engine:Template name="Button" src="project://database/Assets/UI/Button.uxml?fileID=9197481963319205126&amp;guid=174391aabb200aa419c5f24b7026cc17&amp;type=3#Button" />
     <Style src="project://database/Assets/UI/GameUI.uss?fileID=7433441132597879392&amp;guid=79ff29fd15631f743956d4ad5a9aebfb&amp;type=3#GameUI" />
-    <engine:VisualElement name="Body" class="Title" style="flex-grow: 1;">
+    <engine:VisualElement name="Body" class="TargetNext Next NextTarget" style="flex-grow: 1;">
         <engine:VisualElement name="Game" style="flex-grow: 1;">
             <engine:VisualElement name="Next" style="flex-grow: 1; position: absolute; height: 100%; width: 100%; align-items: center; justify-content: center; align-self: center; align-content: center; flex-direction: row; background-color: rgba(255, 255, 255, 0.3);">
-                <engine:Instance template="AnswerCard" name="TargetNext" class="TargetContainer" style="max-width: none; height: 40%; width: auto; flex-shrink: 1; min-width: auto; min-height: auto; max-height: none;" />
+                <AnswerCard name="NextTargetAlpha" class="TargetAlpha SingleTargetView" style="height: 40%;" />
+                <engine:VisualElement name="NextTargetDouble" class="DoubleTargetsView" style="flex-grow: 0; flex-direction: row; height: 40%;">
+                    <AnswerCard name="AnswerCard" class="TargetAlpha" style="height: 100%;" />
+                    <engine:Label text="or" name="orDouble" style="max-height: 100%; flex-direction: row; font-size: 60px; align-self: center; justify-content: flex-start; align-items: stretch; -unity-text-align: middle-left; max-width: none; text-overflow: clip; white-space: nowrap; -unity-font-definition: url(&quot;project://database/Assets/Fonts/x12y16pxMaruMonica.ttf?fileID=12800000&amp;guid=8e3e3f114a8eaee40b1c0ad3e65cb602&amp;type=3#x12y16pxMaruMonica&quot;); -unity-font-style: bold;" />
+                    <AnswerCard class="TargetBeta" style="height: 100%;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="NextTargetTriple" class="TripleTargetsView" style="flex-grow: 0; height: 70%;">
+                    <engine:VisualElement style="flex-grow: 1; height: 50%;">
+                        <AnswerCard class="TargetAlpha" style="height: 100%;" />
+                        <engine:Label text="or" name="orDouble" style="max-height: 100%; flex-direction: row; font-size: 60px; align-self: center; justify-content: flex-start; align-items: stretch; -unity-text-align: middle-left; max-width: none; text-overflow: clip; white-space: nowrap; -unity-font-definition: url(&quot;project://database/Assets/Fonts/x12y16pxMaruMonica.ttf?fileID=12800000&amp;guid=8e3e3f114a8eaee40b1c0ad3e65cb602&amp;type=3#x12y16pxMaruMonica&quot;); -unity-font-style: bold;" />
+                    </engine:VisualElement>
+                    <engine:VisualElement style="flex-grow: 1; flex-direction: row; align-self: center; justify-content: center; align-content: center; align-items: center; height: 40%;">
+                        <AnswerCard class="TargetBeta" style="height: 100%;" />
+                        <engine:VisualElement style="flex-grow: 0; width: 70px;" />
+                        <AnswerCard class="TargetGamma" style="height: 100%;" />
+                    </engine:VisualElement>
+                </engine:VisualElement>
                 <engine:Label text="には?" name="NextNiha" style="max-height: 100%; flex-direction: row; font-size: 60px; align-self: center; justify-content: flex-start; align-items: stretch; -unity-text-align: middle-left; max-width: none; text-overflow: clip; white-space: nowrap; -unity-font-definition: url(&quot;project://database/Assets/Fonts/x12y16pxMaruMonica.ttf?fileID=12800000&amp;guid=8e3e3f114a8eaee40b1c0ad3e65cb602&amp;type=3#x12y16pxMaruMonica&quot;); -unity-font-style: bold;" />
             </engine:VisualElement>
             <engine:VisualElement name="Header" style="flex-grow: 1; height: auto; max-height: 10%; flex-direction: row; justify-content: space-between;">
@@ -18,7 +34,13 @@
             </engine:VisualElement>
             <engine:VisualElement name="Spacer" style="flex-grow: 1;" />
             <engine:VisualElement name="Footer" style="flex-grow: 1; height: auto; max-height: 15%; flex-direction: row; justify-content: center; -unity-text-align: upper-left; align-items: stretch; align-self: auto; align-content: flex-start; top: auto; flex-shrink: 1;">
-                <engine:Instance template="AnswerCard" name="Target" class="TargetContainer" style="max-width: none; background-color: rgba(140, 140, 140, 0.3);" />
+                <engine:VisualElement name="Targets" style="flex-grow: 0; flex-direction: row;">
+                    <AnswerCard name="TargetAlpha" class="TargetAlpha SingleTargetView DoubleTargetsView TripleTargetsView" />
+                    <engine:Label text="or" name="orBeta" class="DoubleTargetsView TripleTargetsView" style="max-height: 100%; flex-direction: row; font-size: 50%; align-self: center; justify-content: flex-start; align-items: stretch; -unity-text-align: middle-left; -unity-font-definition: url(&quot;project://database/Assets/Fonts/x12y16pxMaruMonica.ttf?fileID=12800000&amp;guid=8e3e3f114a8eaee40b1c0ad3e65cb602&amp;type=3#x12y16pxMaruMonica&quot;);" />
+                    <AnswerCard name="TargetBeta" class="TargetBeta DoubleTargetsView TripleTargetsView" />
+                    <engine:Label text="or" name="orGamma" class="TripleTargetsView" style="max-height: 100%; flex-direction: row; font-size: 50%; align-self: center; justify-content: flex-start; align-items: stretch; -unity-text-align: middle-left; -unity-font-definition: url(&quot;project://database/Assets/Fonts/x12y16pxMaruMonica.ttf?fileID=12800000&amp;guid=8e3e3f114a8eaee40b1c0ad3e65cb602&amp;type=3#x12y16pxMaruMonica&quot;);" />
+                    <AnswerCard name="TargetGamma" class="TargetGamma TripleTargetsView" />
+                </engine:VisualElement>
                 <engine:Label text="には" name="Niha" style="max-height: 100%; flex-direction: row; font-size: 50%; align-self: center; justify-content: flex-start; align-items: stretch; -unity-text-align: middle-left; -unity-font-definition: url(&quot;project://database/Assets/Fonts/x12y16pxMaruMonica.ttf?fileID=12800000&amp;guid=8e3e3f114a8eaee40b1c0ad3e65cb602&amp;type=3#x12y16pxMaruMonica&quot;);" />
                 <engine:Label text="には？" name="NihaQ" style="max-height: 100%; flex-direction: row; font-size: 50%; align-self: center; justify-content: flex-start; align-items: stretch; -unity-text-align: middle-left; -unity-font-definition: url(&quot;project://database/Assets/Fonts/x12y16pxMaruMonica.ttf?fileID=12800000&amp;guid=8e3e3f114a8eaee40b1c0ad3e65cb602&amp;type=3#x12y16pxMaruMonica&quot;);" />
                 <engine:VisualElement name="Answers" style="flex-grow: 0; flex-shrink: 0; flex-direction: row; width: auto; align-content: center; justify-content: flex-start; flex-wrap: nowrap; -unity-text-align: middle-center; white-space: normal;">

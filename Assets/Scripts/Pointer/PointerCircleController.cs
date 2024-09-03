@@ -70,7 +70,10 @@ public class PointerCircleController : MonoBehaviour
         await LMotion.Create(startScale*0.5f, startScale*1.2f, 0.1f).BindToLocalScale(this.transform).AddTo(clickMotion);
         await LMotion.Create(startScale*1.2f, startScale, 0.05f).BindToLocalScale(this.transform).AddTo(clickMotion);
         
-        _spriteRenderer.enabled = false;
+        if(Touchscreen.current != null)
+        {
+            _spriteRenderer.enabled = false;
+        }
     }
     
     private void OnDestroy()

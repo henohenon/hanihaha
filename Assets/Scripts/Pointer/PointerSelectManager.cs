@@ -7,11 +7,12 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Pointer = System.Reflection.Pointer;
 
 public class PointerSelectManager : MonoBehaviour
 {
-    private HashSet<AnswerCardController> _currentHoveres = new ();
-    private AnswerCardController _currentSelected;
+    private HashSet<MeshCardController> _currentHoveres = new ();
+    private MeshCardController _currentSelected;
     
     [SerializeField]
     private InputActionProperty _mouseClick;
@@ -25,6 +26,7 @@ public class PointerSelectManager : MonoBehaviour
     {
         _mouseClick.action.started += ctx =>
         {
+            if(Mouse.current == null) return;
             if(!IsCanSelect) return;
             if (_currentSelected != null)
             {
@@ -41,10 +43,10 @@ public class PointerSelectManager : MonoBehaviour
             var hits = Physics2D.OverlapCircleAll(worldPosition, this.transform.localScale.x / 2);
             if(hits.Length == 0) return;
             var minDistance = float.MaxValue;
-            AnswerCardController nearest = null;
+            MeshCardController nearest = null;
             foreach (var hit in hits)
             {
-                var selectable = hit.GetComponent<AnswerCardController>();
+                var selectable = hit.GetComponent<MeshCardController>();
                 if (selectable != null)
                 {
                     var distance = Vector2.Distance(worldPosition, selectable.gameObject.transform.position);
@@ -65,6 +67,7 @@ public class PointerSelectManager : MonoBehaviour
 
     private void Update()
     {
+        if(Mouse.current == null) return;
         if (_currentHoveres.Count == 0)
         {
             if (_currentSelected != null)
@@ -76,7 +79,7 @@ public class PointerSelectManager : MonoBehaviour
         }
 
         var _distance = float.MaxValue;
-        AnswerCardController nearest = null;
+        MeshCardController nearest = null;
         foreach (var hover in _currentHoveres)
         {
             var distance = Vector2.Distance(transform.position, hover.gameObject.transform.position);
@@ -101,7 +104,7 @@ public class PointerSelectManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var selectable = other.GetComponent<AnswerCardController>();
+        var selectable = other.GetComponent<MeshCardController>();
         if (selectable != null)
         {
             _currentHoveres.Add(selectable);
@@ -110,7 +113,7 @@ public class PointerSelectManager : MonoBehaviour
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        var selectable = other.GetComponent<AnswerCardController>();
+        var selectable = other.GetComponent<MeshCardController>();
         if (selectable != null)
         {
             _currentHoveres.Remove(selectable);

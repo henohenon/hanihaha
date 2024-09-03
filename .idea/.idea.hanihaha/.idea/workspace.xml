@@ -5,23 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="316b81c6-f56a-460c-8464-45f40629beb6" name="変更" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Card/MeshCardAnimations.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Card/MeshCardAnimations.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Card/MeshCardGenerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Card/MeshCardGenerator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/AnswerCard.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/AnswerCard.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.hanihaha/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.hanihaha/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/ongaku/ウクレレ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/ongaku/ウクレレ.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/ongaku/ラッパ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/ongaku/ラッパ.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Controls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Controls.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PointerCircle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PointerCircle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/ImpactACController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/ImpactACController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/MeshCardController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/MeshCardController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/MeshCardsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/AnswerCardsManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/MeshCardsManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/ImpactACController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/ImpactMCController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/ImpactACController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/ImpactMCController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/ReflectionACController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/ReflectionMcController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/ReflectionACController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/ReflectionMcController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/RotateACController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/RotateMCController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card/RotateACController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card/RotateMCController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/ScoreManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/ScoreManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/SequenceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/SequenceManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/TimerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/TimerManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pointer/PointerCircleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pointer/PointerCircleController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pointer/PointerSelectManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pointer/PointerSelectManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/AnswerData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/AnswerData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/Editor.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/Editor.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/PrefabData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/PrefabData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/SpriteViewData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/SpriteViewData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptables/WardViewData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptables/WardViewData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/GameUIManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/GameUIManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/NoGameUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/NoGameUIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/ScreenUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ScreenUIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/AnswerCard.uxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/AnswerCard.uxml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/GameUI.uss" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/GameUI.uss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/GameUI.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/GameUI.uxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/haikeei (4) Variant.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/haikeei (4) Variant.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UIElements.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UIElements.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Experimental.GraphView.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Experimental.GraphView.xsd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +198,11 @@
       <option name="presentableId" value="Default" />
       <updated>1724767369791</updated>
       <workItem from="1724767371851" duration="3141000" />
-      <workItem from="1724805462097" duration="4382000" />
+      <workItem from="1724805462097" duration="13092000" />
+      <workItem from="1724985056568" duration="6707000" />
+      <workItem from="1725021771997" duration="1831000" />
+      <workItem from="1725158279820" duration="26068000" />
+      <workItem from="1725272705556" duration="3000" />
     </task>
     <servers />
   </component>

@@ -4,11 +4,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UIElements.Button;
 
-[RequireComponent(typeof(UIDocument))]
-public class NoGameUIManager : MonoBehaviour
+public class NoGameUIManager
 {
-    private UIDocument _uiDocument;
-    
     private Button _startButton;
     private Button _restartButton;
     private Button _returnButton;
@@ -22,14 +19,12 @@ public class NoGameUIManager : MonoBehaviour
     public Observable<Unit> OnRestart => _onRestart;
     public Observable<Unit> OnReturn => _onReturn;
     
-    private void Start()
+    public NoGameUIManager(VisualElement root)
     {
-        _uiDocument = GetComponent<UIDocument>();
-        
-        _startButton = _uiDocument.rootVisualElement.Q<Button>("StartButton");
-        _restartButton = _uiDocument.rootVisualElement.Q<Button>("RestartButton");
-        _returnButton = _uiDocument.rootVisualElement.Q<Button>("ReturnButton");
-        _scoreLabel = _uiDocument.rootVisualElement.Q<TextElement>("Score");
+        _startButton = root.Q<Button>("StartButton");
+        _restartButton = root.Q<Button>("RestartButton");
+        _returnButton = root.Q<Button>("ReturnButton");
+        _scoreLabel = root.Q<TextElement>("Score");
         
         _startButton.clicked += () =>
         { 

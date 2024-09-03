@@ -73,3 +73,22 @@
 .HighScore #Score{
     color: rgb(0, 255, 0);
 }
+
+#Game .SingleTargetView{
+    display: none;
+}
+#Game .DoubleTargetsView{
+    display: none;
+}
+#Game .TripleTargetsView{
+    display: none;
+}
+#Game.SingleTarget .SingleTargetView{
+    display: flex;
+}
+#Game.DoubleTargets .DoubleTargetsView{
+    display: flex;
+}
+#Game.TripleTargets .TripleTargetsView{
+    display: flex;
+}
